@@ -1,10 +1,12 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './context/store/store';
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <h1>Stardiu</h1>
-    </div>
+    </Provider>
   );
 }
 
