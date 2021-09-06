@@ -1,0 +1,38 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "arrow-body-style": "off",
+    "camelcase": "off",
+    "class-methods-use-this": "off",
+    "comma-dangle": "off",
+    "eol-last": "off",
+    "func-names": "off",
+    "linebreak-style": "off",
+    "no-console": "off",
+    "no-multiple-empty-lines": "warn",
+    "no-trailing-spaces": "warn",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": "warn",
+    "object-curly-newline": "off",
+    "operator-linebreak": "off",
+    "prefer-promise-reject-errors": "off",
+    "react/jsx-filename-extension": "off",
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-one-expression-per-line": "off"
+  }
+}
