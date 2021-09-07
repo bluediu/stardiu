@@ -7,16 +7,16 @@
 }
 
 .hero-back {
-  position: absolute;
   display: flex;
   flex-direction: row;
+  position: absolute;
   right: 1rem;
 }
 
 .hero-title-center {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
@@ -25,17 +25,19 @@
 }
 
 .discover-btn-center {
-  margin-left: -0.47rem;
+  margin-left: -0.4rem;
 }
 
 .hero-image-size {
   width: 320px;
 }
 
+.green-text {
+  color: #5d6d7e;
+}
+
 @media only screen and (max-width: 976px) {
   .hero-back {
-    top: 22rem;
-    top: 16rem;
     top: 12rem;
     padding: 0;
   }

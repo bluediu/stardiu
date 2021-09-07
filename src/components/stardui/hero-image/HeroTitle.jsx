@@ -6,7 +6,7 @@ function HeroTitle() {
   const heroTitleStyled = {
     letterSpacing: '3px',
     paddingTop: '4.8rem',
-    paddingLeft: '3rem',
+    paddingLeft: '2rem',
   };
 
   return (
@@ -15,12 +15,12 @@ function HeroTitle() {
       style={heroTitleStyled}
     >
       <div>
+        <span className="d-block fw-bold font-title">THE</span>
         <span className="d-block fw-bold font-title">
-          WELCOME
+          STYLISH
         </span>
-        <span className="d-block fw-bold font-title">BACK,</span>
-        <span className="d-block fw-bold font-title">
-          PUMPKIN
+        <span className="d-block fw-bold font-title green-text">
+          COFFE
         </span>
       </div>
 
