@@ -7,7 +7,6 @@ function App() {
   return (
     <Provider store={store}>
       <HomeScreen />
-      <h1>Stardiu</h1>
     </Provider>
   );
 }

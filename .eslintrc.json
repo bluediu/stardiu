@@ -33,6 +33,7 @@
     "react/jsx-filename-extension": "off",
     "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": "off",
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": "off"
   }
 }
