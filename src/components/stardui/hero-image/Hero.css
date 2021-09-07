@@ -1,0 +1,51 @@
+.hero-image-position {
+  position: relative;
+}
+
+.font-title {
+  font-size: 3.1rem;
+}
+
+.hero-back {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  right: 1rem;
+}
+
+.hero-title-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title-image {
+  padding-top: 6rem;
+}
+
+.discover-btn-center {
+  margin-left: -0.47rem;
+}
+
+.hero-image-size {
+  width: 320px;
+}
+
+@media only screen and (max-width: 976px) {
+  .hero-back {
+    top: 22rem;
+    top: 16rem;
+    top: 12rem;
+    padding: 0;
+  }
+  .font-title {
+    font-size: 2rem;
+  }
+  .hero-image-size {
+    width: 230px;
+  }
+  .hero-title-image {
+    padding: 1rem;
+  }
+}
