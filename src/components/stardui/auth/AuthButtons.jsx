@@ -1,7 +1,7 @@
 import { MDBBtn } from 'mdb-react-ui-kit';
 import React from 'react';
 
-function AuthButtons() {
+function AuthButtons({ children }) {
   return (
     <div>
       <MDBBtn rounded outline color="dark" className="me-2">
