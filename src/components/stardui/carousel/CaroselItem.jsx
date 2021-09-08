@@ -5,22 +5,17 @@ import {
 } from 'mdb-react-ui-kit';
 import React from 'react';
 
-import COFFE_CUP from '../../../assets/img/carousel/coffe-cup.jpg';
-
-function CaroselItem({ item }) {
+function CaroselItem({ item, image, title, desc }) {
   return (
     <MDBCarouselItem itemId={item}>
       <MDBCarouselElement
         style={{ borderRadius: '12px' }}
-        src={COFFE_CUP}
-        alt="Coffe cup"
+        src={image}
+        alt={desc}
       />
       <MDBCarouselCaption>
-        <h5>First slide label</h5>
-        <p>
-          Nulla vitae elit libero, a pharetra augue mollis
-          interdum.
-        </p>
+        <h5>{title}</h5>
+        <p>{desc}</p>
       </MDBCarouselCaption>
     </MDBCarouselItem>
   );

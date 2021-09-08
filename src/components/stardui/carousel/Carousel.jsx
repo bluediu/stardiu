@@ -1,31 +1,24 @@
-import React, { useState } from 'react';
-import {
-  MDBCarousel,
-  MDBCarouselInner,
-  MDBCarouselItem,
-  MDBCarouselElement,
-  MDBCarouselCaption,
-} from 'mdb-react-ui-kit';
+import React from 'react';
 
-import './Carousel.css';
-import COFFE_CUP from '../../../assets/img/carousel/coffe-cup.jpg';
-import PERSON_COFFE from '../../../assets/img/carousel/person-drink-coffe.jpg';
 import CaroselItem from './CaroselItem';
+import { MDBCarousel, MDBCarouselInner } from 'mdb-react-ui-kit';
 import { carouselData } from './data/carousel-data';
+import './Carousel.css';
 
 function Carousel() {
-  const [data, setData] = useState(carouselData);
-
-  console.log(data);
-  // style={{ width: '700px' }}
-  // 976
   return (
-    <div className="container border p-4 text-center mb-4 carousel-width">
+    <div className="container-fluid p-4 text-center mb-4 carousel-width">
       <MDBCarousel showControls showIndicators>
         <MDBCarouselInner>
-          <CaroselItem item={0} />
-          <CaroselItem item={1} />
-          <CaroselItem item={2} />
+          {carouselData.map((item) => (
+            <CaroselItem
+              key={item.item}
+              item={item.item}
+              title={item.title}
+              image={item.img}
+              desc={item.desc}
+            />
+          ))}
         </MDBCarouselInner>
       </MDBCarousel>
     </div>
