@@ -5,20 +5,20 @@ import PERSON_DRINK from '../../../../assets/img/carousel/person-drink-coffe.jpg
 export const carouselData = [
   {
     item: 0,
-    title: 'Test 1',
-    desc: 'abhjvadva',
+    title: 'Enjoy',
+    desc: 'The best coffe',
     img: COFFE_CUP,
   },
   {
     item: 1,
-    title: 'TEST 2',
-    desc: 'adhbahdvah',
+    title: 'Take',
+    desc: 'Take a coffee cup',
     img: PERSON_DRINK,
   },
   {
     item: 2,
-    title: 'TEST 2',
-    desc: 'abdvahvad',
+    title: 'Nice',
+    desc: 'A nice place',
     img: COFFE_SHOP,
   },
 ];
