@@ -11,17 +11,6 @@ function HomeScreen() {
       <Hero />
       <Description />
       <Carousel />
-      <h5>Hola</h5>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
   );
 }
