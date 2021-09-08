@@ -1,3 +1,21 @@
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
+
+/* ScrollBar */
+/* width */
+::-webkit-scrollbar {
+  width: 9px;
+  background: rgba(7, 7, 7, 0.2);
+  background: whitesmoke;
+  border: 0;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.2);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(12, 12, 12, 0.1);
+}
