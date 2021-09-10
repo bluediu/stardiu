@@ -1,12 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from './context/store/store';
-import HomeScreen from './pages/HomeScreen';
+
+/* ROUTER */
+import AppRouter from './routes/AppRouter';
 
 function App() {
   return (
     <Provider store={store}>
-      <HomeScreen />
+      <AppRouter />
     </Provider>
   );
 }

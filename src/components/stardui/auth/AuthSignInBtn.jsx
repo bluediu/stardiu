@@ -1,10 +1,19 @@
-import { MDBBtn } from 'mdb-react-ui-kit';
 import React from 'react';
 
+import { useHistory } from 'react-router-dom';
+import { ROUTE } from '../../../constants/auth-routes';
+import { MDBBtn } from 'mdb-react-ui-kit';
+
 function AuthSignInBtn() {
+  let history = useHistory();
+
   return (
     <>
-      <MDBBtn rounded color="dark">
+      <MDBBtn
+        rounded
+        color="dark"
+        onClick={() => history.push(ROUTE.SIGN_IN)}
+      >
         Sign In
       </MDBBtn>
     </>
