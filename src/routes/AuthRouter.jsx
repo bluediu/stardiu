@@ -7,28 +7,24 @@ import { ROUTE } from '../constants/auth-routes';
 
 function AuthRouter() {
   return (
-    <div>
-      <main>
-        <section className="container">
-          <article>
-            <Switch>
-              <Route
-                exact
-                path={ROUTE.LOGIN}
-                component={AuthLoginScreen}
-              />
-              <Route
-                exact
-                path={ROUTE.SIGN_IN}
-                component={AuthSignInScreen}
-              />
+    <AuthContainer>
+      <article>
+        <Switch>
+          <Route
+            exact
+            path={ROUTE.LOGIN}
+            component={AuthLoginScreen}
+          />
+          <Route
+            exact
+            path={ROUTE.SIGN_IN}
+            component={AuthSignInScreen}
+          />
 
-              <Redirect to={ROUTE.LOGIN} />
-            </Switch>
-          </article>
-        </section>
-      </main>
-    </div>
+          <Redirect to={ROUTE.LOGIN} />
+        </Switch>
+      </article>
+    </AuthContainer>
   );
 }
 
