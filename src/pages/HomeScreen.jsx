@@ -1,19 +1,23 @@
 import React from 'react';
-import Hero from '../components/stardui/hero-image/Hero';
-import Navbar from '../components/stardui/navbar/Navbar';
-import Carousel from '../components/stardui/carousel/Carousel';
-import Description from '../components/stardui/descripcion/Description';
-import Footer from '../components/stardui/footer/Footer';
+
+/* components */
+import {
+  Carousel,
+  Description,
+  Footer,
+  Hero,
+  Navbar,
+} from '../components/stardui/';
 
 function HomeScreen() {
   return (
-    <div>
+    <main>
       <Navbar />
       <Hero />
       <Description />
       <Carousel />
       <Footer />
-    </div>
+    </main>
   );
 }
 
