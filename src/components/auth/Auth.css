@@ -1,0 +1,30 @@
+.form-container {
+  background-color: rgba(253, 254, 254, 0.7);
+  width: 47%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.2);
+}
+
+.auth-img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 990 */
+@media only screen and (max-width: 976px) {
+  .form-container {
+    width: 100%;
+  }
+}
+
+.auth-screen-bgc {
+  background-image: linear-gradient(
+    to top,
+    #f3e7e9 0%,
+    #e3eeff 99%,
+    #e3eeff 100%
+  );
+}
