@@ -1,5 +1,6 @@
 import { MDBBtn } from 'mdb-react-ui-kit';
 import React from 'react';
+import Fade from 'react-reveal/Fade';
 
 function HeroTitle() {
   /* styles */
@@ -15,19 +16,26 @@ function HeroTitle() {
       style={heroTitleStyled}
     >
       <div>
-        <span className="d-block fw-bold font-title">THE</span>
-        <span className="d-block fw-bold font-title">
-          STYLISH
-        </span>
-        <span className="d-block fw-bold font-title green-text">
-          COFFE
-        </span>
+        <Fade>
+          <span className="d-block fw-bold font-title">THE</span>
+
+          <span className="d-block fw-bold font-title" id="test">
+            STYLISH
+          </span>
+        </Fade>
+        <Fade right cascade>
+          <span className="d-block fw-bold font-title green-text">
+            COFFE
+          </span>
+        </Fade>
       </div>
 
       <div className="discover-btn-center">
-        <MDBBtn rounded outline color="dark" className="mt-3">
-          Discover
-        </MDBBtn>
+        <Fade delay={1000}>
+          <MDBBtn rounded outline color="dark" className="mt-3">
+            Discover
+          </MDBBtn>
+        </Fade>
       </div>
     </div>
   );

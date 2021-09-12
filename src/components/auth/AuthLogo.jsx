@@ -12,15 +12,15 @@ function AuthLogo() {
     <div>
       <MDBNavbar light bgColor="light">
         <MDBContainer>
-          <MDBNavbarBrand href="#">
+          <div className="p-2">
             <img
               src={IMG_LOGO}
               height="30"
               alt=""
               loading="lazy"
             />
-            <span>Stardiu</span>
-          </MDBNavbarBrand>
+            <span className="ms-3">Stardiu</span>
+          </div>
         </MDBContainer>
       </MDBNavbar>
     </div>
