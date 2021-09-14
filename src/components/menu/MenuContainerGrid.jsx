@@ -11,6 +11,10 @@ function MenuContainerGrid() {
         </div>
 
         <div className="col-lg-9">
+          <div className="ms-4">
+            <h1>Menu</h1>
+            <hr />
+          </div>
           <Card />
         </div>
       </section>

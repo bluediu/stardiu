@@ -1,10 +1,26 @@
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCardText,
+  MDBCardTitle,
+  MDBCol,
+  MDBRipple,
+  MDBBtn,
+  MDBIcon,
+} from 'mdb-react-ui-kit';
 import React from 'react';
+import CardItemBody from './CardItemBody';
+import CardItemImage from './CardItemImage';
 
 function CardItem() {
   return (
-    <div>
-      <h4>Item</h4>
-    </div>
+    <MDBCol>
+      <MDBCard>
+        <CardItemImage />
+        <CardItemBody />
+      </MDBCard>
+    </MDBCol>
   );
 }
 

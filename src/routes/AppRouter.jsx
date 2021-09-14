@@ -15,7 +15,6 @@ function AppRouter() {
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
             <Route exact path="/" component={HomeScreen} />
-
             <Route
               path={ROUTE.AUTH_BASE}
               component={AuthRouter}
