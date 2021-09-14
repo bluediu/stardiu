@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { MDBInput, MDBBtn } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
-import AuthFormContainer from './AuthFormContainer';
-import Fade from 'react-reveal/Fade';
-
+import { MDBInput, MDBBtn } from 'mdb-react-ui-kit';
 import { ROUTE } from '../../constants/auth-routes';
+
+import Slide from 'react-reveal/Slide';
+import AuthFormContainer from './AuthFormContainer';
+
 import GoogleButton from './googleButton/GoogleButton';
 
 function AuthLoginScreen() {
@@ -15,12 +16,11 @@ function AuthLoginScreen() {
   return (
     <div>
       <AuthFormContainer>
-        <Fade left cascade>
+        <Slide top>
           <h3 className="mt-3 mb-4">Log In</h3>
-        </Fade>
-        <GoogleButton />
 
-        <Fade>
+          <GoogleButton />
+
           <MDBInput
             label="Email address"
             id="email"
@@ -32,10 +32,10 @@ function AuthLoginScreen() {
             type="password"
             className="mt-4"
           />
-        </Fade>
-        <MDBBtn rounded className="mt-4" color="dark">
-          Log In
-        </MDBBtn>
+          <MDBBtn rounded className="mt-4" color="dark">
+            Log In
+          </MDBBtn>
+        </Slide>
 
         <Link to={ROUTE.SIGN_IN} className="d-block mt-3">
           Create an account

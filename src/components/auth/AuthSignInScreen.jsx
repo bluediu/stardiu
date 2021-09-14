@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { MDBBtn, MDBInput } from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
 import { ROUTE } from '../../constants/auth-routes';
-import Fade from 'react-reveal/Fade';
+import { Link } from 'react-router-dom';
+
 import AuthFormContainer from './AuthFormContainer';
+import Slide from 'react-reveal/Slide';
 
 function AuthSignInScreen() {
   useEffect(() => {
@@ -13,11 +14,9 @@ function AuthSignInScreen() {
   return (
     <div>
       <AuthFormContainer>
-        <Fade left cascade>
+        <Slide top>
           <h2>Sign In</h2>
-        </Fade>
 
-        <Fade>
           <MDBInput
             label="Name"
             id="name"
@@ -37,10 +36,11 @@ function AuthSignInScreen() {
             type="password"
             className="mt-4"
           />
-        </Fade>
-        <MDBBtn rounded className="mt-4" color="dark">
-          Log In
-        </MDBBtn>
+
+          <MDBBtn rounded className="mt-4" color="dark">
+            Log In
+          </MDBBtn>
+        </Slide>
 
         <Link to={ROUTE.LOGIN} className="d-block mt-3">
           I have an account

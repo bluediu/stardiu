@@ -11,13 +11,13 @@ import {
 
 function HomeScreen() {
   return (
-    <main>
+    <>
       <Navbar />
       <Hero />
       <Description />
       <Carousel />
       <Footer />
-    </main>
+    </>
   );
 }
 
