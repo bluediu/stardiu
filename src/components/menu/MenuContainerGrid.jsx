@@ -6,11 +6,11 @@ function MenuContainerGrid() {
   return (
     <main className="container-fluid mt-4">
       <section className="row">
-        <div className="col-lg-4">
+        <div className="col-lg-3">
           <MenuSidebar />
         </div>
 
-        <div className="col-lg-8">
+        <div className="col-lg-9">
           <Card />
         </div>
       </section>
