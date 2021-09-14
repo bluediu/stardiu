@@ -1,15 +1,6 @@
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardText,
-  MDBCardTitle,
-  MDBCol,
-  MDBRipple,
-  MDBBtn,
-  MDBIcon,
-} from 'mdb-react-ui-kit';
 import React from 'react';
+
+import { MDBCard, MDBCol } from 'mdb-react-ui-kit';
 import CardItemBody from './CardItemBody';
 import CardItemImage from './CardItemImage';
 
