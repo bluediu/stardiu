@@ -1,8 +1,12 @@
 import { MDBBtn } from 'mdb-react-ui-kit';
 import React from 'react';
 import Fade from 'react-reveal/Fade';
+import { useHistory } from 'react-router-dom';
+import { ROUTE } from '../../../constants/auth-routes';
 
 function HeroTitle() {
+  let history = useHistory();
+
   /* styles */
   const heroTitleStyled = {
     letterSpacing: '3px',
@@ -32,7 +36,13 @@ function HeroTitle() {
 
       <div className="discover-btn-center">
         <Fade delay={1000}>
-          <MDBBtn rounded outline color="dark" className="mt-3">
+          <MDBBtn
+            rounded
+            outline
+            color="dark"
+            className="mt-3"
+            onClick={() => history.push(ROUTE.MENU_BASE)}
+          >
             Discover
           </MDBBtn>
         </Fade>

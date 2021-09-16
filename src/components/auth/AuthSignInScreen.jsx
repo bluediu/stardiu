@@ -8,7 +8,7 @@ import Slide from 'react-reveal/Slide';
 
 function AuthSignInScreen() {
   useEffect(() => {
-    document.title = 'Stardui - SingIn';
+    document.title = 'Stardui - Sing In';
   }, []);
 
   return (
