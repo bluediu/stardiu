@@ -1,14 +1,19 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MDBInput, MDBBtn } from 'mdb-react-ui-kit';
+import { useForm } from 'react-hook-form';
 import { ROUTE } from '../../constants/auth-routes';
 
 import Slide from 'react-reveal/Slide';
-import AuthFormContainer from './AuthFormContainer';
 
+import AuthFormContainer from './AuthFormContainer';
 import GoogleButton from './googleButton/GoogleButton';
 
 function AuthLoginScreen() {
+  const { register, handleSubmit, watch } = useForm();
+
+  console.log(watch('test'));
+
   useEffect(() => {
     document.title = 'Stardui - Login';
   }, []);

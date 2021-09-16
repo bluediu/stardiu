@@ -1,13 +1,8 @@
-import {
-  MDBContainer,
-  MDBNavbar,
-  MDBNavbarBrand,
-} from 'mdb-react-ui-kit';
 import React from 'react';
+import { MDBContainer, MDBNavbar } from 'mdb-react-ui-kit';
 import IMG_LOGO from '../../assets/img/stardiuLogo.svg';
 
 function AuthLogo() {
-  //className="auth-img-center"
   return (
     <div>
       <MDBNavbar light bgColor="light">
