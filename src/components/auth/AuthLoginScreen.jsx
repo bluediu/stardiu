@@ -1,18 +1,27 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { MDBInput, MDBBtn } from 'mdb-react-ui-kit';
+import { MDBBtn } from 'mdb-react-ui-kit';
 import { useForm } from 'react-hook-form';
 import { ROUTE } from '../../constants/auth-routes';
 
 import Slide from 'react-reveal/Slide';
 
-import AuthFormContainer from './AuthFormContainer';
 import GoogleButton from './googleButton/GoogleButton';
+import AuthErrorMessage from './AuthErrorMessage';
 
 function AuthLoginScreen() {
-  const { register, handleSubmit, watch } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
-  console.log(watch('test'));
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  //  console.log(watch('email'));
 
   useEffect(() => {
     document.title = 'Stardui - Login';
@@ -20,33 +29,57 @@ function AuthLoginScreen() {
 
   return (
     <div>
-      <AuthFormContainer>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="form-container p-4"
+      >
         <Slide top>
           <h3 className="mt-3 mb-4">Log In</h3>
 
           <GoogleButton />
 
-          <div className="form-outline">
+          <section className="form-outline">
+            <label htmlFor="email" className="form-label">
+              Email Address
+            </label>
             <input
               type="email"
               id="email"
               className="form-control border"
+              {...register('email', {
+                required: true,
+                maxLength: 20,
+                pattern: /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/,
+              })}
             />
-            <label htmlFor="email" className="form-label">
-              Email Address
-            </label>
-          </div>
+            {errors.email && (
+              <AuthErrorMessage msg="The email is not valid" />
+            )}
+          </section>
 
-          <div className="form-outline">
+          <section className="form-outline">
+            <label
+              htmlFor="password"
+              className="form-label mt-1"
+            >
+              Password
+            </label>
+
             <input
               type="password"
               id="password"
-              className="form-control border mt-4"
+              className="form-control border"
+              {...register('password', {
+                required: true,
+                minLength: 6,
+                maxLength: 22,
+              })}
             />
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
-          </div>
+
+            {errors.password && (
+              <AuthErrorMessage msg="The password is not valid, must at least 6 letter or less that 22" />
+            )}
+          </section>
 
           <MDBBtn rounded className="mt-4" color="dark">
             Log In
@@ -56,7 +89,7 @@ function AuthLoginScreen() {
         <Link to={ROUTE.SIGN_IN} className="d-block mt-3">
           Create an account
         </Link>
-      </AuthFormContainer>
+      </form>
     </div>
   );
 }
