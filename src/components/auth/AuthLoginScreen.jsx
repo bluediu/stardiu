@@ -26,17 +26,28 @@ function AuthLoginScreen() {
 
           <GoogleButton />
 
-          <MDBInput
-            label="Email address"
-            id="email"
-            type="email"
-          />
-          <MDBInput
-            label="Password"
-            id="password"
-            type="password"
-            className="mt-4"
-          />
+          <div className="form-outline">
+            <input
+              type="email"
+              id="email"
+              className="form-control border"
+            />
+            <label htmlFor="email" className="form-label">
+              Email Address
+            </label>
+          </div>
+
+          <div className="form-outline">
+            <input
+              type="password"
+              id="password"
+              className="form-control border mt-4"
+            />
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+          </div>
+
           <MDBBtn rounded className="mt-4" color="dark">
             Log In
           </MDBBtn>
