@@ -23,88 +23,83 @@ function AuthSignInScreen() {
   }, []);
 
   return (
-    <div>
-      <form
-        className="form-container p-4"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <Slide top>
-          <h2>Sign In</h2>
+    <form
+      className="form-container p-4"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <Slide top>
+        <h2>Sign In</h2>
 
-          <section className="form-outline">
-            <label htmlFor="name" className="form-label mt-1">
-              Name
-            </label>
+        <section className="form-outline">
+          <label htmlFor="name" className="form-label mt-1">
+            Name
+          </label>
 
-            <input
-              type="text"
-              id="name"
-              className="form-control border"
-              {...register('name', {
-                required: true,
-                maxLength: 22,
-                pattern: /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/,
-              })}
-            />
+          <input
+            type="text"
+            id="name"
+            className="form-control border"
+            {...register('name', {
+              required: true,
+              maxLength: 22,
+              pattern: /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/,
+            })}
+          />
 
-            {errors.name && (
-              <AuthErrorMessage msg="the name is not valid" />
-            )}
-          </section>
+          {errors.name && (
+            <AuthErrorMessage msg="the name is not valid" />
+          )}
+        </section>
 
-          <section className="form-outline">
-            <label htmlFor="email" className="form-label">
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="form-control border"
-              {...register('email', {
-                required: true,
-                maxLength: 20,
-                pattern: /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/,
-              })}
-            />
-            {errors.email && (
-              <AuthErrorMessage msg="The email is not valid" />
-            )}
-          </section>
+        <section className="form-outline">
+          <label htmlFor="email" className="form-label">
+            Email Address
+          </label>
+          <input
+            type="email"
+            id="email"
+            className="form-control border"
+            {...register('email', {
+              required: true,
+              maxLength: 20,
+              pattern: /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/,
+            })}
+          />
+          {errors.email && (
+            <AuthErrorMessage msg="The email is not valid" />
+          )}
+        </section>
 
-          <section className="form-outline">
-            <label
-              htmlFor="password"
-              className="form-label mt-1"
-            >
-              Password
-            </label>
+        <section className="form-outline">
+          <label htmlFor="password" className="form-label mt-1">
+            Password
+          </label>
 
-            <input
-              type="password"
-              id="password"
-              className="form-control border"
-              {...register('password', {
-                required: true,
-                minLength: 6,
-                maxLength: 22,
-              })}
-            />
+          <input
+            type="password"
+            id="password"
+            className="form-control border"
+            {...register('password', {
+              required: true,
+              minLength: 6,
+              maxLength: 22,
+            })}
+          />
 
-            {errors.password && (
-              <AuthErrorMessage msg="The password is not valid, must at least 6 letter or less that 22" />
-            )}
-          </section>
+          {errors.password && (
+            <AuthErrorMessage msg="The password is not valid, must at least 6 letter or less that 22" />
+          )}
+        </section>
 
-          <MDBBtn rounded className="mt-4" color="dark">
-            Log In
-          </MDBBtn>
-        </Slide>
+        <MDBBtn rounded className="mt-4" color="dark">
+          Log In
+        </MDBBtn>
+      </Slide>
 
-        <Link to={ROUTE.LOGIN} className="d-block mt-3">
-          I have an account
-        </Link>
-      </form>
-    </div>
+      <Link to={ROUTE.LOGIN} className="d-block mt-3">
+        I have an account
+      </Link>
+    </form>
   );
 }
 
