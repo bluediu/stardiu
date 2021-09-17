@@ -8,12 +8,12 @@ import Slide from 'react-reveal/Slide';
 
 import GoogleButton from './googleButton/GoogleButton';
 import AuthErrorMessage from './AuthErrorMessage';
+import env from 'react-dotenv';
 
 function AuthLoginScreen() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -21,7 +21,8 @@ function AuthLoginScreen() {
     console.log(data);
   };
 
-  //  console.log(watch('email'));
+  console.log(env.API_URL);
+  console.log('hola');
 
   useEffect(() => {
     document.title = 'Stardui - Login';

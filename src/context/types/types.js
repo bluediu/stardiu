@@ -1,0 +1,5 @@
+export const TYPES = {
+  AUTH_LOGIN: '[AUTH] LOGIN',
+  AUTH_SINGIN: '[AUTH] SIGN IN',
+  AUTH_CHECKING: '[AUTH] CHECKING',
+};

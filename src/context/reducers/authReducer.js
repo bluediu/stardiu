@@ -1,10 +1,18 @@
+import { TYPES } from '../types/types';
+
 const initialState = {
   checking: true,
 };
 
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'HELO':
+    case TYPES.AUTH_LOGIN:
+      return {};
+
+    case TYPES.AUTH_SINGIN:
+      return {};
+
+    case TYPES.AUTH_CHECKING:
       return {};
 
     default:
