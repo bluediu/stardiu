@@ -8,21 +8,22 @@ import Slide from 'react-reveal/Slide';
 
 import GoogleButton from './googleButton/GoogleButton';
 import AuthErrorMessage from './AuthErrorMessage';
-import env from 'react-dotenv';
+import { useDispatch } from 'react-redux';
+import { startLoginWithEmailPassword } from '../../context/actions/auth.action';
 
 function AuthLoginScreen() {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = ({ email, password }) => {
+    // TODO: BORAR DATOS POR DEFECTO
+    dispatch(startLoginWithEmailPassword(email, password));
   };
-
-  console.log(env.API_URL);
-  console.log('hola');
 
   useEffect(() => {
     document.title = 'Stardui - Login';
@@ -46,6 +47,7 @@ function AuthLoginScreen() {
             <input
               type="email"
               id="email"
+              defaultValue="test1@gmail.com"
               className="form-control border"
               {...register('email', {
                 required: true,
@@ -69,6 +71,7 @@ function AuthLoginScreen() {
             <input
               type="password"
               id="password"
+              defaultValue="123456"
               className="form-control border"
               {...register('password', {
                 required: true,

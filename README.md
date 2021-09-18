@@ -1,5 +1,7 @@
 # Rules project 🔒
 
+API ENPOINT: https://rest-server-bluediu.herokuapp.com/api
+
 ## Routes 🚧
 
 - Home "/"
