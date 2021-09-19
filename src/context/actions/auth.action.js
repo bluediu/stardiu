@@ -26,9 +26,11 @@ export const startLoginWithEmailPassword = (email, password) => {
       if (!res.err) {
         const { user } = res;
         localStorage.setItem('token', res.token);
-        dispatch(authAction({ uid: user.uid, name: user.name }));
+        return dispatch(
+          authAction({ uid: user.uid, name: user.name })
+        );
       } else {
-        Swal.fire(
+        return Swal.fire(
           'Error',
           'Email / password are incorred',
           'error'
@@ -45,22 +47,45 @@ export const startLoginWithEmailPassword = (email, password) => {
   @params -> email:string, password: string, name: string
 */
 export const startRegisterWithEmailPasswordName = (
+  name,
   email,
-  password,
-  name
+  password
 ) => {
-  return async (dispath) => {
-    const options = {
-      email,
-      password,
-      name,
-    };
-    const res = await api.post(api_enpoint.createUser, options);
+  return async (dispatch) => {
+    try {
+      let data = {
+        body: {
+          name,
+          email,
+          password,
+          role: 'USER_ROLE',
+          google: false,
+        },
+        headers: { 'content-type': 'application/json' },
+      };
+
+      const res = await api.post(api_enpoint.createUser, data);
+
+      if (!res.err) {
+        const { uid, name } = res;
+        localStorage.setItem('token', res.token);
+
+        dispatch(authAction({ uid, name }));
+      } else {
+        return Swal.fire(
+          'Error',
+          'That email already was taken, please try another',
+          'error'
+        );
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 };
 
 /***
-  reducer action for multiple purposes
+  reducer action for login and sign in
   @params -> uid: string, name: string
 */
 export const authAction = (user) => ({

@@ -6,16 +6,22 @@ import { useForm } from 'react-hook-form';
 
 import Slide from 'react-reveal/Slide';
 import AuthErrorMessage from './AuthErrorMessage';
+import { useDispatch } from 'react-redux';
+import { startRegisterWithEmailPasswordName } from '../../context/actions/auth.action';
 
 function AuthSignInScreen() {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = ({ name, email, password }) => {
+    dispatch(
+      startRegisterWithEmailPasswordName(name, email, password)
+    );
   };
 
   useEffect(() => {
@@ -38,6 +44,7 @@ function AuthSignInScreen() {
           <input
             type="text"
             id="name"
+            defaultValue="testA"
             className="form-control border"
             {...register('name', {
               required: true,
@@ -58,6 +65,7 @@ function AuthSignInScreen() {
           <input
             type="email"
             id="email"
+            defaultValue="test3@gmail.com"
             className="form-control border"
             {...register('email', {
               required: true,
@@ -78,6 +86,7 @@ function AuthSignInScreen() {
           <input
             type="password"
             id="password"
+            defaultValue="123456"
             className="form-control border"
             {...register('password', {
               required: true,
