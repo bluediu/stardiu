@@ -1,4 +1,4 @@
-# Rules project 🔒
+# Project Rules 🔒
 
 API ENPOINT: https://rest-server-bluediu.herokuapp.com/api
 
