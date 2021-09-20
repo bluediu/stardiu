@@ -25,7 +25,7 @@ export const startLoginWithEmailPassword = (email, password) => {
 
       if (!res.err) {
         const { user } = res;
-        localStorage.setItem('token', res.token);
+        localStorage.setItem('star-token', res.token);
         return dispatch(
           authAction({ uid: user.uid, name: user.name })
         );
@@ -68,9 +68,9 @@ export const startRegisterWithEmailPasswordName = (
 
       if (!res.err) {
         const { uid, name } = res;
-        localStorage.setItem('token', res.token);
+        localStorage.setItem('star-token', res.token);
 
-        dispatch(authAction({ uid, name }));
+        return dispatch(authAction({ uid, name }));
       } else {
         return Swal.fire(
           'Error',
@@ -84,11 +84,61 @@ export const startRegisterWithEmailPasswordName = (
   };
 };
 
+/* ----- VALIDATE JWT SECTION ----- */
+
+/***
+  action for renew the previous token and create a new token for the section
+  @return new token in local store
+*/
+
+export const startCheckingRenewToken = () => {
+  return async (dispatch) => {
+    try {
+      // read the previous token from local storage
+      const token = localStorage.getItem('star-token') || '';
+
+      //   'content-type': 'application/json',
+      const data = {
+        headers: {
+          'content-type': 'application/json',
+          'x-token': token,
+        },
+      };
+
+      const body = await api.get(api_enpoint.renew, data);
+      // TODO: ARREGLAR ESTA WEA
+      console.log(body);
+
+      /* const res = await fetchWithToken();
+      const body = await res.json();
+      console.log(body); */
+
+      if (body.ok) {
+        const { uid, name } = body;
+        //localStorage.setItem('star-token', token);
+
+        return dispatch(authAction({ uid, name }));
+      } else {
+        return dispatch(checkingFinish());
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+/***
+ * verified if there is authenticated user
+ * @return boolean
+ */
+const checkingFinish = () => ({ type: TYPES.AUTH_CHECKING });
+
 /***
   reducer action for login and sign in
   @params -> uid: string, name: string
+  @return object
 */
-export const authAction = (user) => ({
+const authAction = (user) => ({
   type: TYPES.AUTH_LOGIN,
   payload: user,
 });

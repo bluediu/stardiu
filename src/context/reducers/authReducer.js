@@ -14,7 +14,10 @@ export const authReducer = (state = initialState, action) => {
       };
 
     case TYPES.AUTH_CHECKING:
-      return {};
+      return {
+        ...state,
+        checking: false,
+      };
 
     default:
       return state;
