@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 import DEFAULT_PROFILE from '../../../assets/img/defaultProfile.png';
 
 function NavbarProfile() {
-  const { name } = useSelector((state) => state.auth);
+  const { name, img } = useSelector((state) => state.auth);
   return (
     <section className="d-flex align-items-center align-items-center">
-      <span className="text-center">{name}</span>
+      <span className="fw-bold">{name}</span>
       <img
-        src=""
+        src={img}
         alt={name}
         className="img-fluid"
         style={{ width: '35px' }}

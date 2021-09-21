@@ -27,7 +27,11 @@ export const startLoginWithEmailPassword = (email, password) => {
         const { user } = res;
         localStorage.setItem('star-token', res.token);
         return dispatch(
-          authAction({ uid: user.uid, name: user.name })
+          authAction({
+            uid: user.uid,
+            name: user.name,
+            img: user.img,
+          })
         );
       } else {
         return Swal.fire(
@@ -67,11 +71,13 @@ export const startRegisterWithEmailPasswordName = (
       const res = await api.post(api_enpoint.createUser, data);
 
       if (!res.err) {
-        const { uid, name } = res;
+        const { uid, name, img } = res;
         localStorage.setItem('star-token', res.token);
 
-        return dispatch(authAction({ uid, name }));
+        return dispatch(authAction({ uid, name, img }));
       } else {
+        dispatch(checkingFinish());
+
         return Swal.fire(
           'Error',
           'That email already was taken, please try another',
@@ -104,14 +110,16 @@ export const startCheckingRenewToken = () => {
       };
       const body = await api.get(api_enpoint.renew, data);
 
-      if (!body.msg) {
-        const { uid, name } = body;
-        //localStorage.setItem('star-token', token);
-        dispatch(authAction({ uid, name }));
+      if (body.ok) {
+        const { uid, name, img } = body;
+        localStorage.setItem('star-token', body.token);
+
+        return dispatch(authAction({ uid, name, img }));
       } else {
         return dispatch(checkingFinish());
       }
     } catch (error) {
+      dispatch(checkingFinish());
       console.error(error);
     }
   };
