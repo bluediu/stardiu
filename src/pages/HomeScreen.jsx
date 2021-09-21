@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 /* components */
 import {
@@ -10,6 +10,10 @@ import {
 } from '../components/stardui/';
 
 function HomeScreen() {
+  useEffect(() => {
+    document.title = 'Stardui - Home';
+  }, []);
+
   return (
     <>
       <Navbar />
