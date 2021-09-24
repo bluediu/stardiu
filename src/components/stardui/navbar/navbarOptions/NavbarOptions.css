@@ -1,0 +1,24 @@
+/* toast */
+.toast-wrapper {
+  position: relative;
+}
+
+.toast-show {
+  background-color: rgba(253, 254, 254, 0.9);
+  display: block;
+  margin-top: 3px;
+  position: fixed;
+  right: 15px;
+  z-index: 999;
+}
+
+.exit {
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 360px) {
+  .toast-show {
+    width: 90%;
+  }
+}

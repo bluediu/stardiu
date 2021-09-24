@@ -93,8 +93,8 @@ export const startRegisterWithEmailPasswordName = (
 /* ----- VALIDATE JWT SECTION ----- */
 
 /***
-  action for renew the previous token and create a new token for the section
-  @return new token in local store
+  action for renew the previous token and create a new token for the user section
+  @return new token in localstore
 */
 
 export const startCheckingRenewToken = () => {
