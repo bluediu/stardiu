@@ -5,4 +5,15 @@ export const api_enpoint = {
   login: `${api_conn}/auth/login`,
   renew: `${api_conn}/auth/renew`,
   createUser: `${api_conn}/users`,
+  getProducts: `${api_conn}/products`,
+  createProduct: `${api_conn}/products`,
+  updateProduct: `${api_conn}/products/`,
+  deleteProduct: `${api_conn}/products/`,
 };
+
+/**
+ * @params API
+ * updateProduct: `${api_conn}/products/:id`,
+ * deleteProduct: `${api_conn}/products/:id`,
+ * getProducts: `${api_conn}/products/?limit=:number`,
+ */
