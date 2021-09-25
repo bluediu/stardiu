@@ -1,7 +1,7 @@
 import { TYPES } from '../types/types';
 
 const initialRecords = {
-  products: [],
+  records: [],
   active: null,
 };
 
@@ -11,7 +11,10 @@ export const productReducer = (
 ) => {
   switch (action.type) {
     case TYPES.PRODUCT_GET:
-      return {};
+      return {
+        ...state,
+        records: [...action.payload],
+      };
 
     default:
       return state;

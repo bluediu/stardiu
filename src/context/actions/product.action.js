@@ -10,10 +10,26 @@ const api = helpHttp();
 /* ----- PRODUCTS SECTION ----- */
 
 /* ----- GET SECTION ----- */
+
 /* get all products */
 export const startGetAllProducts = () => {
-  return async (dispatch) => {};
+  return async (dispatch) => {
+    try {
+      const res = await api.get(api_enpoint.getProducts);
+      dispatch(getAllProducts(res.products));
+    } catch (err) {
+      console.error(err);
+    }
+  };
 };
+
+/**
+ * @param {*} data object
+ */
+const getAllProducts = (data) => ({
+  type: TYPES.PRODUCT_GET,
+  payload: data,
+});
 
 /* ----- CREATE SECTION ----- */
 
