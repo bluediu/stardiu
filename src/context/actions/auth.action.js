@@ -143,3 +143,17 @@ const authAction = (user) => ({
   type: TYPES.AUTH_LOGIN,
   payload: user,
 });
+
+/***
+  log out and clean localStorage
+*/
+export const startLogout = () => {
+  return (dispatch) => {
+    localStorage.clear();
+    dispatch(logout());
+  };
+};
+
+const logout = () => ({
+  type: TYPES.AUTH_LOGOUT,
+});
