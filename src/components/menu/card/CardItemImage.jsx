@@ -1,13 +1,14 @@
 import React from 'react';
 import { MDBCardImage, MDBRipple } from 'mdb-react-ui-kit';
+import DEFAULT_PRODUCT from '../../../assets/img/defaultProduct.webp';
 
-function CardItemImage() {
+function CardItemImage({ name, img }) {
   return (
     <MDBRipple style={{ cursor: 'pointer' }}>
       <MDBCardImage
-        src="https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?impolicy=1by1_wide_topcrop_630"
-        alt="Cafe americano"
+        src={img ? img : DEFAULT_PRODUCT}
         position="top"
+        alt={name}
       />
     </MDBRipple>
   );

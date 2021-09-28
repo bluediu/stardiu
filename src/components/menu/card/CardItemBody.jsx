@@ -6,18 +6,19 @@ import {
   MDBIcon,
 } from 'mdb-react-ui-kit';
 import React from 'react';
+import { formatPrice } from '../../../helpers/format-price';
 
-function CardItemBody() {
+function CardItemBody({ price, name, category }) {
   return (
     <div>
       <MDBCardBody style={{ backgroundColor: '#FBFCFC' }}>
-        <MDBCardTitle>American Coffee</MDBCardTitle>
+        <MDBCardTitle>{name}</MDBCardTitle>
         <MDBCardText>
-          <small className="fw-lighter">Coffee</small>
+          <small className="fw-lighter">{category}</small>
         </MDBCardText>
 
         <MDBCardText>
-          <p>$1.50 US</p>
+          <p>{formatPrice.format(price)} USD</p>
         </MDBCardText>
 
         {/* TODO: Planificar la logica del carrirto */}

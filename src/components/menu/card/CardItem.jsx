@@ -4,12 +4,18 @@ import { MDBCard, MDBCol } from 'mdb-react-ui-kit';
 import CardItemBody from './CardItemBody';
 import CardItemImage from './CardItemImage';
 
-function CardItem() {
+function CardItem(props) {
+  const { name, img, price, category } = props;
+
   return (
     <MDBCol>
       <MDBCard>
-        <CardItemImage />
-        <CardItemBody />
+        <CardItemImage name={name} img={img} />
+        <CardItemBody
+          price={price}
+          name={name}
+          category={category.name}
+        />
       </MDBCard>
     </MDBCol>
   );

@@ -7,16 +7,18 @@ import CardItem from './CardItem';
 
 function CardGrid() {
   const dispatch = useDispatch();
-  const { records } = useSelector((state) => state.products);
+  const { records: products } = useSelector(
+    (state) => state.products
+  );
 
   useEffect(() => {
     dispatch(startGetAllProducts());
   }, [dispatch]);
 
   return (
-    <MDBRow className="row-cols-1 row-cols-md-3 g-5 m-1">
-      {records.map((d) => (
-        <CardItem key={d.id} />
+    <MDBRow className="row-cols-sm-1 row-cols-md-3 g-5 m-1">
+      {products.map((product) => (
+        <CardItem key={product.id} {...product} />
       ))}
     </MDBRow>
   );
