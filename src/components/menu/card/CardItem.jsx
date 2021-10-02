@@ -8,6 +8,7 @@ import Fade from 'react-reveal/Fade';
 function CardItem(props) {
   const { name, img, price, category } = props;
 
+  /* <Fade bottom> */
   return (
     <MDBCol>
       <MDBCard>
