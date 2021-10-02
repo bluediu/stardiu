@@ -9,7 +9,13 @@ import Slide from 'react-reveal/Slide';
 import GoogleButton from './googleButton/GoogleButton';
 import AuthErrorMessage from './AuthErrorMessage';
 import { useDispatch } from 'react-redux';
-import { startLoginWithEmailPassword } from '../../context/actions/auth.action';
+import {
+  startLoginWithEmailPassword,
+  startLoginWithGoogle,
+} from '../../context/actions/auth.action';
+
+/* GOOGLE AUTH */
+import { GoogleLogin } from 'react-google-login';
 
 function AuthLoginScreen() {
   const dispatch = useDispatch();
@@ -21,8 +27,12 @@ function AuthLoginScreen() {
   } = useForm();
 
   const onSubmit = ({ email, password }) => {
-    // TODO: BORAR DATOS POR DEFECTO
     dispatch(startLoginWithEmailPassword(email, password));
+  };
+
+  const responseGoogle = ({ $b }) => {
+    const { id_token } = $b;
+    dispatch(startLoginWithGoogle(id_token));
   };
 
   useEffect(() => {
@@ -38,7 +48,19 @@ function AuthLoginScreen() {
         <Slide top>
           <h3 className="mt-3 mb-4">Log In</h3>
 
-          <GoogleButton />
+          <GoogleLogin
+            // eslint-disable-next-line no-undef
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            render={(renderProps) => (
+              <GoogleButton
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+              />
+            )}
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          />
 
           <section className="form-outline">
             <label htmlFor="email" className="form-label">

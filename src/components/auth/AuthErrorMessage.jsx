@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function AuthErrorMessage({ msg }) {
   return (
@@ -7,5 +8,9 @@ function AuthErrorMessage({ msg }) {
     </div>
   );
 }
+
+AuthErrorMessage.propTypes = {
+  msg: PropTypes.string.isRequired,
+};
 
 export default AuthErrorMessage;

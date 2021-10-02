@@ -3,6 +3,7 @@ const api_conn = process.env.REACT_APP_API_URL;
 
 export const api_enpoint = {
   login: `${api_conn}/auth/login`,
+  loginWithGoogle: `${api_conn}/auth/google`,
   renew: `${api_conn}/auth/renew`,
   createUser: `${api_conn}/users`,
   getProducts: `${api_conn}/products`,

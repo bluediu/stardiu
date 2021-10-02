@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDBCardImage, MDBRipple } from 'mdb-react-ui-kit';
 import DEFAULT_PRODUCT from '../../../assets/img/defaultProduct.webp';
+import PropTypes from 'prop-types';
 
 function CardItemImage({ name, img }) {
   return (
@@ -13,5 +14,10 @@ function CardItemImage({ name, img }) {
     </MDBRipple>
   );
 }
+
+CardItemImage.propTypes = {
+  name: PropTypes.string.isRequired,
+  img: PropTypes.string,
+};
 
 export default CardItemImage;

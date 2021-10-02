@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   MDBBtn,
   MDBCardBody,
@@ -5,8 +6,8 @@ import {
   MDBCardTitle,
   MDBIcon,
 } from 'mdb-react-ui-kit';
-import React from 'react';
 import { formatPrice } from '../../../helpers/format-price';
+import PropTypes from 'prop-types';
 
 function CardItemBody({ price, name, category }) {
   return (
@@ -31,5 +32,11 @@ function CardItemBody({ price, name, category }) {
     </div>
   );
 }
+
+CardItemBody.propTypes = {
+  price: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+};
 
 export default CardItemBody;

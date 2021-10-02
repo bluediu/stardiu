@@ -37,10 +37,6 @@ function AppRouter() {
               component={AuthRouter}
               isAuthenticated={!!uid}
             />
-            {/* <Route
-              path={ROUTE.AUTH_BASE}
-              component={AuthRouter}
-            /> */}
 
             <Route
               path={ROUTE.MENU_BASE}

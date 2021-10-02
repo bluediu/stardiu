@@ -90,6 +90,47 @@ export const startRegisterWithEmailPasswordName = (
   };
 };
 
+/* ----- GOOGLE SIGN IN SECTION ----- */
+
+/**
+ *
+ * @param {*} token:string
+ */
+export const startLoginWithGoogle = (token) => {
+  return async (dispatch) => {
+    try {
+      const data = {
+        body: {
+          id_token: token,
+        },
+        headers: { 'content-type': 'application/json' },
+      };
+
+      const res = await api.post(
+        api_enpoint.loginWithGoogle,
+        data
+      );
+
+      if (!res.err) {
+        const { uid, name, img } = res.user;
+        localStorage.setItem('star-token', res.token);
+
+        return dispatch(authAction({ uid, name, img }));
+      } else {
+        dispatch(checkingFinish());
+
+        return Swal.fire(
+          'Error',
+          'That email already was taken, please try another',
+          'error'
+        );
+      }
+    } catch (err) {
+      return Swal.fire('Error', 'google auth failed', 'error');
+    }
+  };
+};
+
 /* ----- VALIDATE JWT SECTION ----- */
 
 /***
@@ -143,6 +184,8 @@ const authAction = (user) => ({
   type: TYPES.AUTH_LOGIN,
   payload: user,
 });
+
+/* ----- LOG OUT SECTION ----- */
 
 /***
   log out and clean localStorage
