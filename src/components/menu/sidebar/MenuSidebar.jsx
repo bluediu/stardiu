@@ -3,7 +3,6 @@ import {
   MDBListGroup,
   MDBListGroupItem,
 } from 'mdb-react-ui-kit';
-import './Sidebar.css';
 
 import MenuSidebarItem from './MenuSidebarItem';
 
