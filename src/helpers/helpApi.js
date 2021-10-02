@@ -16,5 +16,5 @@ export const api_enpoint = {
  * @params API
  * updateProduct: `${api_conn}/products/:id`,
  * deleteProduct: `${api_conn}/products/:id`,
- * getProducts: `${api_conn}/products/?limit=:number`,
+ * getProducts: `${api_conn}/products/?page=:number&limit=:number`,
  */

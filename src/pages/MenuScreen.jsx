@@ -7,7 +7,7 @@ function MenuScreen() {
     <>
       <Navbar />
       <Menu />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

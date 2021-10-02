@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
-import { MDBRow } from 'mdb-react-ui-kit';
+import { MDBRow, MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
 import { useDispatch, useSelector } from 'react-redux';
-import { startGetAllProducts } from '../../../context/actions/product.action';
+import {
+  startGetAllProducts,
+  startGetProductsByPage,
+} from '../../../context/actions/product.action';
 import { uid } from 'uid';
 
 import CardItem from './CardItem';
@@ -13,7 +16,7 @@ function CardGrid() {
   );
 
   useEffect(() => {
-    dispatch(startGetAllProducts());
+    dispatch(startGetProductsByPage());
   }, [dispatch]);
 
   return (
@@ -21,6 +24,17 @@ function CardGrid() {
       {products.map((product) => (
         <CardItem key={uid(16)} {...product} />
       ))}
+
+      <div className="d-flex justify-content-center align-items-center w-100">
+        <MDBBtn className="me-2" color="dark">
+          <MDBIcon fas icon="angle-left" className="me-2" />
+          Previous
+        </MDBBtn>
+        <MDBBtn color="dark">
+          <MDBIcon fas icon="angle-right" className="me-2" />
+          Next
+        </MDBBtn>
+      </div>
     </MDBRow>
   );
 }
