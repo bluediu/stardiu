@@ -27,9 +27,10 @@ let dataTest = [
 
 function MenuSidebar() {
   const [data, setData] = useState(dataTest);
+  //  className="sidebar-none"
   return (
     <nav>
-      <section className="sidebar-none">
+      <section>
         <h4>Categories</h4>
         <MDBListGroup>
           {data.map((d) => (
