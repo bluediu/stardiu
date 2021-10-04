@@ -3,6 +3,9 @@ import { TYPES } from '../types/types';
 const initialRecords = {
   records: [],
   active: null,
+  total: 0,
+  limit: 0,
+  pagesNumber: 0,
 };
 
 export const productReducer = (
@@ -13,7 +16,10 @@ export const productReducer = (
     case TYPES.PRODUCT_GET:
       return {
         ...state,
-        records: [...action.payload],
+        records: [...action.payload.data],
+        total: action.payload.total,
+        limit: action.payload.limit,
+        pagesNumber: action.payload.pagesNumber,
       };
 
     /*  case TYPES.PRODUCT_GET_BY_PAGE:

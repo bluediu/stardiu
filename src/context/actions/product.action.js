@@ -11,29 +11,22 @@ const api = helpHttp();
 
 /* ----- GET SECTION ----- */
 
-/* get all products */
-export const startGetAllProducts = () => {
+const limit = 6;
+
+/* get initial products when the component(CardGrid) load the first time */
+export const startGetInitialProducts = () => {
   return async (dispatch) => {
     try {
       const res = await api.get(
-        `${api_enpoint.getProducts}/?page=1&limit=3`
-      );
-      dispatch(getAllProducts(res.products));
-    } catch (err) {
-      console.error(err);
-    }
-  };
-};
-
-export const startGetProductsByPage = (page = 1) => {
-  return async (dispatch) => {
-    try {
-      const res = await api.get(
-        `${api_enpoint.getProducts}/?page=${page}&limit=6`
+        `${api_enpoint.getProducts}/?page=1&limit=${limit}`
       );
 
-      console.log('Pagina ', page, res.products);
-      dispatch(getAllProducts(res.products));
+      // calculate total of pages from database
+      let pagesNumber = Math.ceil(res.total / limit);
+
+      dispatch(
+        getProducts(res.products, res.total, limit, pagesNumber)
+      );
     } catch (err) {
       console.error(err);
     }
@@ -41,11 +34,42 @@ export const startGetProductsByPage = (page = 1) => {
 };
 
 /**
- * @param {*} data object
+ * get products by page
+ * @param {*} page:int
  */
-const getAllProducts = (data) => ({
+export const startGetProductsByPage = (page = 1) => {
+  return async (dispatch) => {
+    try {
+      const res = await api.get(
+        `${api_enpoint.getProducts}/?page=${page}&limit=${limit}`
+      );
+
+      let pagesNumber = Math.ceil(res.total / limit);
+
+      dispatch(
+        getProducts(res.products, res.total, limit, pagesNumber)
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
+
+/**
+ *
+ * @param {*} data:object
+ * @param {*} total:number
+ * @param {*} limit:number
+ * @returns
+ */
+const getProducts = (
+  data,
+  total = 0,
+  limit,
+  pagesNumber = 0
+) => ({
   type: TYPES.PRODUCT_GET,
-  payload: data,
+  payload: { data, total, limit, pagesNumber },
 });
 
 /* const getAllProductsByPage = (data) => ({
