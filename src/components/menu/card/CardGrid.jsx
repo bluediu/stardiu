@@ -8,8 +8,10 @@ import {
 } from '../../../context/actions/product.action';
 import { uid } from 'uid';
 
+/* Components */
 import CardItem from './CardItem';
 import Pagination from '../../utils/Pagination';
+import Loader from '../../utils/loader/Loader';
 
 function CardGrid() {
   const dispatch = useDispatch();
@@ -32,7 +34,7 @@ function CardGrid() {
 
   return (
     <MDBRow className="row-cols-sm-1 row-cols-md-3 g-5 m-1">
-      {!products.length && <h1>Loading</h1>}
+      {!products.length && <Loader />}
 
       {products.map((product) => (
         <CardItem key={uid(16)} {...product} />
