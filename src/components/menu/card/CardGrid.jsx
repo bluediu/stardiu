@@ -6,7 +6,6 @@ import {
   startGetInitialProducts,
   startGetProductsByPage,
 } from '../../../context/actions/product.action';
-import { uid } from 'uid';
 
 /* Components */
 import CardItem from './CardItem';
@@ -37,13 +36,15 @@ function CardGrid() {
       {!products.length && <Loader />}
 
       {products.map((product) => (
-        <CardItem key={uid(16)} {...product} />
+        <CardItem key={product._id} {...product} />
       ))}
 
-      <Pagination
-        pageCount={pagesNumber}
-        onPageChange={handlePageClick}
-      />
+      {products.length && (
+        <Pagination
+          pageCount={pagesNumber}
+          onPageChange={handlePageClick}
+        />
+      )}
     </MDBRow>
   );
 }
