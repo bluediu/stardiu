@@ -18,3 +18,12 @@ body {
   border-radius: 10px;
   background: rgba(12, 12, 12, 0.2);
 }
+
+/* UTILITIES CLASSES */
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.margin-loader {
+  margin-top: 3rem;
+}
