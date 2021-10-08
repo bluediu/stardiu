@@ -26,7 +26,6 @@ export const startGetAllCategories = () => {
 /**
  *
  * @param {*} data: array
- * @returns
  */
 const getCategories = (data) => ({
   type: TYPES.CATEGORY_GET,

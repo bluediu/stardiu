@@ -31,6 +31,7 @@ export const startLoginWithEmailPassword = (email, password) => {
             uid: user.uid,
             name: user.name,
             img: user.img,
+            role: user.role,
           })
         );
       } else {
@@ -71,10 +72,10 @@ export const startRegisterWithEmailPasswordName = (
       const res = await api.post(api_enpoint.createUser, data);
 
       if (!res.err) {
-        const { uid, name, img } = res;
+        const { uid, name, img, role } = res;
         localStorage.setItem('star-token', res.token);
 
-        return dispatch(authAction({ uid, name, img }));
+        return dispatch(authAction({ uid, name, img, role }));
       } else {
         dispatch(checkingFinish());
 
@@ -112,10 +113,10 @@ export const startLoginWithGoogle = (token) => {
       );
 
       if (!res.err) {
-        const { uid, name, img } = res.user;
+        const { uid, name, img, role } = res.user;
         localStorage.setItem('star-token', res.token);
 
-        return dispatch(authAction({ uid, name, img }));
+        return dispatch(authAction({ uid, name, img, role }));
       } else {
         dispatch(checkingFinish());
 
@@ -152,10 +153,10 @@ export const startCheckingRenewToken = () => {
       const body = await api.get(api_enpoint.renew, data);
 
       if (body.ok) {
-        const { uid, name, img } = body;
+        const { uid, name, img, role } = body;
         localStorage.setItem('star-token', body.token);
 
-        return dispatch(authAction({ uid, name, img }));
+        return dispatch(authAction({ uid, name, img, role }));
       } else {
         return dispatch(checkingFinish());
       }

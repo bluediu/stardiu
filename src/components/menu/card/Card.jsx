@@ -11,12 +11,15 @@ import {
 import CardItem from './CardItem';
 import Pagination from '../../utils/Pagination';
 import Loader from '../../utils/loader/Loader';
+import Alert from '../../utils/Alert';
 
 function Card() {
   const dispatch = useDispatch();
-  const { records: products, pagesNumber } = useSelector(
-    (state) => state.products
-  );
+  const {
+    records: products,
+    pagesNumber,
+    error,
+  } = useSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(startGetInitialProducts());
@@ -32,20 +35,24 @@ function Card() {
   };
 
   return (
-    <MDBRow className="row-cols-sm-1 row-cols-md-3 g-5 m-1">
-      {!products.length && <Loader />}
+    <>
+      {error && <Alert error={error} />}
 
-      {products.map((product) => (
-        <CardItem key={product._id} {...product} />
-      ))}
+      <MDBRow className="row-cols-sm-1 row-cols-md-3 g-5 m-1">
+        {!products.length && <Loader />}
 
-      {products.length && (
-        <Pagination
-          pageCount={pagesNumber}
-          onPageChange={handlePageClick}
-        />
-      )}
-    </MDBRow>
+        {products.map((product) => (
+          <CardItem key={product._id} {...product} />
+        ))}
+
+        {products.length && (
+          <Pagination
+            pageCount={pagesNumber}
+            onPageChange={handlePageClick}
+          />
+        )}
+      </MDBRow>
+    </>
   );
 }
 

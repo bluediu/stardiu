@@ -6,6 +6,7 @@ const initialRecords = {
   total: 0,
   limit: 0,
   pagesNumber: 0,
+  error: null,
 };
 
 export const productReducer = (
@@ -22,6 +23,11 @@ export const productReducer = (
         pagesNumber: action.payload.pagesNumber,
       };
 
+    case TYPES.ERROR_TO_FETCH:
+      return {
+        ...state,
+        error: action.payload,
+      };
     /*  case TYPES.PRODUCT_GET_BY_PAGE:
       return {
         ...state,
