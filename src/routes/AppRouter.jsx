@@ -16,6 +16,7 @@ const AboutScreen = lazy(() => import('../pages/AboutScreen'));
 const HomeScreen = lazy(() => import('../pages/HomeScreen'));
 const MenuScreen = lazy(() => import('../pages/MenuScreen'));
 const AuthRouter = lazy(() => import('./AuthRouter'));
+const Dashboard = lazy(() => import('../pages/Dashboard'));
 
 function AppRouter() {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ function AppRouter() {
             <Route
               exact
               path={ROUTE.ADMIN_DASHBOARD}
-              component={AboutScreen}
+              component={Dashboard}
             />
 
             <Route path="*" component={Error404} />
