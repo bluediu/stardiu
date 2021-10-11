@@ -8,6 +8,8 @@ import {
 import Pagination from '../../utils/Pagination';
 import CrudTableRow from './CrudTableRow';
 
+import PropTypes from 'prop-types';
+
 function CrudTable({ data, pagesNumber, handlePageClick }) {
   return (
     <>
@@ -42,5 +44,11 @@ function CrudTable({ data, pagesNumber, handlePageClick }) {
     </>
   );
 }
+
+CrudTable.propTypes = {
+  data: PropTypes.array.isRequired,
+  pagesNumber: PropTypes.number.isRequired,
+  handlePageClick: PropTypes.func.isRequired,
+};
 
 export default CrudTable;
