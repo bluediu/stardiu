@@ -6,5 +6,8 @@ export const ROUTE = {
   MENU_BASE: '/menu',
   ABOUT: '/about',
 
-  ADMIN_DASHBOARD: '/admin/dashboard',
+  ADMIN_DASHBOARD: '/dashboard/',
+  ADMIN_PRODUCTS: '/dashboard/products',
+  ADMIN_CUSTOMERS: '/dashboard/customers',
+  ADMIN_CATEGORIES: '/dashboard/categories',
 };

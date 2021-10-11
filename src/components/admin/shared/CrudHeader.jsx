@@ -12,6 +12,7 @@ import {
 import NavbarLogo from '../../stardui/navbar/NavbarLogo';
 import NavbarProfile from '../../stardui/navbar/NavbarProfile';
 import { Link } from 'react-router-dom';
+import { ROUTE } from '../../../constants/auth-routes';
 
 function CrudHeader() {
   return (
@@ -32,17 +33,26 @@ function CrudHeader() {
             <MDBNavbarNav right className="mb-2 mb-lg-0">
               <NavbarLogo />
               <MDBNavbarItem>
-                <Link className="nav-link" to="/">
+                <Link
+                  className="nav-link"
+                  to={ROUTE.ADMIN_PRODUCTS}
+                >
                   products
                 </Link>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <Link className="nav-link" to="/">
+                <Link
+                  className="nav-link"
+                  to={ROUTE.ADMIN_CATEGORIES}
+                >
                   categories
                 </Link>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <Link className="nav-link" to="/">
+                <Link
+                  className="nav-link"
+                  to={ROUTE.ADMIN_CUSTOMERS}
+                >
                   customers
                 </Link>
               </MDBNavbarItem>
