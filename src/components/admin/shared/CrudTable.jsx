@@ -1,29 +1,45 @@
+import React from 'react';
 import {
   MDBTable,
   MDBTableBody,
   MDBTableHead,
 } from 'mdb-react-ui-kit';
-import React from 'react';
+
+import Pagination from '../../utils/Pagination';
 import CrudTableRow from './CrudTableRow';
 
-function CrudTable() {
+function CrudTable({ data, pagesNumber, handlePageClick }) {
   return (
-    <MDBTable>
-      <MDBTableHead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
-        </tr>
-      </MDBTableHead>
-      <MDBTableBody>
-        <CrudTableRow />
-        <CrudTableRow />
-        <CrudTableRow />
-        <CrudTableRow />
-      </MDBTableBody>
-    </MDBTable>
+    <>
+      <MDBTable striped>
+        <MDBTableHead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">creator user</th>
+          </tr>
+        </MDBTableHead>
+        <MDBTableBody>
+          {data.length > 0 ? (
+            data.map((product) => (
+              <CrudTableRow key={product._id} {...product} />
+            ))
+          ) : (
+            <tr>
+              <td colSpan="3">There are not data</td>
+            </tr>
+          )}
+        </MDBTableBody>
+      </MDBTable>
+
+      {data.length && (
+        <Pagination
+          pageCount={pagesNumber}
+          onPageChange={handlePageClick}
+        />
+      )}
+    </>
   );
 }
 

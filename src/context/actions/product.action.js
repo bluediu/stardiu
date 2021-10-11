@@ -91,11 +91,6 @@ const getProducts = (
   payload: { data, total, limit, pagesNumber },
 });
 
-/* const getAllProductsByPage = (data) => ({
-  type: TYPES.PRODUCT_GET_BY_PAGE,
-  payload: data,
-}); */
-
 /* ----- CREATE SECTION ----- */
 
 /* ----- UPDATE SECTION ----- */
