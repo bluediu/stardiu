@@ -4,7 +4,6 @@ import {
   MDBIcon,
   MDBNavbar,
   MDBNavbarItem,
-  MDBNavbarLink,
   MDBNavbarNav,
   MDBNavbarToggler,
 } from 'mdb-react-ui-kit';
