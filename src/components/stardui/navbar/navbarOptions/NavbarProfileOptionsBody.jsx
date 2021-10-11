@@ -23,7 +23,7 @@ function NavbarProfileOptionsBody() {
         <Link className="text-dark exit" to={ROUTE.LOGIN}>
           <div style={bodyStyled} onClick={handleLogout}>
             <MDBIcon fas icon="sign-out-alt" />
-            <span className="mx-3">Salir</span>
+            <span className="mx-3">Log out</span>
           </div>
         </Link>
       </div>

@@ -69,7 +69,7 @@ function AuthLoginScreen() {
             <input
               type="email"
               id="email"
-              defaultValue="test1@gmail.com"
+              defaultValue="josuerivas@gmail.com"
               className="form-control border"
               {...register('email', {
                 required: true,
@@ -93,7 +93,7 @@ function AuthLoginScreen() {
             <input
               type="password"
               id="password"
-              defaultValue="123456"
+              defaultValue="kernel@panic2311"
               className="form-control border"
               {...register('password', {
                 required: true,

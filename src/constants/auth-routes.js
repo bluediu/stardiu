@@ -5,4 +5,6 @@ export const ROUTE = {
   AUTH_BASE: '/auth',
   MENU_BASE: '/menu',
   ABOUT: '/about',
+
+  ADMIN_DASHBOARD: '/admin/dashboard',
 };

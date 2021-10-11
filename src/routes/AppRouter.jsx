@@ -49,6 +49,12 @@ function AppRouter() {
               component={AboutScreen}
             />
 
+            <Route
+              exact
+              path={ROUTE.ADMIN_DASHBOARD}
+              component={AboutScreen}
+            />
+
             <Route path="*" component={Error404} />
           </Switch>
         </Suspense>
