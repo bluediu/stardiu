@@ -1,4 +1,9 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import React, {
+  Suspense,
+  lazy,
+  useEffect,
+  useState,
+} from 'react';
 
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { ROUTE } from '../constants/auth-routes';
@@ -12,6 +17,7 @@ import Error404 from '../components/utils/Error404';
 import MainLoader from '../components/utils/main-loader/MainLoader';
 import PrivateRoute from './PrivateRoute';
 
+/* Lazy Load */
 const AboutScreen = lazy(() => import('../pages/AboutScreen'));
 const HomeScreen = lazy(() => import('../pages/HomeScreen'));
 const MenuScreen = lazy(() => import('../pages/MenuScreen'));
@@ -20,11 +26,15 @@ const AdminRouter = lazy(() => import('./AdminRouter'));
 
 function AppRouter() {
   const dispatch = useDispatch();
-  const { uid } = useSelector((state) => state.auth);
+  const { uid, role } = useSelector((state) => state.auth);
+  // const [isAdmin, setIsAdmin] = useState(true);
 
   useEffect(() => {
     dispatch(startCheckingRenewToken());
   }, [dispatch]);
+
+  // eslint-disable-next-line no-undef
+  const isAdmin = role === process.env.REACT_APP_ROLE;
 
   return (
     <HashRouter>
@@ -50,9 +60,15 @@ function AppRouter() {
               component={AboutScreen}
             />
 
-            <Route
+            {/*   <Route
               path={ROUTE.ADMIN_DASHBOARD}
               component={AdminRouter}
+            /> */}
+
+            <PrivateRoute
+              path={ROUTE.ADMIN_DASHBOARD}
+              component={AdminRouter}
+              isAuthenticated={!isAdmin}
             />
 
             <Route path="*" component={Error404} />

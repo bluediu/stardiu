@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
+  MDBCollapse,
   MDBContainer,
   MDBIcon,
   MDBNavbar,
@@ -19,43 +20,35 @@ function CrudHeader() {
     <header className="mb-5">
       <MDBNavbar expand="lg" light bgColor="white">
         <MDBContainer fluid>
-          <MDBNavbarToggler
-            aria-controls="navbarExample01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <MDBIcon fas icon="bars" />
-          </MDBNavbarToggler>
-          <div
-            className="collapse navbar-collapse"
-            id="navbarExample01"
-          >
+          <div id="navbarHeader">
             <MDBNavbarNav right className="mb-2 mb-lg-0">
               <NavbarLogo />
-              <MDBNavbarItem>
-                <Link
-                  className="nav-link"
-                  to={ROUTE.ADMIN_PRODUCTS}
-                >
-                  products
-                </Link>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <Link
-                  className="nav-link"
-                  to={ROUTE.ADMIN_CATEGORIES}
-                >
-                  categories
-                </Link>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <Link
-                  className="nav-link"
-                  to={ROUTE.ADMIN_CUSTOMERS}
-                >
-                  customers
-                </Link>
-              </MDBNavbarItem>
+              <section className="d-flex flex-md-row gap-3">
+                <MDBNavbarItem>
+                  <Link
+                    className="nav-link"
+                    to={ROUTE.ADMIN_PRODUCTS}
+                  >
+                    products
+                  </Link>
+                </MDBNavbarItem>
+                <MDBNavbarItem>
+                  <Link
+                    className="nav-link"
+                    to={ROUTE.ADMIN_CATEGORIES}
+                  >
+                    categories
+                  </Link>
+                </MDBNavbarItem>
+                <MDBNavbarItem>
+                  <Link
+                    className="nav-link"
+                    to={ROUTE.ADMIN_CUSTOMERS}
+                  >
+                    customers
+                  </Link>
+                </MDBNavbarItem>
+              </section>
             </MDBNavbarNav>
           </div>
           <NavbarProfile />

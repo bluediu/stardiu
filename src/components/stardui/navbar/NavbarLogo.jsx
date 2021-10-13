@@ -11,7 +11,7 @@ function NavbarLogo() {
         src={STAR_LOGO}
         alt="startdiu"
         height="30"
-        onClick={() => history.goBack()}
+        onClick={() => history.push('/')}
         loading="lazy"
       />
     </MDBNavbarBrand>
