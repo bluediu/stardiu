@@ -9,7 +9,7 @@ import Loader from '../../utils/loader/Loader';
 
 function MenuSidebar() {
   const dispatch = useDispatch();
-  const { records: categories } = useSelector(
+  const { records: categories, isLoading } = useSelector(
     (state) => state.categories
   );
 
@@ -26,7 +26,7 @@ function MenuSidebar() {
       <section>
         <h4>Categories</h4>
 
-        {!categories.length && (
+        {isLoading && (
           <div className="margin-loader">
             <Loader />
           </div>

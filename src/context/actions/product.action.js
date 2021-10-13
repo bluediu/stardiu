@@ -1,7 +1,7 @@
 import { api_enpoint } from '../../helpers/helpApi';
 import { helpHttp } from '../../helpers/helpHttp';
 import { TYPES } from '../types/types';
-import { setError } from './shared.action';
+import { setError, setIsLoading } from './shared.action';
 
 // import Swal from 'sweetalert2';
 
@@ -24,6 +24,8 @@ export const startGetInitialProducts = () => {
 
       // calculate total of pages from database
       let pagesNumber = Math.ceil(res.total / limit);
+
+      dispatch(setIsLoading(false));
 
       if (!res.err) {
         dispatch(

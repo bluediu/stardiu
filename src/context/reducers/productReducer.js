@@ -7,6 +7,7 @@ const initialRecords = {
   limit: 0,
   pagesNumber: 0,
   error: null,
+  isLoading: true,
 };
 
 export const productReducer = (
@@ -27,6 +28,12 @@ export const productReducer = (
       return {
         ...state,
         error: action.payload,
+      };
+
+    case TYPES.IS_LOADING:
+      return {
+        ...state,
+        isLoading: action.payload,
       };
     /*  case TYPES.PRODUCT_GET_BY_PAGE:
       return {

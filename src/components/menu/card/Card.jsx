@@ -19,6 +19,7 @@ function Card() {
     records: products,
     pagesNumber,
     error,
+    isLoading,
   } = useSelector((state) => state.products);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ function Card() {
       {error && <Alert error={error} />}
 
       <MDBRow className="row-cols-sm-1 row-cols-md-3 g-5 m-1">
-        {!products.length && <Loader />}
+        {isLoading && <Loader />}
 
         {products.map((product) => (
           <CardItem key={product._id} {...product} />
