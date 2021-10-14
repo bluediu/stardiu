@@ -26,13 +26,13 @@ function CrudProducts() {
   };
 
   return (
-    <div>
+    <>
       <CrudTable
         data={products}
         pagesNumber={pagesNumber}
         handlePageClick={handlePageClick}
       />
-    </div>
+    </>
   );
 }
 

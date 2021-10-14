@@ -1,9 +1,4 @@
-import React, {
-  Suspense,
-  lazy,
-  useEffect,
-  useState,
-} from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { ROUTE } from '../constants/auth-routes';
@@ -23,11 +18,13 @@ const HomeScreen = lazy(() => import('../pages/HomeScreen'));
 const MenuScreen = lazy(() => import('../pages/MenuScreen'));
 const AuthRouter = lazy(() => import('./AuthRouter'));
 const AdminRouter = lazy(() => import('./AdminRouter'));
+const DetailsScreen = lazy(() =>
+  import('../pages/DetailsScreen')
+);
 
 function AppRouter() {
   const dispatch = useDispatch();
   const { uid, role } = useSelector((state) => state.auth);
-  // const [isAdmin, setIsAdmin] = useState(true);
 
   useEffect(() => {
     dispatch(startCheckingRenewToken());
@@ -60,10 +57,11 @@ function AppRouter() {
               component={AboutScreen}
             />
 
-            {/*   <Route
-              path={ROUTE.ADMIN_DASHBOARD}
-              component={AdminRouter}
-            /> */}
+            <Route
+              exact
+              path={ROUTE.DETAILS_NAME}
+              component={DetailsScreen}
+            />
 
             <PrivateRoute
               path={ROUTE.ADMIN_DASHBOARD}

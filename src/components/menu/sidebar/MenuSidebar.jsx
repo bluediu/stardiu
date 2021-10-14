@@ -19,7 +19,6 @@ function MenuSidebar() {
 
   /* styles */
   const MenuSidebarStyled = { position: 'sticky', top: '43px' };
-  console.log('sidebar', categories);
 
   return (
     <nav style={MenuSidebarStyled}>

@@ -58,6 +58,7 @@ export const startGetProductsByPage = (page = 1) => {
 
       let pagesNumber = Math.ceil(res.total / limit);
 
+      dispatch(setIsLoading(false));
       if (!res.err) {
         dispatch(
           getProducts(
@@ -76,12 +77,34 @@ export const startGetProductsByPage = (page = 1) => {
   };
 };
 
+export const startGetProductById = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await api.get(
+        `${api_enpoint.getProducts}/${id}`
+      );
+
+      dispatch(setIsLoading(false));
+
+      if (!res.err) {
+        // delete user object
+        delete res.user;
+
+        dispatch(detailsItem(res));
+      } else {
+        dispatch(setError(res));
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
+
 /**
  *
  * @param {*} data:object
  * @param {*} total:number
  * @param {*} limit:number
- * @returns
  */
 const getProducts = (
   data,
@@ -91,6 +114,15 @@ const getProducts = (
 ) => ({
   type: TYPES.PRODUCT_GET,
   payload: { data, total, limit, pagesNumber },
+});
+
+/**
+ *
+ * @param {*} data:object
+ */
+export const detailsItem = (data) => ({
+  type: TYPES.PRODUCT_GET_DETAILS,
+  payload: data,
 });
 
 /* ----- CREATE SECTION ----- */
