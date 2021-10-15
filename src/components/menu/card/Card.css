@@ -1,0 +1,24 @@
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 1rem;
+  column-gap: 2rem;
+}
+
+@media only screen and (min-width: 569px) {
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1rem;
+    column-gap: 2rem;
+  }
+}
+
+@media only screen and (min-width: 811px) {
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
+    column-gap: 2rem;
+  }
+}

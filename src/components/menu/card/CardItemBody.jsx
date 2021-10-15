@@ -1,13 +1,12 @@
 import React from 'react';
 import {
-  MDBBtn,
   MDBCardBody,
   MDBCardText,
   MDBCardTitle,
-  MDBIcon,
 } from 'mdb-react-ui-kit';
 import { formatPrice } from '../../../helpers/format-price';
 import PropTypes from 'prop-types';
+import ShoppingCartBtn from '../../stardui/cart/ShoppingCartBtn';
 
 function CardItemBody({ price, name, category }) {
   return (
@@ -22,12 +21,7 @@ function CardItemBody({ price, name, category }) {
           <p>{formatPrice.format(price)} USD</p>
         </MDBCardText>
 
-        {/* TODO: Planificar la logica del carrirto */}
-        <MDBBtn size="sm" rounded outline color="dark">
-          <MDBIcon fas icon="cart-plus" className="me-2" />
-          {/* <MDBIcon fas icon="minus" /> */}
-          Add to cart
-        </MDBBtn>
+        <ShoppingCartBtn />
       </MDBCardBody>
     </div>
   );

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { MDBRow } from 'mdb-react-ui-kit';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -12,6 +11,8 @@ import CardItem from './CardItem';
 import Pagination from '../../utils/Pagination';
 import Loader from '../../utils/loader/Loader';
 import Alert from '../../utils/Alert';
+
+import './Card.css';
 
 function Card() {
   const dispatch = useDispatch();
@@ -39,20 +40,21 @@ function Card() {
     <>
       {error && <Alert error={error} />}
 
-      <MDBRow className="row-cols-sm-1 row-cols-md-3 g-5 m-1">
-        {isLoading && <Loader />}
+      {isLoading && <Loader />}
 
+      <section className="cards-grid">
         {products.map((product) => (
           <CardItem key={product._id} {...product} />
         ))}
-
+      </section>
+      <section className="mt-4">
         {products.length && (
           <Pagination
             pageCount={pagesNumber}
             onPageChange={handlePageClick}
           />
         )}
-      </MDBRow>
+      </section>
     </>
   );
 }
