@@ -11,6 +11,7 @@ export const api_enpoint = {
   createProduct: `${api_conn}/products`,
   updateProduct: `${api_conn}/products/`,
   deleteProduct: `${api_conn}/products/`,
+  search: `${api_conn}/search`,
 
   getCategories: `${api_conn}/categories`,
 };

@@ -25,6 +25,12 @@ export const productReducer = (
         pagesNumber: action.payload.pagesNumber,
       };
 
+    case TYPES.PRODUCT_CLEAN:
+      return {
+        ...state,
+        records: [],
+      };
+
     case TYPES.PRODUCT_GET_DETAILS:
       return {
         ...state,

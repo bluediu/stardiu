@@ -102,6 +102,39 @@ export const startGetProductById = (id) => {
 
 /**
  *
+ * @param {*} searchTerm: string
+ * @param {*} type: string -> indicate which table should do the search
+ */
+export const startSearchProductByName = (searchTerm, type) => {
+  return async (dispatch) => {
+    try {
+      // clean store when the user type a term
+      dispatch(cleanProduct());
+      // show loading
+      dispatch(setIsLoading(true));
+
+      const res = await api.get(
+        `${api_enpoint.search}/${type}/${searchTerm}`
+      );
+
+      dispatch(setIsLoading(false));
+
+      if (!res.err) {
+        // delete user object
+        delete res.user;
+
+        dispatch(getProducts(res.results, 0, 0, 0));
+      } else {
+        dispatch(setError(res));
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
+
+/**
+ *
  * @param {*} data:object
  * @param {*} total:number
  * @param {*} limit:number
@@ -109,7 +142,7 @@ export const startGetProductById = (id) => {
 const getProducts = (
   data,
   total = 0,
-  limit,
+  limit = 0,
   pagesNumber = 0
 ) => ({
   type: TYPES.PRODUCT_GET,
@@ -120,9 +153,13 @@ const getProducts = (
  *
  * @param {*} data:object
  */
-export const detailsItem = (data) => ({
+const detailsItem = (data) => ({
   type: TYPES.PRODUCT_GET_DETAILS,
   payload: data,
+});
+
+const cleanProduct = () => ({
+  type: TYPES.PRODUCT_CLEAN,
 });
 
 /* ----- CREATE SECTION ----- */
