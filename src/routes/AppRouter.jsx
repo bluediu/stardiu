@@ -63,11 +63,15 @@ function AppRouter() {
               component={DetailsScreen}
             />
 
-            <PrivateRoute
+            <Route
+              path={ROUTE.ADMIN_DASHBOARD}
+              component={AdminRouter}
+            />
+            {/*  <PrivateRoute
               path={ROUTE.ADMIN_DASHBOARD}
               component={AdminRouter}
               isAuthenticated={!isAdmin}
-            />
+            /> */}
 
             <Route path="*" component={Error404} />
           </Switch>

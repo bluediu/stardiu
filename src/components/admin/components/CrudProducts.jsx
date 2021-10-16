@@ -4,6 +4,7 @@ import {
   startGetInitialProducts,
   startGetProductsByPage,
 } from '../../../context/actions/product.action';
+import CrudOptions from '../shared/CrudOptions';
 import CrudTable from '../shared/CrudTable';
 
 function CrudProducts() {
@@ -27,6 +28,7 @@ function CrudProducts() {
 
   return (
     <>
+      <CrudOptions />
       <CrudTable
         data={products}
         pagesNumber={pagesNumber}

@@ -1,10 +1,12 @@
 import React from 'react';
+import { ROUTE } from '../constants/auth-routes';
 import { Redirect, Route, Switch } from 'react-router';
+
+/* components */
 import CrudCategories from '../components/admin/components/CrudCategories';
 import CrudCustomers from '../components/admin/components/CrudCustomers';
 import CrudProducts from '../components/admin/components/CrudProducts';
 import CrudHeader from '../components/admin/shared/CrudHeader';
-import { ROUTE } from '../constants/auth-routes';
 
 function AdminRouter() {
   return (

@@ -14,12 +14,13 @@ function CrudTable({ data, pagesNumber, handlePageClick }) {
   return (
     <>
       <MDBTable striped>
-        <MDBTableHead>
+        <MDBTableHead dark>
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Category</th>
             <th scope="col">creator user</th>
+            <th scope="col">actions</th>
           </tr>
         </MDBTableHead>
         <MDBTableBody>
