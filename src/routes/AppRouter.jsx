@@ -17,21 +17,17 @@ const AboutScreen = lazy(() => import('../pages/AboutScreen'));
 const HomeScreen = lazy(() => import('../pages/HomeScreen'));
 const MenuScreen = lazy(() => import('../pages/MenuScreen'));
 const AuthRouter = lazy(() => import('./AuthRouter'));
-const AdminRouter = lazy(() => import('./AdminRouter'));
 const DetailsScreen = lazy(() =>
   import('../pages/DetailsScreen')
 );
 
 function AppRouter() {
   const dispatch = useDispatch();
-  const { uid, role } = useSelector((state) => state.auth);
+  const { uid } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(startCheckingRenewToken());
   }, [dispatch]);
-
-  // eslint-disable-next-line no-undef
-  const isAdmin = role === process.env.REACT_APP_ROLE;
 
   return (
     <HashRouter>
@@ -62,16 +58,6 @@ function AppRouter() {
               path={ROUTE.DETAILS_NAME}
               component={DetailsScreen}
             />
-
-            <Route
-              path={ROUTE.ADMIN_DASHBOARD}
-              component={AdminRouter}
-            />
-            {/*  <PrivateRoute
-              path={ROUTE.ADMIN_DASHBOARD}
-              component={AdminRouter}
-              isAuthenticated={!isAdmin}
-            /> */}
 
             <Route path="*" component={Error404} />
           </Switch>

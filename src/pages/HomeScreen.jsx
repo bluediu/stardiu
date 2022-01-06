@@ -8,7 +8,6 @@ import {
   Hero,
   Navbar,
 } from '../components/stardui/';
-import AdminButton from '../components/utils/admin-button/AdminButton';
 
 function HomeScreen() {
   useEffect(() => {
@@ -20,9 +19,9 @@ function HomeScreen() {
       <Navbar />
       <Hero />
       <Description />
+
       <Carousel />
       <Footer />
-      <AdminButton />
     </>
   );
 }
