@@ -20,6 +20,16 @@ function HomeScreen() {
       <Hero />
       <Description />
 
+      <section className="container">
+        <h1>los ultimos productos recomendados</h1>
+        <div className="row">
+          <div className="col-3">LOOO</div>
+          <div className="col-3">LOOO</div>
+          <div className="col-3">LOOO</div>
+          <div className="col-3">LOOO</div>
+        </div>
+      </section>
+
       <Carousel />
       <Footer />
     </>

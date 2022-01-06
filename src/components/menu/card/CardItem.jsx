@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBCard, MDBCol } from 'mdb-react-ui-kit';
+import { MDBCard } from 'mdb-react-ui-kit';
 import CardItemBody from './CardItemBody';
 import CardItemImage from './CardItemImage';
 import { useHistory } from 'react-router';
