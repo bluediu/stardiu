@@ -19,22 +19,22 @@ function CardItem(props) {
   };
 
   return (
-    <>
-      <MDBCard
-        style={{ boxShadow: '0 2px 9px rgba(0, 0, 0, 0.2)' }}
-      >
-        <CardItemImage
-          name={name}
-          img={img}
-          handleSelect={handleSelect}
-        />
-        <CardItemBody
-          price={price}
-          name={name}
-          category={category.name}
-        />
-      </MDBCard>
-    </>
+    <MDBCard
+      style={{
+        boxShadow: '0 2px 9px rgba(0, 0, 0, 0.2)',
+      }}
+    >
+      <CardItemImage
+        name={name}
+        img={img}
+        handleSelect={handleSelect}
+      />
+      <CardItemBody
+        price={price}
+        name={name}
+        category={category.name}
+      />
+    </MDBCard>
   );
 }
 
