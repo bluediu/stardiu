@@ -1,12 +1,23 @@
 import React from 'react';
-import MenuContainerGrid from './MenuContainerGrid';
+import Card from './card/Card';
+import Tabs from '../tabs/Tabs';
 
-function Menu() {
+function MenuContainerGrid() {
   return (
-    <div>
-      <MenuContainerGrid />
-    </div>
+    <main className="container-fluid mt-4">
+      <Tabs />
+      <section className="row">
+        <div className="col-12">
+          <div className="ms-4">
+            <h1>Menu</h1>
+            <small>Colocar filtros</small>
+            <hr />
+          </div>
+          <Card />
+        </div>
+      </section>
+    </main>
   );
 }
 
-export default Menu;
+export default MenuContainerGrid;
