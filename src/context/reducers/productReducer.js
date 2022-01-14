@@ -49,16 +49,11 @@ export const productReducer = (
         search: action.payload,
       };
 
-    /*  case TYPES.PRODUCT_GET_BY_PAGE:
+    case TYPES.CLEAN_ERRORS:
       return {
         ...state,
-        records: [...state.records, ...action.payload],
-      }; */
-    /*     case TYPES.PRODUCT_GET_BY_PAGE:
-      return {
-        ...state,
-        records: [...state.records, ...action.payload],
-      }; */
+        error: null,
+      };
 
     default:
       return state;

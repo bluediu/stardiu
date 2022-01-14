@@ -1,7 +1,11 @@
 import { api_enpoint } from '../../helpers/helpApi';
 import { helpHttp } from '../../helpers/helpHttp';
 import { TYPES } from '../types/types';
-import { setError, setIsLoading } from './shared.action';
+import {
+  setError,
+  setIsLoading,
+  setCleanError,
+} from './shared.action';
 
 // import Swal from 'sweetalert2';
 
@@ -18,6 +22,9 @@ const limit = 6;
 export const startGetInitialProducts = () => {
   return async (dispatch) => {
     try {
+      /* CLEAN ERRORS */
+      dispatch(setCleanError());
+
       const res = await api.get(
         `${api_enpoint.getProducts}/?page=1&limit=${limit}`
       );
@@ -161,13 +168,3 @@ const searchedProducts = (data) => ({
   type: TYPES.PRODUCT_SEARCH,
   payload: data,
 });
-
-/* const cleanProduct = () => ({
-  type: TYPES.PRODUCT_CLEAN,
-}); */
-
-/* ----- CREATE SECTION ----- */
-
-/* ----- UPDATE SECTION ----- */
-
-/* ----- DELETE SECTION ----- */
