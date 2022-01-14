@@ -6,8 +6,8 @@ import { ROUTE } from '../../constants/auth-routes';
 
 import Slide from 'react-reveal/Slide';
 
-import GoogleButton from './googleButton/GoogleButton';
 import AuthErrorMessage from './AuthErrorMessage';
+import GoogleButton from './googleButton/GoogleButton';
 import { useDispatch } from 'react-redux';
 import {
   startLoginWithEmailPassword,
@@ -15,7 +15,7 @@ import {
 } from '../../context/actions/auth.action';
 
 /* GOOGLE AUTH */
-import { GoogleLogin } from 'react-google-login';
+import GoogleLogin from 'react-google-login';
 
 function AuthLoginScreen() {
   const dispatch = useDispatch();
@@ -30,9 +30,9 @@ function AuthLoginScreen() {
     dispatch(startLoginWithEmailPassword(email, password));
   };
 
-  const responseGoogle = ({ $b }) => {
-    const { id_token } = $b;
-    dispatch(startLoginWithGoogle(id_token));
+  const responseGoogle = (resp) => {
+    const { tokenId } = resp;
+    dispatch(startLoginWithGoogle(tokenId));
   };
 
   useEffect(() => {
@@ -50,7 +50,7 @@ function AuthLoginScreen() {
 
           <GoogleLogin
             // eslint-disable-next-line no-undef
-            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            clientId={process.env.REACT_APP_CLIENT_ID}
             render={(renderProps) => (
               <GoogleButton
                 onClick={renderProps.onClick}

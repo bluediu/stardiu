@@ -11,6 +11,7 @@ import { startCheckingRenewToken } from '../context/actions/auth.action';
 import Error404 from '../components/utils/Error404';
 import MainLoader from '../components/utils/main-loader/MainLoader';
 import PrivateRoute from './PrivateRoute';
+import Search from '../components/menu/search/Search';
 
 /* Lazy Load */
 const AboutScreen = lazy(() => import('../pages/AboutScreen'));
@@ -57,6 +58,12 @@ function AppRouter() {
               exact
               path={ROUTE.DETAILS_NAME}
               component={DetailsScreen}
+            />
+
+            <Route
+              exact
+              path={ROUTE.SEARCH_P}
+              component={Search}
             />
 
             <Route path="*" component={Error404} />

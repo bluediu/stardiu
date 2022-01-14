@@ -7,9 +7,5 @@ export const ROUTE = {
   ABOUT: '/about',
   DETAILS: '/d',
   DETAILS_NAME: '/d/:name',
-
-  ADMIN_DASHBOARD: '/dashboard/',
-  ADMIN_PRODUCTS: '/dashboard/products',
-  ADMIN_CUSTOMERS: '/dashboard/customers',
-  ADMIN_CATEGORIES: '/dashboard/categories',
+  SEARCH_P: '/search',
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ROUTE } from '../../../constants/auth-routes';
 
 function NavbarNavigations() {
@@ -7,21 +7,29 @@ function NavbarNavigations() {
     <section>
       <article className="row d-flex align-items-center">
         <div className="col-sm-12 col-lg-4">
-          <Link to="/" className="nav-link">
+          <NavLink to="/" className="nav-link">
             Home
-          </Link>
+          </NavLink>
         </div>
 
         <div className="col-sm-12 col-lg-4">
-          <Link to={ROUTE.MENU_BASE} className="nav-link">
+          <NavLink
+            to={ROUTE.MENU_BASE}
+            className="nav-link"
+            activeClassName="active"
+          >
             Menu
-          </Link>
+          </NavLink>
         </div>
 
         <div className="col-sm-12 col-lg-4">
-          <Link to={ROUTE.ABOUT} className="nav-link">
+          <NavLink
+            to={ROUTE.ABOUT}
+            className="nav-link"
+            activeClassName="active"
+          >
             About
-          </Link>
+          </NavLink>
         </div>
       </article>
     </section>

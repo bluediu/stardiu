@@ -6,14 +6,14 @@ import {
   startGetProductsByPage,
 } from '../../../context/actions/product.action';
 
-/* Components */
+/* omponents */
 import CardItem from './CardItem';
 import Pagination from '../../utils/Pagination';
 import Loader from '../../utils/loader/Loader';
 import Alert from '../../utils/Alert';
 
+/* styles */
 import './Card.css';
-import { MDBRow } from 'mdb-react-ui-kit';
 
 function Card() {
   const dispatch = useDispatch();

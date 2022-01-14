@@ -105,11 +105,10 @@ export const startGetProductById = (id) => {
  * @param {*} searchTerm: string
  * @param {*} type: string -> indicate which table should do the search
  */
-export const startSearchProductByName = (searchTerm, type) => {
+export const startSearchByName = (searchTerm, type) => {
   return async (dispatch) => {
     try {
       // clean store when the user type a term
-      dispatch(cleanProduct());
       // show loading
       dispatch(setIsLoading(true));
 
@@ -119,11 +118,11 @@ export const startSearchProductByName = (searchTerm, type) => {
 
       dispatch(setIsLoading(false));
 
-      if (!res.err) {
+      if (!res.err && searchTerm !== '') {
         // delete user object
         delete res.user;
 
-        dispatch(getProducts(res.results, 0, 0, 0));
+        dispatch(searchedProducts(res));
       } else {
         dispatch(setError(res));
       }
@@ -158,9 +157,14 @@ const detailsItem = (data) => ({
   payload: data,
 });
 
-const cleanProduct = () => ({
-  type: TYPES.PRODUCT_CLEAN,
+const searchedProducts = (data) => ({
+  type: TYPES.PRODUCT_SEARCH,
+  payload: data,
 });
+
+/* const cleanProduct = () => ({
+  type: TYPES.PRODUCT_CLEAN,
+}); */
 
 /* ----- CREATE SECTION ----- */
 

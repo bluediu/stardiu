@@ -2,7 +2,7 @@ import { TYPES } from '../types/types';
 
 const initialRecords = {
   records: [],
-  active: null,
+  search: [],
   total: 0,
   limit: 0,
   pagesNumber: 0,
@@ -25,12 +25,6 @@ export const productReducer = (
         pagesNumber: action.payload.pagesNumber,
       };
 
-    case TYPES.PRODUCT_CLEAN:
-      return {
-        ...state,
-        records: [],
-      };
-
     case TYPES.PRODUCT_GET_DETAILS:
       return {
         ...state,
@@ -48,6 +42,13 @@ export const productReducer = (
         ...state,
         isLoading: action.payload,
       };
+
+    case TYPES.PRODUCT_SEARCH:
+      return {
+        ...state,
+        search: action.payload,
+      };
+
     /*  case TYPES.PRODUCT_GET_BY_PAGE:
       return {
         ...state,

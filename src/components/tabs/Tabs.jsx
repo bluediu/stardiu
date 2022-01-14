@@ -30,7 +30,7 @@ function Tabs() {
         <li className="nav-item">
           <NavLink
             className="nav-link"
-            to="/seach"
+            to="/search"
             activeClassName="active"
           >
             Search

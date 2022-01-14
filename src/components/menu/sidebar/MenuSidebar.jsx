@@ -13,6 +13,7 @@ function MenuSidebar() {
     (state) => state.categories
   );
 
+  //TODO: COnvertir a categorias
   useEffect(() => {
     dispatch(startGetAllCategories());
   }, []);
