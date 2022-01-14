@@ -13,3 +13,7 @@ export const setIsLoading = (state = true) => ({
   type: TYPES.IS_LOADING,
   payload: state,
 });
+
+export const setCleanError = () => ({
+  type: TYPES.CLEAN_ERRORS,
+});
