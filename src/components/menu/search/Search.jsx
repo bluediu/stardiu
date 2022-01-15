@@ -17,30 +17,47 @@ import '../../menu/card/Card.css';
 function Search() {
   const dispatch = useDispatch();
 
-  const [seachTerm, setSeachTerm] = useState();
-  const { search, isLoading, noResults } = useSelector(
+  const [searchTerm, setSearchTerm] = useState('');
+  const [thereAreResults, setThereAreResults] = useState(true);
+  const [searchedProducts, setSearchedProducts] = useState([]);
+
+  /* Redux */
+  const { search, isLoading } = useSelector(
     (state) => state.products
   );
 
   const [debouncedValue, setDebouncedValue] = useState('');
 
-  console.log(noResults, typeof noResults);
-
   // eslint-disable-next-line no-unused-vars
   const [_, cancel] = useDebounce(
     () => {
-      setDebouncedValue(seachTerm);
+      setDebouncedValue(searchTerm);
     },
     1500,
-    [seachTerm]
+    [searchTerm]
   );
 
   useEffect(() => {
-    dispatch(startSearchByName(debouncedValue, 'products'));
+    if (searchTerm.length >= 1) {
+      return dispatch(
+        startSearchByName(debouncedValue, 'products')
+      );
+    }
   }, [debouncedValue]);
 
+  useEffect(() => {
+    /* Verify if there are results for a product search */
+    if (search.results?.length >= 1) {
+      setSearchedProducts(search);
+      setThereAreResults(true);
+    } else {
+      setThereAreResults(false);
+      setSearchedProducts([]);
+    }
+  }, [search]);
+
   const handleInput = (e) => {
-    setSeachTerm(e.target.value);
+    setSearchTerm(e.target.value);
   };
 
   const handleSearch = (e) => {
@@ -60,7 +77,7 @@ function Search() {
             label="🔎 Search a product..."
             id="search"
             type="search"
-            value={seachTerm}
+            value={searchTerm}
             onChange={handleInput}
           />
         </form>
@@ -68,22 +85,20 @@ function Search() {
 
       {isLoading && <Loader />}
 
-      {/* //TODO: Arreglar buscador */}
-      {/*   {!search.results?.length && (
+      {!thereAreResults && debouncedValue && (
         <p className="text-center h3 my-3">
-          There not result for <b>{seachTerm} 😥</b>
+          There not result for <b>{searchTerm} 😥</b>
         </p>
       )}
- */}
+
       <div className="container mt-4">
         <section className="cards-grid">
-          {search.results?.map((product) => (
+          {searchedProducts.results?.map((product) => (
             <CardItem key={product._id} {...product} />
           ))}
         </section>
       </div>
 
-      {/* className="fixed-bottom" */}
       <Footer />
     </>
   );
