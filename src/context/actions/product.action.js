@@ -5,6 +5,7 @@ import {
   setError,
   setIsLoading,
   setCleanError,
+  setCleanSearch,
 } from './shared.action';
 
 // import Swal from 'sweetalert2';
@@ -23,6 +24,7 @@ export const startGetInitialProducts = () => {
   return async (dispatch) => {
     try {
       /* CLEAN ERRORS */
+      dispatch(setCleanSearch());
       dispatch(setCleanError());
 
       const res = await api.get(

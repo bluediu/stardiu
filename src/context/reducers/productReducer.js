@@ -55,6 +55,12 @@ export const productReducer = (
         error: null,
       };
 
+    case TYPES.CLEAN_SEARCH:
+      return {
+        ...state,
+        search: [],
+      };
+
     default:
       return state;
   }

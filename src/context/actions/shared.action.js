@@ -17,3 +17,7 @@ export const setIsLoading = (state = true) => ({
 export const setCleanError = () => ({
   type: TYPES.CLEAN_ERRORS,
 });
+
+export const setCleanSearch = () => ({
+  type: TYPES.CLEAN_SEARCH,
+});
