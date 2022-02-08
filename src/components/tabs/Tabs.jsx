@@ -27,7 +27,7 @@ function Tabs() {
             Categories
           </NavLink>
         </li>
-        <li className="nav-item">
+        {/*   <li className="nav-item">
           <NavLink
             className="nav-link"
             to="/search"
@@ -35,35 +35,8 @@ function Tabs() {
           >
             Search
           </NavLink>
-        </li>
+        </li> */}
       </ul>
-
-      {/*     <div className="tab-content" id="ex2-content">
-        <div
-          className="tab-pane fade show active"
-          id="ex2-tabs-1"
-          role="tabpanel"
-          aria-labelledby="ex2-tab-1"
-        >
-          Tab 1 content
-        </div>
-        <div
-          className="tab-pane fade"
-          id="ex2-tabs-2"
-          role="tabpanel"
-          aria-labelledby="ex2-tab-2"
-        >
-          Tab 2 content
-        </div>
-        <div
-          className="tab-pane fade"
-          id="ex2-tabs-3"
-          role="tabpanel"
-          aria-labelledby="ex2-tab-3"
-        >
-          Tab 3 content
-        </div>
-      </div> */}
     </div>
   );
 }

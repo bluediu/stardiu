@@ -9,9 +9,10 @@ const api = helpHttp();
 
 /* ----- AUTH SECTION ----- */
 
-/***
+/**
   action when the user log in
-  @params -> email:string, password: string
+  @param {string} email user email
+  @param {string} password user password
 */
 export const startLoginWithEmailPassword = (email, password) => {
   return async (dispatch) => {

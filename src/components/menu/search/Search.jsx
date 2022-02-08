@@ -5,7 +5,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useDebounce } from 'react-use';
 
 /* components */
-import { MDBInput } from 'mdb-react-ui-kit';
+import {
+  MDBIcon,
+  MDBInputGroup,
+  MDBInputGroupText,
+  MDBInputGroupElement,
+  MDBListGroup,
+  MDBListGroupItem,
+  MDBSpinner,
+} from 'mdb-react-ui-kit';
 import { Footer, Navbar } from '../../stardui';
 import Loader from '../../utils/loader/Loader';
 import CardItem from '../card/CardItem';
@@ -13,6 +21,7 @@ import Tabs from '../../tabs/Tabs';
 
 /* styles */
 import '../../menu/card/Card.css';
+import './Search.css';
 
 function Search() {
   const dispatch = useDispatch();
@@ -66,40 +75,57 @@ function Search() {
 
   return (
     <>
-      <Navbar />
+      {/* TODO: Mouse Events */}
+      <section className="container mt-4">
+        <div className="search-container">
+          <form onSubmit={handleSearch} className="search-input">
+            <MDBInputGroup className="mb-3">
+              <MDBInputGroupText>
+                {!isLoading ? (
+                  <MDBIcon
+                    fas
+                    icon="search"
+                    className="search-icon"
+                  />
+                ) : (
+                  <MDBSpinner color="dark" size="sm">
+                    <span className="visually-hidden">
+                      Loading...
+                    </span>
+                  </MDBSpinner>
+                )}
+              </MDBInputGroupText>
+              <MDBInputGroupElement
+                placeholder="Search a product..."
+                id="search"
+                type="search"
+                value={searchTerm}
+                onChange={handleInput}
+              />
+            </MDBInputGroup>
+          </form>
 
-      <div className="my-3">
-        <Tabs />
-      </div>
-      <div className="container mt-4">
-        <form onSubmit={handleSearch}>
-          <MDBInput
-            label="🔎 Search a product..."
-            id="search"
-            type="search"
-            value={searchTerm}
-            onChange={handleInput}
-          />
-        </form>
-      </div>
+          <div className="search-list">
+            <MDBListGroup flush style={{ minWidth: '22rem' }}>
+              {searchedProducts.length < 1 && (
+                <MDBListGroupItem>
+                  There are not results
+                </MDBListGroupItem>
+              )}
 
-      {isLoading && <Loader />}
-
-      {!thereAreResults && debouncedValue && (
-        <p className="text-center h3 my-3">
-          There not result for <b>{searchTerm} 😥</b>
-        </p>
-      )}
-
-      <div className="container mt-4">
-        <section className="cards-grid">
-          {searchedProducts.results?.map((product) => (
-            <CardItem key={product._id} {...product} />
-          ))}
-        </section>
-      </div>
-
-      <Footer />
+              {searchedProducts.results?.map((product) => {
+                return (
+                  <>
+                    <MDBListGroupItem>
+                      {product.name}
+                    </MDBListGroupItem>
+                  </>
+                );
+              })}
+            </MDBListGroup>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

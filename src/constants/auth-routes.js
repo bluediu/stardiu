@@ -8,4 +8,5 @@ export const ROUTE = {
   DETAILS: '/d',
   DETAILS_NAME: '/d/:name',
   SEARCH_P: '/search',
+  CART: '/cart',
 };

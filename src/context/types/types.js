@@ -15,6 +15,10 @@ export const TYPES = {
   PRODUCT_GET_DETAILS: '[PRODUCT] GET DETAILS',
   PRODUCT_SEARCH: '[PRODUCT] SEARCH',
 
+  /* Cart */
+  ADD_TO_CART: '[CART] CREATE',
+  GET_USER_CART: '[CART] GET USER CART',
+
   /* Categories */
   CATEGORY_GET: '[CATEGORY] GET',
 };

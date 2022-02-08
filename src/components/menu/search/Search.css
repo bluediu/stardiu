@@ -1,0 +1,33 @@
+/* .search-input {
+  width: 100%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.search-text {
+  width: 20rem;
+}
+
+.search-icon {
+  padding-right: 1rem;
+}
+ */
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+}
+
+.search-list {
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+}
+
+.list-group {
+  border-radius: 8px !important;
+}

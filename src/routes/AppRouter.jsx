@@ -11,7 +11,8 @@ import { startCheckingRenewToken } from '../context/actions/auth.action';
 import Error404 from '../components/utils/Error404';
 import MainLoader from '../components/utils/main-loader/MainLoader';
 import PrivateRoute from './PrivateRoute';
-import Search from '../components/menu/search/Search';
+// import Search from '../components/menu/search/Search';
+import ShoppingCartScreen from '../pages/ShoppingCartScreen';
 
 /* Lazy Load */
 const AboutScreen = lazy(() => import('../pages/AboutScreen'));
@@ -62,9 +63,15 @@ function AppRouter() {
 
             <Route
               exact
+              path={ROUTE.CART}
+              component={ShoppingCartScreen}
+            />
+
+            {/*             <Route
+              exact
               path={ROUTE.SEARCH_P}
               component={Search}
-            />
+            /> */}
 
             <Route path="*" component={Error404} />
           </Switch>

@@ -8,10 +8,10 @@ export const api_enpoint = {
   createUser: `${api_conn}/users`,
 
   getProducts: `${api_conn}/products`,
-  createProduct: `${api_conn}/products`,
-  updateProduct: `${api_conn}/products/`,
-  deleteProduct: `${api_conn}/products/`,
   search: `${api_conn}/search`,
+
+  addToCart: `${api_conn}/cart/add`,
+  getShoppingCart: `${api_conn}/cart/`,
 
   getCategories: `${api_conn}/categories`,
 };

@@ -31,3 +31,7 @@ body {
 .max-size-text {
   max-width: 500px;
 }
+
+.pointer {
+  cursor: pointer;
+}

@@ -14,6 +14,7 @@ import Alert from '../../utils/Alert';
 
 /* styles */
 import './Card.css';
+import Search from '../search/Search';
 
 function Card() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function Card() {
 
   return (
     <>
+      <Search />
       {error && <Alert error={error} />}
 
       {isLoading && <Loader />}

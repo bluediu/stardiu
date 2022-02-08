@@ -8,7 +8,8 @@ import { formatPrice } from '../../../helpers/format-price';
 import PropTypes from 'prop-types';
 import ShoppingCartBtn from '../../stardui/cart/ShoppingCartBtn';
 
-function CardItemBody({ price, name, category }) {
+function CardItemBody({ price, name, category, id }) {
+  console.log(id);
   return (
     <div>
       <MDBCardBody style={{ backgroundColor: '#FBFCFC' }}>
