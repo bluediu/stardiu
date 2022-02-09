@@ -1,14 +1,7 @@
 import { api_enpoint } from '../../helpers/helpApi';
 import { helpHttp } from '../../helpers/helpHttp';
 import { TYPES } from '../types/types';
-import {
-  setError,
-  setIsLoading,
-  setCleanError,
-  setCleanSearch,
-} from './shared.action';
-
-// import Swal from 'sweetalert2';
+import { setError, setIsLoading } from './shared.action';
 
 // instance for http helper
 const api = helpHttp();
@@ -23,10 +16,6 @@ const limit = 6;
 export const startGetInitialProducts = () => {
   return async (dispatch) => {
     try {
-      /* CLEAN ERRORS */
-      dispatch(setCleanSearch());
-      dispatch(setCleanError());
-
       const res = await api.get(
         `${api_enpoint.getProducts}/?page=1&limit=${limit}`
       );
@@ -111,38 +100,6 @@ export const startGetProductById = (id) => {
 
 /**
  *
- * @param {*} searchTerm: string
- * @param {*} type: string -> indicate which table should do the search
- */
-export const startSearchByName = (searchTerm, type) => {
-  return async (dispatch) => {
-    try {
-      // clean store when the user type a term
-      // show loading
-      dispatch(setIsLoading(true));
-
-      const res = await api.get(
-        `${api_enpoint.search}/${type}/${searchTerm}`
-      );
-
-      dispatch(setIsLoading(false));
-
-      if (!res.err && searchTerm !== '') {
-        // delete user object
-        delete res.user;
-
-        dispatch(searchedProducts(res));
-      } else {
-        dispatch(setError(res));
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
-};
-
-/**
- *
  * @param {*} data:object
  * @param {*} total:number
  * @param {*} limit:number
@@ -163,10 +120,5 @@ const getProducts = (
  */
 const detailsItem = (data) => ({
   type: TYPES.PRODUCT_GET_DETAILS,
-  payload: data,
-});
-
-const searchedProducts = (data) => ({
-  type: TYPES.PRODUCT_SEARCH,
   payload: data,
 });

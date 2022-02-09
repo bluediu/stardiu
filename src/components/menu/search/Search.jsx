@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { startSearchByName } from '../../../context/actions/product.action';
+import { startSearchByName } from '../../../context/actions/search.action';
 import { useDispatch, useSelector } from 'react-redux';
 import { useDebounce } from 'react-use';
 
@@ -14,10 +14,6 @@ import {
   MDBListGroupItem,
   MDBSpinner,
 } from 'mdb-react-ui-kit';
-import { Footer, Navbar } from '../../stardui';
-import Loader from '../../utils/loader/Loader';
-import CardItem from '../card/CardItem';
-import Tabs from '../../tabs/Tabs';
 
 /* styles */
 import '../../menu/card/Card.css';
@@ -26,62 +22,66 @@ import './Search.css';
 function Search() {
   const dispatch = useDispatch();
 
-  const [searchTerm, setSearchTerm] = useState('');
-  const [thereAreResults, setThereAreResults] = useState(true);
-  const [searchedProducts, setSearchedProducts] = useState([]);
+  const [inputText, setInputText] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState(null);
+  const [showList, setShowList] = useState(false);
+  const [products, setProducts] = useState([]);
 
   /* Redux */
-  const { search, isLoading } = useSelector(
-    (state) => state.products
+  const { results, loading } = useSelector(
+    (state) => state.search
   );
-
-  const [debouncedValue, setDebouncedValue] = useState('');
 
   // eslint-disable-next-line no-unused-vars
   const [_, cancel] = useDebounce(
     () => {
-      setDebouncedValue(searchTerm);
+      setDebouncedSearch(inputText);
     },
     1500,
-    [searchTerm]
+    [inputText]
   );
 
   useEffect(() => {
-    if (searchTerm.length >= 1) {
-      return dispatch(
-        startSearchByName(debouncedValue, 'products')
-      );
+    if (inputText?.length >= 1) {
+      console.log('Buscando');
+      dispatch(startSearchByName(debouncedSearch, 'products'));
     }
-  }, [debouncedValue]);
+  }, [debouncedSearch]);
 
   useEffect(() => {
     /* Verify if there are results for a product search */
-    if (search.results?.length >= 1) {
-      setSearchedProducts(search);
-      setThereAreResults(true);
+    if (results.results?.length >= 1) {
+      setProducts(results);
     } else {
-      setThereAreResults(false);
-      setSearchedProducts([]);
+      setProducts([]);
     }
-  }, [search]);
+  }, [results]);
 
   const handleInput = (e) => {
-    setSearchTerm(e.target.value);
+    if (e.target.value) {
+      setInputText(e.target.value);
+    } else {
+      setInputText(null);
+    }
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-  };
+  console.log(showList);
 
   return (
     <>
-      {/* TODO: Mouse Events */}
       <section className="container mt-4">
         <div className="search-container">
-          <form onSubmit={handleSearch} className="search-input">
-            <MDBInputGroup className="mb-3">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="search-input"
+          >
+            <MDBInputGroup
+              className="mb-3"
+              /*               onMouseLeave={() => setShowList(false)}
+              onClick={() => setShowList(true)} */
+            >
               <MDBInputGroupText>
-                {!isLoading ? (
+                {!loading ? (
                   <MDBIcon
                     fas
                     icon="search"
@@ -95,11 +95,12 @@ function Search() {
                   </MDBSpinner>
                 )}
               </MDBInputGroupText>
+
               <MDBInputGroupElement
                 placeholder="Search a product..."
                 id="search"
                 type="search"
-                value={searchTerm}
+                value={inputText}
                 onChange={handleInput}
               />
             </MDBInputGroup>
@@ -107,13 +108,13 @@ function Search() {
 
           <div className="search-list">
             <MDBListGroup flush style={{ minWidth: '22rem' }}>
-              {searchedProducts.length < 1 && (
+              {products.length < 1 && (
                 <MDBListGroupItem>
                   There are not results
                 </MDBListGroupItem>
               )}
 
-              {searchedProducts.results?.map((product) => {
+              {products.results?.map((product) => {
                 return (
                   <>
                     <MDBListGroupItem>
