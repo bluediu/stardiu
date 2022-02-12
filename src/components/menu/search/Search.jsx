@@ -13,6 +13,7 @@ import {
   MDBListGroup,
   MDBListGroupItem,
   MDBSpinner,
+  MDBBadge,
 } from 'mdb-react-ui-kit';
 
 /* styles */
@@ -65,10 +66,15 @@ function Search() {
     }
   };
 
+  console.log(results);
   console.log(showList);
+  // TODO: Finish search bar in other ocacion
 
   return (
-    <>
+    <div
+      className="search-container-main"
+      onMouseLeave={() => setShowList(false)}
+    >
       <section className="container mt-4">
         <div className="search-container">
           <form
@@ -77,8 +83,7 @@ function Search() {
           >
             <MDBInputGroup
               className="mb-3"
-              /*               onMouseLeave={() => setShowList(false)}
-              onClick={() => setShowList(true)} */
+              onClick={() => setShowList(true)}
             >
               <MDBInputGroupText>
                 {!loading ? (
@@ -108,26 +113,42 @@ function Search() {
 
           <div className="search-list">
             <MDBListGroup flush style={{ minWidth: '22rem' }}>
-              {products.length < 1 && (
-                <MDBListGroupItem>
-                  There are not results
-                </MDBListGroupItem>
-              )}
+              {showList
+                ? products.results?.map((product, index) => {
+                    return (
+                      <MDBListGroupItem key={index}>
+                        <section className="item-product">
+                          <div>
+                            <img
+                              className="item-image"
+                              src={product.img}
+                              alt=""
+                            />
+                          </div>
 
-              {products.results?.map((product) => {
-                return (
-                  <>
+                          <div className="item-info">
+                            <div className="main-text">
+                              {product.name}
+                            </div>
+
+                            <MDBBadge color="dark">
+                              {product.category.name}
+                            </MDBBadge>
+                          </div>
+                        </section>
+                      </MDBListGroupItem>
+                    );
+                  })
+                : products.length < 1 && (
                     <MDBListGroupItem>
-                      {product.name}
+                      <b> There are not results</b>
                     </MDBListGroupItem>
-                  </>
-                );
-              })}
+                  )}
             </MDBListGroup>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
