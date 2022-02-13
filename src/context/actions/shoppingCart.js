@@ -12,13 +12,30 @@ const api = helpHttp();
 /**
  *
  * @param {{userId}} userId user id when has been logged
- * @returns
  */
 export const startGetShoppingCart = (userId) => {
   return async (dispatch) => {
     try {
       console.log(userId);
       //const res = await api.post(api_enpoint.getShoppingCart);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+/**
+ *
+ * @param {{userId}} userId user id
+ */
+export const startCountProducts = (userId) => {
+  return async (dispatch) => {
+    try {
+      const res = await api.get(
+        `${api_enpoint.countShoppingCart}/${userId}`
+      );
+
+      dispatch(countProducts(res.total));
     } catch (error) {
       console.error(error);
     }
@@ -61,4 +78,9 @@ export const startAddToCart = (cartData) => {
 export const addToCart = (data) => ({
   type: TYPES.ADD_TO_CART,
   payload: data,
+});
+
+export const countProducts = (quantity) => ({
+  type: TYPES.COUNT_CART,
+  payload: quantity,
 });

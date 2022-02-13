@@ -11,15 +11,8 @@ export const api_enpoint = {
   search: `${api_conn}/search`,
 
   addToCart: `${api_conn}/cart/add`,
-  getShoppingCart: `${api_conn}/cart/`,
+  getShoppingCart: `${api_conn}/cart`,
+  countShoppingCart: `${api_conn}/cart/count`,
 
   getCategories: `${api_conn}/categories`,
 };
-
-/**
- * @params API
- * updateProduct: `${api_conn}/products/:id`,
- * deleteProduct: `${api_conn}/products/:id`,
- * getProducts: `${api_conn}/products/?page=:number&limit=:number`,
- * getProducts: `${api_conn}/products/:id`,
- */

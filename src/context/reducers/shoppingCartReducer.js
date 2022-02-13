@@ -16,6 +16,12 @@ export const shoppingCartReducer = (
         cart: [...state.cart, action.payload],
       };
 
+    case TYPES.COUNT_CART:
+      return {
+        ...state,
+        total: action.payload,
+      };
+
     /*    case REMOVE_ONE_FROM_CART: {
       let itemToDelete = state.cart.find((item) => item.id === action.payload);
 

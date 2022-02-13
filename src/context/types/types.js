@@ -16,6 +16,7 @@ export const TYPES = {
   /* Cart */
   ADD_TO_CART: '[CART] CREATE',
   GET_USER_CART: '[CART] GET USER CART',
+  COUNT_CART: '[CART] COUNT',
 
   /* Categories */
   CATEGORY_GET: '[CATEGORY] GET',
