@@ -13,6 +13,7 @@ import MainLoader from '../components/utils/main-loader/MainLoader';
 import PrivateRoute from './PrivateRoute';
 // import Search from '../components/menu/search/Search';
 import ShoppingCartScreen from '../pages/ShoppingCartScreen';
+import { startCountProducts } from '../context/actions/shoppingCart';
 
 /* Lazy Load */
 const AboutScreen = lazy(() => import('../pages/AboutScreen'));
@@ -29,6 +30,10 @@ function AppRouter() {
 
   useEffect(() => {
     dispatch(startCheckingRenewToken());
+
+    if (uid) {
+      dispatch(startCountProducts(uid));
+    }
   }, [dispatch]);
 
   return (
