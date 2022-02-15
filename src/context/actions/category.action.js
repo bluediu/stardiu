@@ -3,8 +3,6 @@ import { helpHttp } from '../../helpers/helpHttp';
 import { TYPES } from '../types/types';
 import { setIsLoading } from './shared.action';
 
-// import Swal from 'sweetalert2';
-
 // instance for http helper
 const api = helpHttp();
 

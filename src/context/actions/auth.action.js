@@ -2,7 +2,7 @@ import { api_enpoint } from '../../helpers/helpApi';
 import { helpHttp } from '../../helpers/helpHttp';
 import { TYPES } from '../types/types';
 
-import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 
 // instance for http helper
 const api = helpHttp();
@@ -36,11 +36,10 @@ export const startLoginWithEmailPassword = (email, password) => {
           })
         );
       } else {
-        return Swal.fire(
-          'Error',
-          'Email / password are incorred',
-          'error'
-        );
+        return toast.error('Email or password incorred', {
+          hideProgressBar: false,
+          autoClose: 2000,
+        });
       }
     } catch (error) {
       console.error(error.msg);
@@ -80,10 +79,8 @@ export const startRegisterWithEmailPasswordName = (
       } else {
         dispatch(checkingFinish());
 
-        return Swal.fire(
-          'Error',
-          'That email already was taken, please try another',
-          'error'
+        return toast.error(
+          'This user already exists, please try another'
         );
       }
     } catch (error) {
@@ -121,14 +118,12 @@ export const startLoginWithGoogle = (token) => {
       } else {
         dispatch(checkingFinish());
 
-        return Swal.fire(
-          'Error',
-          'That email already was taken, please try another',
-          'error'
+        return toast.error(
+          'This user already exists, please try another'
         );
       }
     } catch (err) {
-      return Swal.fire('Error', 'google auth failed', 'error');
+      return toast.error('google auth failed');
     }
   };
 };

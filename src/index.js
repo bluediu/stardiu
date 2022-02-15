@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-
+import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import App from './App';

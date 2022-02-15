@@ -2,7 +2,8 @@ import { TYPES } from '../types/types';
 
 import { api_enpoint } from '../../helpers/helpApi';
 import { helpHttp } from '../../helpers/helpHttp';
-import Swal from 'sweetalert2';
+
+import { toast } from 'react-toastify';
 
 // instance for http helper
 const api = helpHttp();
@@ -55,18 +56,13 @@ export const startAddToCart = (cartData) => {
         headers: { 'content-type': 'application/json' },
       };
 
-      Swal.fire({
-        text: 'Wait a moment 😀',
-        allowOutsideClick: false,
-        showConfirmButton: false,
-        willOpen: () => {
-          Swal.showLoading();
-        },
+      toast.success('Adding to cart', {
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
       });
 
       const res = await api.post(api_enpoint.addToCart, data);
-
-      Swal.close();
 
       dispatch(addToCart(res.cart));
     } catch (error) {
