@@ -1,0 +1,27 @@
+.auth-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-modal-info {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.auth-modal-info h5 {
+  font-size: 1.8rem;
+}
+
+.auth-modal-info img {
+  width: 4rem;
+}
+
+.auth-modal-btn button {
+  display: block;
+  width: 100%;
+}
+
+.auth-modal-btn button:first-child {
+  margin-bottom: 0.7rem !important;
+}
