@@ -30,11 +30,13 @@ function AppRouter() {
 
   useEffect(() => {
     dispatch(startCheckingRenewToken());
+  }, [dispatch]);
 
+  useEffect(() => {
     if (uid) {
       dispatch(startCountProducts(uid));
     }
-  }, [dispatch]);
+  }, [uid]);
 
   return (
     <HashRouter>
@@ -71,12 +73,6 @@ function AppRouter() {
               path={ROUTE.CART}
               component={ShoppingCartScreen}
             />
-
-            {/*             <Route
-              exact
-              path={ROUTE.SEARCH_P}
-              component={Search}
-            /> */}
 
             <Route path="*" component={Error404} />
           </Switch>

@@ -1,14 +1,16 @@
+import React from 'react';
 import {
   MDBBadge,
   MDBIcon,
   MDBNavbarLink,
 } from 'mdb-react-ui-kit';
-import React from 'react';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { ROUTE } from '../../../constants/auth-routes';
 
 function ShoppingCart() {
   let history = useHistory();
+  const { total } = useSelector((state) => state.shoppingCart);
 
   return (
     <div>
@@ -17,7 +19,7 @@ function ShoppingCart() {
         onClick={() => history.push(ROUTE.CART)}
       >
         <MDBBadge pill color="danger">
-          0
+          {total ? total : '0'}
         </MDBBadge>
         <span>
           <MDBIcon fas icon="shopping-cart"></MDBIcon>

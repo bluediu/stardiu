@@ -80,7 +80,11 @@ export const addToCart = (data) => ({
   payload: data,
 });
 
-export const countProducts = (quantity) => ({
+/**
+ *
+ * @param {number} quantity
+ */
+export const countProducts = (quantity = 0) => ({
   type: TYPES.COUNT_CART,
   payload: quantity,
 });
