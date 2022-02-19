@@ -45,6 +45,26 @@ export const startCountProducts = (userId) => {
 
 /**
  *
+ * @param {string} productId
+ * @param {string} userId
+ */
+export const startIsProductAddedToCart = async (
+  productId,
+  userId
+) => {
+  try {
+    const res = await api.get(
+      `${api_enpoint.productExistInShoppingCart}/${productId}/${userId}`
+    );
+
+    return res;
+  } catch (error) {
+    return error;
+  }
+};
+
+/**
+ *
  * @param {{userId: string, productId: string, quanitity: number}} data
  * @returns
  */

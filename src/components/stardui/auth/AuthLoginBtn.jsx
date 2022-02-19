@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { MDBBtn } from 'mdb-react-ui-kit';
 
 import { useHistory } from 'react-router-dom';
@@ -22,9 +21,5 @@ function AuthLoginBtn({ margin }) {
     </>
   );
 }
-
-AuthLoginBtn.propTypes = {
-  margin: PropTypes.bool.isRequired,
-};
 
 export default AuthLoginBtn;

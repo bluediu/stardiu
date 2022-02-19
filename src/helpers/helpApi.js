@@ -13,6 +13,7 @@ export const api_enpoint = {
   addToCart: `${api_conn}/cart/add`,
   getShoppingCart: `${api_conn}/cart`,
   countShoppingCart: `${api_conn}/cart/count`,
+  productExistInShoppingCart: `${api_conn}/cart/verify`,
 
   getCategories: `${api_conn}/categories`,
 };
