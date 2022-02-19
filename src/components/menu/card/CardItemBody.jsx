@@ -6,9 +6,8 @@ import {
 } from 'mdb-react-ui-kit';
 import { formatPrice } from '../../../helpers/format-price';
 import PropTypes from 'prop-types';
-import ShoppingCartBtn from '../../stardui/cart/ShoppingCartBtn';
 
-function CardItemBody({ price, name, category, id }) {
+function CardItemBody({ price, name, category }) {
   return (
     <div>
       <MDBCardBody style={{ backgroundColor: '#FBFCFC' }}>
@@ -20,8 +19,6 @@ function CardItemBody({ price, name, category, id }) {
         <MDBCardText>
           <p>{formatPrice.format(price)} USD</p>
         </MDBCardText>
-
-        <ShoppingCartBtn />
       </MDBCardBody>
     </div>
   );
