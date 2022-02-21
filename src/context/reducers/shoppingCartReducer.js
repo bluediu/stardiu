@@ -22,6 +22,12 @@ export const shoppingCartReducer = (
         total: action.payload,
       };
 
+    /*  case TYPES.REMOVE_ONE_FROM_CART: 
+    return {
+      ...state,
+      cart: state.cart.map((c) => action.payload.id === )
+    } */
+
     /*    case REMOVE_ONE_FROM_CART: {
       let itemToDelete = state.cart.find((item) => item.id === action.payload);
 

@@ -10,6 +10,8 @@ const api = helpHttp();
 
 /* ----- SHOPPING CART SECTION ----- */
 
+/* ----- GET SECTION ----- */
+
 /**
  *
  * @param {{userId}} userId user id when has been logged
@@ -63,6 +65,8 @@ export const startIsProductAddedToCart = async (
   }
 };
 
+/* ----- CREATE SECTION ----- */
+
 /**
  *
  * @param {{userId: string, productId: string, quanitity: number}} data
@@ -90,6 +94,35 @@ export const startAddToCart = (cartData) => {
     }
   };
 };
+
+/* ----- DELETE SECTION ----- */
+/**
+ *
+ * @param {string} productId
+ * @param {string} userId
+ */
+export const startDeleteOneFromCart = async (
+  productId,
+  userId
+) => {
+  try {
+    const res = await api.del(
+      `${api_enpoint.deleteOneFromShoppingCart}/${productId}/${userId}`
+    );
+
+    toast.error('Deleting from cart', {
+      autoClose: 500,
+      hideProgressBar: false,
+      closeOnClick: true,
+    });
+
+    return res;
+  } catch (error) {
+    return error;
+  }
+};
+
+/* ----- ACTIONS SECTION ----- */
 
 export const addToCart = (data) => ({
   type: TYPES.ADD_TO_CART,

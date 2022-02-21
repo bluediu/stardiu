@@ -14,6 +14,7 @@ export const api_enpoint = {
   getShoppingCart: `${api_conn}/cart`,
   countShoppingCart: `${api_conn}/cart/count`,
   productExistInShoppingCart: `${api_conn}/cart/verify`,
+  deleteOneFromShoppingCart: `${api_conn}/cart/delete`,
 
   getCategories: `${api_conn}/categories`,
 };

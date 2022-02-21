@@ -40,7 +40,7 @@ function Card() {
 
   return (
     <>
-      <Search />
+      {/* <Search /> */}
       {error && <Alert error={error} />}
 
       {isLoading && <Loader />}

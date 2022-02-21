@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   countProducts,
   startAddToCart,
+  startDeleteOneFromCart,
   startIsProductAddedToCart,
 } from '../../../context/actions/shoppingCart';
 import AuthModal from '../../modal/authModal/AuthModal';
@@ -37,7 +38,12 @@ function ShoppingCartBtn() {
   };
 
   const handleRemoveFromCart = () => {
-    console.log('remover');
+    if (uid) {
+      startDeleteOneFromCart(detailsData._id, uid);
+
+      dispatch(countProducts(total - 1));
+      setProductExist(false);
+    }
   };
 
   useEffect(() => {
