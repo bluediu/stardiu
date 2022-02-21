@@ -14,6 +14,7 @@ function ShoppingCartBtn() {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
+  const [loadingAction, setLoadingAction] = useState(false);
   const [product, setProduct] = useState(null);
   const [productExist, setProductExist] = useState(false);
 
@@ -23,6 +24,7 @@ function ShoppingCartBtn() {
 
   const handleAddToCart = () => {
     if (uid) {
+      setLoadingAction(true);
       dispatch(
         startAddToCart({
           userId: uid,
@@ -32,6 +34,8 @@ function ShoppingCartBtn() {
       );
       dispatch(countProducts(total + 1));
       verifyProduct();
+
+      setLoadingAction(false);
     } else {
       setShowModal(true);
     }
@@ -39,10 +43,22 @@ function ShoppingCartBtn() {
 
   const handleRemoveFromCart = () => {
     if (uid) {
+      setLoadingAction(true);
       startDeleteOneFromCart(detailsData._id, uid);
 
       dispatch(countProducts(total - 1));
       setProductExist(false);
+      setLoadingAction(false);
+    }
+  };
+
+  const onAction = () => {
+    if (!loadingAction) {
+      if (productExist) {
+        handleRemoveFromCart();
+      } else {
+        handleAddToCart();
+      }
     }
   };
 
@@ -78,33 +94,23 @@ function ShoppingCartBtn() {
         toggleShow={toggleShow}
       />
 
-      {productExist ? (
-        <>
-          <MDBBtn
-            size="sm"
-            rounded
-            outline
-            color="danger"
-            onClick={handleRemoveFromCart}
-          >
-            <MDBIcon fas icon="minus" className="me-2" />
-            Remove from cart
-          </MDBBtn>
-        </>
-      ) : (
-        <>
-          <MDBBtn
-            size="sm"
-            rounded
-            outline
-            color="dark"
-            onClick={handleAddToCart}
-          >
-            <MDBIcon fas icon="cart-plus" className="me-2" />
-            Add to cart
-          </MDBBtn>
-        </>
-      )}
+      <MDBBtn
+        size="sm"
+        disabled={loadingAction ? true : false}
+        rounded
+        outline
+        color={productExist ? 'danger' : 'dark'}
+        onClick={onAction}
+      >
+        <div>
+          <MDBIcon
+            fas
+            icon={productExist ? 'minus' : 'cart-plus'}
+            className="me-2"
+          />
+          {productExist ? 'Remove from cart' : 'Add to cart'}
+        </div>
+      </MDBBtn>
     </div>
   );
 }

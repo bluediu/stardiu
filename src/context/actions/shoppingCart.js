@@ -111,7 +111,7 @@ export const startDeleteOneFromCart = async (
     );
 
     toast.error('Deleting from cart', {
-      autoClose: 500,
+      autoClose: 200,
       hideProgressBar: false,
       closeOnClick: true,
     });
