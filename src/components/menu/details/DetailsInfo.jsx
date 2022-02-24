@@ -4,7 +4,9 @@ import { formatPrice } from '../../../helpers/format-price';
 import ShoppingCartBtn from '../../stardui/cart/ShoppingCartBtn';
 
 function DetailsInfo(props) {
-  const { name, description, category, price } = props;
+  const { name, description, category, price, size } = props;
+
+  console.log(size);
 
   return (
     <section className="mt-5">
@@ -21,6 +23,18 @@ function DetailsInfo(props) {
         <p className="fw-bold fs-4">
           {formatPrice.format(price)}
         </p>
+
+        <div>
+          <small>Size</small>
+
+          <select className="form-select">
+            {size?.map((s) => (
+              <option key={s} value="1">
+                {s}
+              </option>
+            ))}
+          </select>
+        </div>
 
         <hr />
         <ShoppingCartBtn />

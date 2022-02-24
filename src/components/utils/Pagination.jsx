@@ -15,7 +15,7 @@ function Pagination({ pageCount, onPageChange }) {
         onPageChange={onPageChange}
         containerClassName={'pagination justify-content-center'}
         pageClassName={'page-item'}
-        pageLinkClassName={'page-link bg-dark'}
+        pageLinkClassName={'page-link'}
         previousClassName={'page-item'}
         previousLinkClassName={'page-link'}
         nextClassName={'page-item'}

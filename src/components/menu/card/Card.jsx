@@ -38,6 +38,8 @@ function Card() {
     });
   };
 
+  console.log(products);
+
   return (
     <>
       {/* <Search /> */}
@@ -50,7 +52,7 @@ function Card() {
           <CardItem key={product._id} {...product} />
         ))}
       </section>
-      <section className="mt-4">
+      <section className="mt-5">
         {products.length && (
           <Pagination
             pageCount={pagesNumber}

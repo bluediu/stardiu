@@ -3,3 +3,7 @@
   bottom: 1rem;
   right: 0.3rem;
 }
+
+.form-select {
+  width: 6.6rem !important;
+}

@@ -10,7 +10,7 @@ const api = helpHttp();
 
 /* ----- GET SECTION ----- */
 
-const limit = 6;
+const limit = 8;
 
 /* get initial products when the component(CardGrid) load the first time */
 export const startGetInitialProducts = () => {
