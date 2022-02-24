@@ -32,6 +32,7 @@ function AuthLoginScreen() {
 
   const responseGoogle = (resp) => {
     const { tokenId } = resp;
+    console.log(resp);
     dispatch(startLoginWithGoogle(tokenId));
   };
 
