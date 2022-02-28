@@ -6,8 +6,6 @@ import ShoppingCartBtn from '../../stardui/cart/ShoppingCartBtn';
 function DetailsInfo(props) {
   const { name, description, category, price, size } = props;
 
-  console.log(size);
-
   return (
     <section className="mt-5">
       <div className="d-flex align-items-center">
