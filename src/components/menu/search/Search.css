@@ -1,5 +1,7 @@
+/* Search styles */
 .search-container-main {
-  border: 1px solid red;
+  /*   border: 1px solid red; */
+  margin-bottom: 1.5rem;
 }
 
 .search-container {
@@ -14,29 +16,82 @@
   cursor: pointer;
   width: 100%;
   z-index: 999;
-  transition: 200ms all ease-in-out;
 }
 
-.list-group {
-  border-radius: 8px !important;
-}
+/* items styles */
 
-.item-image {
-  width: 5rem;
-  border-radius: 1rem;
-  height: 5rem;
-  object-fit: cover;
+.item-product-main {
+  margin-bottom: 0.4rem;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.2) !important;
+  padding: 0;
+  border-radius: 4px;
 }
 
 .item-product {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.item-image {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  margin-left: 1rem;
+  object-fit: cover;
 }
 
 .item-info {
   margin: 1rem;
+  font-size: 0.8rem;
 }
 
 .main-text {
   font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.main-text:hover {
+  text-decoration: underline;
+}
+
+.no-results {
+  background-color: transparent;
+}
+
+/* List styles */
+
+.list-group {
+  background-color: rgba(236, 240, 241, 0.6) !important;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.9) !important;
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  padding: 0.7rem 1rem !important;
+  border-radius: 8px !important;
+  max-height: 340px !important;
+  overflow-y: scroll;
+}
+
+.list-group-cross {
+  text-align: right;
+  padding: 0.3rem;
+}
+
+/* Responsive */
+@media only screen and (max-width: 440px) {
+  .search-list {
+    right: 0.58rem;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .search-list {
+    left: -2rem;
+  }
 }

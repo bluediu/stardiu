@@ -3,22 +3,20 @@ import React, { useEffect, useState } from 'react';
 import { startSearchByName } from '../../../context/actions/search.action';
 import { useDispatch, useSelector } from 'react-redux';
 import { useDebounce } from 'react-use';
+import Fade from 'react-reveal/Fade';
 
 /* components */
 import {
   MDBIcon,
-  MDBInputGroup,
-  MDBInputGroupText,
-  MDBInputGroupElement,
   MDBListGroup,
   MDBListGroupItem,
-  MDBSpinner,
-  MDBBadge,
 } from 'mdb-react-ui-kit';
 
 /* styles */
 import '../../menu/card/Card.css';
 import './Search.css';
+import SearchForm from './SearchForm';
+import SearchResult from './SearchResult';
 
 function Search() {
   const dispatch = useDispatch();
@@ -44,7 +42,6 @@ function Search() {
 
   useEffect(() => {
     if (inputText?.length >= 1) {
-      console.log('Buscando');
       dispatch(startSearchByName(debouncedSearch, 'products'));
     }
   }, [debouncedSearch]);
@@ -66,86 +63,56 @@ function Search() {
     }
   };
 
-  console.log(results);
-  console.log(showList);
-  // TODO: Finish search bar in other ocacion
-
   return (
     <div
       className="search-container-main"
-      onMouseLeave={() => setShowList(false)}
+      /*   onMouseLeave={() => setShowList(false)} */
     >
       <section className="container mt-4">
         <div className="search-container">
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="search-input"
-          >
-            <MDBInputGroup
-              className="mb-3"
-              onClick={() => setShowList(true)}
-            >
-              <MDBInputGroupText>
-                {!loading ? (
+          <SearchForm
+            loading={loading}
+            setShowList={setShowList}
+            inputText={inputText}
+            handleInput={handleInput}
+          />
+
+          {showList && (
+            <Fade left>
+              <div className="search-list">
+                <MDBListGroup
+                  flush
+                  style={{ minWidth: '22rem' }}
+                  /*  className="list-group" */
+                >
                   <MDBIcon
                     fas
-                    icon="search"
-                    className="search-icon"
+                    icon="times"
+                    className="list-group-cross"
+                    onClick={() => setShowList(false)}
                   />
-                ) : (
-                  <MDBSpinner color="dark" size="sm">
-                    <span className="visually-hidden">
-                      Loading...
-                    </span>
-                  </MDBSpinner>
-                )}
-              </MDBInputGroupText>
 
-              <MDBInputGroupElement
-                placeholder="Search a product..."
-                id="search"
-                type="search"
-                value={inputText}
-                onChange={handleInput}
-              />
-            </MDBInputGroup>
-          </form>
-
-          <div className="search-list">
-            <MDBListGroup flush style={{ minWidth: '22rem' }}>
-              {showList
-                ? products.results?.map((product, index) => {
+                  {products.results?.map((product, index) => {
                     return (
-                      <MDBListGroupItem key={index}>
-                        <section className="item-product">
-                          <div>
-                            <img
-                              className="item-image"
-                              src={product.img}
-                              alt=""
-                            />
-                          </div>
-
-                          <div className="item-info">
-                            <div className="main-text">
-                              {product.name}
-                            </div>
-
-                            <MDBBadge color="dark">
-                              {product.category.name}
-                            </MDBBadge>
-                          </div>
-                        </section>
-                      </MDBListGroupItem>
+                      <SearchResult
+                        key={index}
+                        product={product}
+                      />
                     );
-                  })
-                : products.length < 1 && (
-                    <MDBListGroupItem>
-                      <b> There are not results</b>
+                  })}
+
+                  {products.length < 1 && (
+                    <MDBListGroupItem className="no-results">
+                      <b>
+                        There are no results or type an available
+                        entry 😕
+                      </b>
                     </MDBListGroupItem>
                   )}
-            </MDBListGroup>
-          </div>
+                </MDBListGroup>
+              </div>
+            </Fade>
+          )}
         </div>
       </section>
     </div>
