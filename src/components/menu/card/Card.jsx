@@ -41,6 +41,7 @@ function Card() {
   return (
     <>
       <Search />
+
       {error && <Alert error={error} />}
 
       {isLoading && <Loader />}
