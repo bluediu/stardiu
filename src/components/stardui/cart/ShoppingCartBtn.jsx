@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 function ShoppingCartBtn() {
   const dispatch = useDispatch();
 
+  /* TODO: Refactor components creating a hook */
   const [showModal, setShowModal] = useState(false);
   const [loadingAction, setLoadingAction] = useState(false);
   const [product, setProduct] = useState(null);
