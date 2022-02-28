@@ -38,11 +38,9 @@ function Card() {
     });
   };
 
-  console.log(products);
-
   return (
     <>
-      {/* <Search /> */}
+      <Search />
       {error && <Alert error={error} />}
 
       {isLoading && <Loader />}
