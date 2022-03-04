@@ -45,7 +45,7 @@ export const startGetInitialProducts = () => {
 
 /**
  * get products by page
- * @param {*} page:int
+ * @param {number} page
  */
 export const startGetProductsByPage = (page = 1) => {
   return async (dispatch) => {
@@ -75,6 +75,10 @@ export const startGetProductsByPage = (page = 1) => {
   };
 };
 
+/**
+ *
+ * @param {string} id product id
+ */
 export const startGetProductById = (id) => {
   return async (dispatch) => {
     try {
@@ -100,9 +104,9 @@ export const startGetProductById = (id) => {
 
 /**
  *
- * @param {*} data:object
- * @param {*} total:number
- * @param {*} limit:number
+ * @param {Array<object>} data:object
+ * @param {number} total
+ * @param {number} limit
  */
 const getProducts = (
   data,
@@ -116,7 +120,7 @@ const getProducts = (
 
 /**
  *
- * @param {*} data:object
+ * @param {object} data
  */
 const detailsItem = (data) => ({
   type: TYPES.PRODUCT_GET_DETAILS,
