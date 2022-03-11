@@ -28,7 +28,9 @@ function Card() {
   } = useSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(startGetInitialProducts());
+    if (currentPage === 1) {
+      dispatch(startGetInitialProducts());
+    }
   }, []);
 
   useEffect(() => {
