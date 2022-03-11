@@ -2,7 +2,7 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 
-function Pagination({ pageCount, onPageChange }) {
+function Pagination({ pageCount, onPageChange, currentPage }) {
   return (
     <section className="d-flex justify-content-center align-items-center w-100">
       <ReactPaginate
@@ -13,6 +13,7 @@ function Pagination({ pageCount, onPageChange }) {
         marginPagesDisplayed={2}
         pageRangeDisplayed={3}
         onPageChange={onPageChange}
+        forcePage={currentPage - 1}
         containerClassName={'pagination justify-content-center'}
         pageClassName={'page-item'}
         pageLinkClassName={'page-link'}

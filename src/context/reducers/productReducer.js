@@ -5,6 +5,7 @@ const initialRecords = {
   total: 0,
   limit: 0,
   pagesNumber: 0,
+  currentPage: 1,
   error: null,
   isLoading: true,
   detailsData: null,
@@ -28,6 +29,12 @@ export const productReducer = (
       return {
         ...state,
         detailsData: action.payload,
+      };
+
+    case TYPES.CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.payload,
       };
 
     case TYPES.ERROR_TO_FETCH:

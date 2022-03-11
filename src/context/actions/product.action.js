@@ -138,3 +138,11 @@ const detailsItem = (data) => ({
   type: TYPES.PRODUCT_GET_DETAILS,
   payload: data,
 });
+
+/**
+ *
+ */
+export const startCurrentPage = (current) => ({
+  type: TYPES.CURRENT_PAGE,
+  payload: current,
+});
