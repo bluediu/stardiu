@@ -16,7 +16,6 @@ import Alert from '../../utils/Alert';
 /* styles */
 import './Card.css';
 import Search from '../search/Search';
-import { useHistory } from 'react-router-dom';
 
 function Card() {
   const dispatch = useDispatch();
@@ -28,19 +27,12 @@ function Card() {
     isLoading,
   } = useSelector((state) => state.products);
 
-  // ROUTER
-  let history = useHistory();
-
   useEffect(() => {
     dispatch(startGetInitialProducts());
-    history.push('menu/?page=1');
   }, []);
 
   useEffect(() => {
     dispatch(startGetProductsByPage(currentPage));
-    if (currentPage !== 1) {
-      history.push(`menu/?page=${currentPage}`);
-    }
   }, [currentPage]);
 
   const handlePageClick = ({ selected }) => {
