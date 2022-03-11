@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CaroselItem from './CaroselItem';
+import CarouselItem from './CaroselItem';
 import { MDBCarousel, MDBCarouselInner } from 'mdb-react-ui-kit';
 import { carouselData } from './data/carousel-data';
 import './Carousel.css';
@@ -12,7 +12,7 @@ function Carousel() {
       <MDBCarousel showControls showIndicators>
         <MDBCarouselInner>
           {carouselData.map((item) => (
-            <CaroselItem
+            <CarouselItem
               key={item.item}
               item={item.item}
               title={item.title}

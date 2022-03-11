@@ -1,6 +1,6 @@
-import COFFE_CUP from '../../../../assets/img/carousel/coffe-cup.jpg';
-import COFFE_SHOP from '../../../../assets/img/carousel/coffe-shop.jpg';
-import PERSON_DRINK from '../../../../assets/img/carousel/person-drink-coffe.jpg';
+import COFFE_CUP from '../../../../../assets/img/carousel/coffe-cup.jpg';
+import COFFE_SHOP from '../../../../../assets/img/carousel/coffe-shop.jpg';
+import PERSON_DRINK from '../../../../../assets/img/carousel/person-drink-coffe.jpg';
 
 export const carouselData = [
   {

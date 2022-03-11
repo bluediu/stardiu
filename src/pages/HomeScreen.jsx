@@ -9,6 +9,8 @@ import {
   Navbar,
 } from '../components/stardui/';
 
+import Latest from '../components/stardui/latest/Latest';
+
 function HomeScreen() {
   useEffect(() => {
     document.title = 'Stardui - Home';
@@ -19,17 +21,7 @@ function HomeScreen() {
       <Navbar />
       <Hero />
       <Description />
-
-      <section className="container">
-        <h1>los ultimos productos recomendados</h1>
-        <div className="row">
-          <div className="col-3">LOOO</div>
-          <div className="col-3">LOOO</div>
-          <div className="col-3">LOOO</div>
-          <div className="col-3">LOOO</div>
-        </div>
-      </section>
-
+      <Latest />
       <Carousel />
       <Footer />
     </>

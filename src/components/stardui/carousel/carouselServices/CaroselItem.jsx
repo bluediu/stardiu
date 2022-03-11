@@ -6,7 +6,7 @@ import {
   MDBCarouselItem,
 } from 'mdb-react-ui-kit';
 
-function CaroselItem({ item, image, title, desc }) {
+function CarouselItem({ item, image, title, desc }) {
   return (
     <MDBCarouselItem itemId={item}>
       <MDBCarouselElement
@@ -22,11 +22,11 @@ function CaroselItem({ item, image, title, desc }) {
   );
 }
 
-CaroselItem.propTypes = {
+CarouselItem.propTypes = {
   item: PropTypes.number,
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
 };
 
-export default CaroselItem;
+export default CarouselItem;

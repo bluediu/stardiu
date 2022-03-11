@@ -102,6 +102,18 @@ export const startGetProductById = (id) => {
   };
 };
 
+export const getLatestProduct = async () => {
+  try {
+    const res = await api.get(
+      `${api_enpoint.getProducts}/latest`
+    );
+
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 /**
  *
  * @param {Array<object>} data:object
