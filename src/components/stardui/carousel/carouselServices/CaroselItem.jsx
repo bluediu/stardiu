@@ -8,7 +8,10 @@ import {
 
 function CarouselItem({ item, image, title, desc }) {
   return (
-    <MDBCarouselItem itemId={item}>
+    <MDBCarouselItem
+      itemId={item}
+      className={`${item === 0 && 'active'}`}
+    >
       <MDBCarouselElement
         style={{ borderRadius: '12px' }}
         src={image}
