@@ -1,8 +1,6 @@
 import {
   MDBIcon,
   MDBInputGroup,
-  MDBInputGroupElement,
-  MDBInputGroupText,
   MDBSpinner,
 } from 'mdb-react-ui-kit';
 import React from 'react';
