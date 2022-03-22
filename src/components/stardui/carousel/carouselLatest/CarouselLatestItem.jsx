@@ -6,7 +6,6 @@ import {
 import React from 'react';
 
 function CarouselLatestItem({ item, name, img }) {
-  console.log('indice', item);
   return (
     <MDBCarouselItem
       style={{ borderRadius: '12px' }}

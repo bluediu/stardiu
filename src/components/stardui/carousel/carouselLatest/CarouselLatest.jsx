@@ -10,7 +10,6 @@ function CarouselLatest() {
   const getLatest = async () => {
     const latest = await getLatestProduct();
     setLatest(latest);
-    console.log(latest);
   };
 
   useEffect(() => {
