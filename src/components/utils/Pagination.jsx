@@ -6,8 +6,8 @@ function Pagination({ pageCount, onPageChange, currentPage }) {
   return (
     <section className="d-flex justify-content-center align-items-center w-100">
       <ReactPaginate
-        previousLabel={'previous'}
-        nextLabel={'next'}
+        previousLabel={'anterior'}
+        nextLabel={'siguiente'}
         breakLabel={'...'}
         pageCount={pageCount}
         marginPagesDisplayed={2}

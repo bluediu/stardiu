@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Fade from 'react-reveal/Fade';
-
 /* components */
 import {
   MDBIcon,
@@ -38,39 +36,34 @@ function Search() {
           />
 
           {showList && (
-            <Fade left>
-              <div className="search-list">
-                <MDBListGroup
-                  flush
-                  style={{ minWidth: '22rem' }}
-                >
-                  <MDBIcon
-                    fas
-                    icon="times"
-                    className="list-group-cross"
-                    onClick={() => setShowList(false)}
-                  />
+            <div className="search-list">
+              <MDBListGroup flush style={{ minWidth: '22rem' }}>
+                <MDBIcon
+                  fas
+                  icon="times"
+                  className="list-group-cross"
+                  onClick={() => setShowList(false)}
+                />
 
-                  {products.results?.map((product, index) => {
-                    return (
-                      <SearchResult
-                        key={index}
-                        product={product}
-                      />
-                    );
-                  })}
+                {products.results?.map((product, index) => {
+                  return (
+                    <SearchResult
+                      key={index}
+                      product={product}
+                    />
+                  );
+                })}
 
-                  {products.length < 1 && (
-                    <MDBListGroupItem className="no-results">
-                      <b>
-                        There are no results or type an available
-                        entry 😕
-                      </b>
-                    </MDBListGroupItem>
-                  )}
-                </MDBListGroup>
-              </div>
-            </Fade>
+                {products.length < 1 && (
+                  <MDBListGroupItem className="no-results">
+                    <b>
+                      No hay resultado o escribe una entrada
+                      valida 😕
+                    </b>
+                  </MDBListGroupItem>
+                )}
+              </MDBListGroup>
+            </div>
           )}
         </div>
       </section>

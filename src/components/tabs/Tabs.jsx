@@ -15,7 +15,7 @@ function Tabs() {
             to="/menu"
             activeClassName="active"
           >
-            All products
+            Todos los productos
           </NavLink>
         </li>
         <li className="nav-item">
@@ -24,7 +24,7 @@ function Tabs() {
             to="/categories"
             activeClassName="active"
           >
-            Categories
+            Categorias
           </NavLink>
         </li>
         {/*   <li className="nav-item">

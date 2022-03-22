@@ -30,7 +30,7 @@ function SearchForm(props) {
         </MDBInputGroupText>
 
         <MDBInputGroupElement
-          placeholder="Search a product..."
+          placeholder="Buscar un producto..."
           id="search"
           type="text"
           value={inputText}
