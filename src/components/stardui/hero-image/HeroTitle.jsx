@@ -21,15 +21,15 @@ function HeroTitle() {
     >
       <div>
         <Fade>
-          <span className="d-block fw-bold font-title">THE</span>
+          <span className="d-block fw-bold font-title">EL</span>
 
           <span className="d-block fw-bold font-title" id="test">
-            STYLISH
+            CAFÉ CON
           </span>
         </Fade>
         <Fade right cascade>
           <span className="d-block fw-bold font-title green-text">
-            COFFE
+            STILO
           </span>
         </Fade>
       </div>
@@ -43,7 +43,7 @@ function HeroTitle() {
             className="mt-3"
             onClick={() => history.push(ROUTE.MENU_BASE)}
           >
-            Discover
+            Descubrir
           </MDBBtn>
         </Fade>
       </div>
