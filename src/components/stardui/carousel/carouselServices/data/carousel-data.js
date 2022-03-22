@@ -5,20 +5,20 @@ import PERSON_DRINK from '../../../../../assets/img/carousel/person-drink-coffe.
 export const carouselData = [
   {
     item: 0,
-    title: 'Best',
-    desc: 'The best coffe of El Salvador',
+    title: 'Mejor',
+    desc: 'El mejor café de El Salvador',
     img: COFFE_CUP,
   },
   {
     item: 1,
-    title: 'Take',
-    desc: 'Take it coffee cup with us',
+    title: 'Disfrutar',
+    desc: 'Disfruta del mejor café con nosotros',
     img: PERSON_DRINK,
   },
   {
     item: 2,
-    title: 'Nice',
-    desc: 'Nice services and a modern place',
+    title: 'Excelente',
+    desc: 'Excelente servicio y con un lugar moderno',
     img: COFFE_SHOP,
   },
 ];
