@@ -16,23 +16,24 @@ function SearchForm(props) {
       className="search-input"
     >
       <MDBInputGroup
-        className="mb-3"
-        onClick={() => setShowList(true)}
-      >
-        <MDBInputGroupText>
-          {!loading ? (
+        noWrap
+        textBefore={
+          !loading ? (
             <MDBIcon fas icon="search" className="search-icon" />
           ) : (
             <MDBSpinner color="dark" size="sm">
               <span className="visually-hidden">Loading...</span>
             </MDBSpinner>
-          )}
-        </MDBInputGroupText>
-
-        <MDBInputGroupElement
+          )
+        }
+        className="mb-3"
+        onClick={() => setShowList(true)}
+      >
+        <input
+          className="form-control"
+          type="text"
           placeholder="Buscar un producto..."
           id="search"
-          type="text"
           value={inputText}
           onChange={handleInput}
         />

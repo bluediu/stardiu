@@ -29,7 +29,7 @@ function HeroTitle() {
         </Fade>
         <Fade right cascade>
           <span className="d-block fw-bold font-title green-text">
-            STILO
+            ESTILO
           </span>
         </Fade>
       </div>
