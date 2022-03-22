@@ -3,11 +3,11 @@ import React from 'react';
 function DescriptionText() {
   return (
     <div className="col-lg-6">
-      <h2 className="my-4">WELCOME</h2>
+      <h2 className="my-4">BIENVENIDO</h2>
       <p>
-        We have the best coffee and service a modern place enjoy
-        a nice coffee cup with us and remember there is nothing
-        better than a stylish coffee.
+        Tenemos el mejor café y servicio un lugar moderno,
+        disfruta de una buena taza de café con nosotros y
+        recuerda que no hay nada mejor que un café con estilo
       </p>
     </div>
   );
