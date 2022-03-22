@@ -44,7 +44,7 @@ function AuthSignInScreen() {
           <input
             type="text"
             id="name"
-            defaultValue="testA"
+            defaultValue=""
             className="form-control border"
             {...register('name', {
               required: true,
@@ -65,7 +65,7 @@ function AuthSignInScreen() {
           <input
             type="email"
             id="email"
-            defaultValue="test3@gmail.com"
+            defaultValue=""
             className="form-control border"
             {...register('email', {
               required: true,
@@ -86,7 +86,7 @@ function AuthSignInScreen() {
           <input
             type="password"
             id="password"
-            defaultValue="123456"
+            defaultValue=""
             className="form-control border"
             {...register('password', {
               required: true,

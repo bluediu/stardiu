@@ -32,6 +32,7 @@ function AuthLoginScreen() {
 
   const responseGoogle = (resp) => {
     const { tokenId } = resp;
+    console.log('google', tokenId);
     dispatch(startLoginWithGoogle(tokenId));
   };
 
@@ -69,7 +70,7 @@ function AuthLoginScreen() {
             <input
               type="email"
               id="email"
-              defaultValue="josuerivas@gmail.com"
+              defaultValue=""
               className="form-control border"
               {...register('email', {
                 required: true,
@@ -93,7 +94,7 @@ function AuthLoginScreen() {
             <input
               type="password"
               id="password"
-              defaultValue="kernel@panic2311"
+              defaultValue=""
               className="form-control border"
               {...register('password', {
                 required: true,
