@@ -1,3 +1,9 @@
 .carousel-width-latest {
   width: 80%;
 }
+
+@media only screen and (max-width: 976px) {
+  .carousel-width-latest {
+    width: 100%;
+  }
+}

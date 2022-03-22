@@ -4,8 +4,8 @@
 .latest-left span {
   display: block;
   font-size: 1.4rem;
-  font-weight: 600;
-  margin-top: 1rem;
+  font-weight: bold;
+  margin-top: 2.5rem;
 }
 
 .latest-left {
@@ -17,4 +17,37 @@
 
 .latest-img {
   display: block !important;
+}
+
+.blod-container {
+  position: relative;
+  height: 20rem;
+  width: 20rem;
+}
+
+.blod-info {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+}
+
+.blod {
+  opacity: 0.27;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 976px) {
+  .latest-left {
+    margin-bottom: 4rem;
+  }
+
+  .blod-info span {
+    text-align: center;
+    margin-right: 23px;
+  }
+
+  .blod-container {
+    height: 16rem;
+    width: 16rem;
+  }
 }
