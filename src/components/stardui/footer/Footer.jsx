@@ -11,7 +11,7 @@ function Footer() {
       >
         <MDBContainer className="p-4 pb-0">
           <hr />
-          <small>Contacts</small>
+          <small>Contactos</small>
           <Social />
           <hr />
           <div
@@ -25,7 +25,8 @@ function Footer() {
               className="text-dark"
               href="https://mdbootstrap.com/"
             >
-              Stardiu Coffee Company. All rights reserved.
+              Stardiu Coffee Company. Todos los derechos
+              reservados.
             </a>
           </div>
         </MDBContainer>
