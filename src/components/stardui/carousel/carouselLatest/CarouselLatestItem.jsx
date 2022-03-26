@@ -1,11 +1,13 @@
 import {
-  MDBCarouselCaption,
   MDBCarouselElement,
   MDBCarouselItem,
 } from 'mdb-react-ui-kit';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-function CarouselLatestItem({ item, name, img }) {
+function CarouselLatestItem({ id, item, name, img }) {
+  let history = useHistory();
+
   return (
     <MDBCarouselItem
       style={{ borderRadius: '12px' }}
@@ -13,13 +15,11 @@ function CarouselLatestItem({ item, name, img }) {
       className={`${item === 0 && 'active'}`}
     >
       <MDBCarouselElement
+        onClick={() => history.push(`/d/${id}`)}
         style={{ borderRadius: '12px' }}
         src={img}
         alt={name}
       />
-      <MDBCarouselCaption>
-        <h5>Test</h5>
-      </MDBCarouselCaption>
     </MDBCarouselItem>
   );
 }

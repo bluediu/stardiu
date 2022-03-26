@@ -25,6 +25,7 @@ function CarouselLatest() {
               {latest?.map(({ _id, name, img }, i) => (
                 <CarouselLatestItem
                   key={_id}
+                  id={_id}
                   item={i}
                   name={name}
                   img={img}
