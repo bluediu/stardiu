@@ -7,7 +7,7 @@ function BackButton() {
 
   return (
     <MDBBtn
-      onClick={() => history.push('/menu')}
+      onClick={() => history.goBack()}
       size="sm"
       color="dark"
       rounded
