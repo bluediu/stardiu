@@ -9,4 +9,5 @@ export const ROUTE = {
   DETAILS_NAME: '/d/:name',
   SEARCH_P: '/search',
   CART: '/cart',
+  CATEGORIES: '/categories',
 };
