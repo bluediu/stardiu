@@ -5,6 +5,10 @@
   column-gap: 2rem;
 }
 
+.categories-mg {
+  margin-top: 2rem;
+}
+
 @media only screen and (min-width: 569px) {
   .cards-grid {
     display: grid;

@@ -15,6 +15,7 @@ export const startGetAllCategories = () => {
   return async (dispatch) => {
     try {
       const res = await api.get(`${api_enpoint.getCategories}`);
+
       dispatch(getCategories(res.categories));
       dispatch(setIsLoading(false));
     } catch (err) {
@@ -25,7 +26,7 @@ export const startGetAllCategories = () => {
 
 /**
  *
- * @param {*} data: array
+ * @param {Array<object>} data
  */
 const getCategories = (data) => ({
   type: TYPES.CATEGORY_GET,

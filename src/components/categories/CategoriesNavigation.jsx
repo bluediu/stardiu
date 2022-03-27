@@ -6,20 +6,35 @@ import {
   Switch,
   useRouteMatch,
 } from 'react-router-dom';
+import CategoriesCard from './CategoriesCard';
+import Fade from 'react-reveal/Fade';
+import '../menu/card/Card.css';
 
 function CategoriesNavigation() {
   const { path, url } = useRouteMatch();
 
   return (
     <div>
-      <li>
+      {/*  <li>
         <Link to={`${url}/hot-coffes`}> ver cate</Link>
-      </li>
+      </li> */}
 
       <Switch>
         <Route exact path={`${path}/`}>
-          <h1>targeta de categorias</h1>
+          <Fade right cascade>
+            <h2 className="mt-5">Categorias</h2>
+          </Fade>
+
+          <hr />
+          <section className="cards-grid categories-mg">
+            <CategoriesCard url={url} />
+            <CategoriesCard url={url} />
+            <CategoriesCard url={url} />
+            <CategoriesCard url={url} />
+            <CategoriesCard url={url} />
+          </section>
         </Route>
+
         <Route exact path={`${path}/hot-coffes`}>
           <h1>HOT COFFES</h1>
         </Route>
