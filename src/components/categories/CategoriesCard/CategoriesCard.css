@@ -39,22 +39,22 @@
 
 .categories-link {
   position: absolute;
-  left: 50%;
+  left: 47%;
   top: 40%;
   transform: translate(-50%, 0);
-
-  background-color: rgba(148, 249, 240, 0.15);
-  border-radius: 16px;
-  border: 1px solid #76c5bf;
 }
 
 .categories-link a {
   font-weight: 600;
-  color: #76c5bf;
+
   padding: 2rem 2.1rem;
   font-size: 15px;
 }
 
 .categories-link:hover {
   opacity: 0.8;
+}
+
+.borders {
+  margin: 0 !important;
 }

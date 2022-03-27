@@ -2,7 +2,7 @@ import React from 'react';
 import CATEGORIES_BG from '../../../assets/img/categories.jpg';
 
 import { Link } from 'react-router-dom';
-import { MDBCard } from 'mdb-react-ui-kit';
+import { MDBBtn, MDBCard, MDBIcon } from 'mdb-react-ui-kit';
 
 import './CategoriesCard.css';
 
@@ -23,7 +23,18 @@ function CategoriesCard({ url }) {
       </div>
 
       <div className="categories-link">
-        <Link to={`${url}/hot-coffes`}>Descubrir</Link>
+        <Link to={`${url}/hot-coffes`}>
+          <MDBBtn
+            size="md"
+            outline
+            rounded
+            color="light"
+            className="borders"
+          >
+            <MDBIcon className="me-2" fas icon="hat-wizard" />
+            Descubrir
+          </MDBBtn>
+        </Link>
       </div>
     </MDBCard>
   );
