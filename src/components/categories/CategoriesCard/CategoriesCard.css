@@ -10,6 +10,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
 }
 
 .categories-info {
