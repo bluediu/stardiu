@@ -1,9 +1,11 @@
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+
+/* Components */
 import {
   MDBCarouselElement,
   MDBCarouselItem,
 } from 'mdb-react-ui-kit';
-import React from 'react';
-import { useHistory } from 'react-router-dom';
 
 function CarouselLatestItem({ id, item, name, img }) {
   let history = useHistory();

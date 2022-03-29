@@ -1,7 +1,11 @@
-import { MDBCarousel, MDBCarouselInner } from 'mdb-react-ui-kit';
 import React, { useEffect, useState } from 'react';
-import CarouselLatestItem from './CarouselLatestItem';
 import { getLatestProduct } from '../../../../context/actions/product.action';
+
+/* Components */
+import CarouselLatestItem from './CarouselLatestItem';
+import { MDBCarousel, MDBCarouselInner } from 'mdb-react-ui-kit';
+
+/* styles */
 import './CarouselLatest.css';
 
 function CarouselLatest() {

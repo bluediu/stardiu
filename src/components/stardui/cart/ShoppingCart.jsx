@@ -1,12 +1,14 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { ROUTE } from '../../../constants/auth-routes';
+
+/* Components */
 import {
   MDBBadge,
   MDBIcon,
   MDBNavbarLink,
 } from 'mdb-react-ui-kit';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { ROUTE } from '../../../constants/auth-routes';
 
 function ShoppingCart() {
   let history = useHistory();

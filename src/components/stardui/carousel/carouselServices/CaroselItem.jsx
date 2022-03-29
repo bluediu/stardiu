@@ -1,10 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+/* Components */
 import {
   MDBCarouselCaption,
   MDBCarouselElement,
   MDBCarouselItem,
 } from 'mdb-react-ui-kit';
+
+import PropTypes from 'prop-types';
 
 function CarouselItem({ item, image, title, desc }) {
   return (

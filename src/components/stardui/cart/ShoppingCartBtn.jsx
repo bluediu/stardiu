@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
-
-import AuthModal from '../../modal/authModal/AuthModal';
-
 import { useCart } from '../../../hooks/useCart';
+
+/* Components */
+import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
+import AuthModal from '../../modal/authModal/AuthModal';
 
 function ShoppingCartBtn() {
   const [showModal, setShowModal] = useState(false);
