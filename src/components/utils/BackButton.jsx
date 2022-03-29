@@ -14,7 +14,7 @@ function BackButton() {
       color="dark"
       rounded
     >
-      <MDBIcon fas icon="caret-left" /> Go back
+      <MDBIcon fas icon="caret-left" /> Regresar
     </MDBBtn>
   );
 }
