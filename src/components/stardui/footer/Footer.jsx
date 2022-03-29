@@ -1,5 +1,7 @@
-import { MDBContainer, MDBFooter } from 'mdb-react-ui-kit';
 import React from 'react';
+
+/* Components */
+import { MDBContainer, MDBFooter } from 'mdb-react-ui-kit';
 import Social from '../social/Social';
 
 function Footer() {

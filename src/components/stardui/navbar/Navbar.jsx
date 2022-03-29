@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-/* styles */
+/* components */
 import {
   MDBCollapse,
   MDBContainer,
@@ -10,7 +10,6 @@ import {
   MDBNavbarToggler,
 } from 'mdb-react-ui-kit';
 
-/* components */
 import NavbarLogo from './NavbarLogo';
 import NavbarNavigations from './NavbarNavigations';
 import NavbarOptions from './NavbarOptions';

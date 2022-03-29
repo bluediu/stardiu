@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* Components */
 import Footer from '../components/stardui/footer/Footer';
 import Navbar from '../components/stardui/navbar/Navbar';
 

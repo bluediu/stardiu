@@ -1,5 +1,7 @@
 import React from 'react';
 import HERO_IMAGE from '../../../assets/img/hero.svg';
+
+/* Components */
 import HeroImageContainer from './HeroImageContainer';
 import HeroTitle from './HeroTitle';
 import HeroWrapper from './HeroWrapper';

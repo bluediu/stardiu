@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* Components */
 import { Footer, Navbar } from '../components/stardui';
 
 function AboutScreen() {

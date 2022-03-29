@@ -1,8 +1,10 @@
-import { MDBBtn } from 'mdb-react-ui-kit';
 import React from 'react';
-import Fade from 'react-reveal/Fade';
 import { useHistory } from 'react-router-dom';
 import { ROUTE } from '../../../constants/auth-routes';
+
+/* Components */
+import { MDBBtn } from 'mdb-react-ui-kit';
+import Fade from 'react-reveal/Fade';
 
 function HeroTitle() {
   let history = useHistory();

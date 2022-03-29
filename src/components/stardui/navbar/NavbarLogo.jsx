@@ -1,7 +1,9 @@
 import React from 'react';
-import { MDBNavbarBrand } from 'mdb-react-ui-kit';
 import STAR_LOGO from '../../../assets/img/stardiuLogo.svg';
 import { useHistory } from 'react-router';
+
+/* Components */
+import { MDBNavbarBrand } from 'mdb-react-ui-kit';
 
 function NavbarLogo() {
   let history = useHistory();

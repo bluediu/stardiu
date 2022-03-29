@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import error from '../../assets/img/error404.svg';
+import { Link } from 'react-router-dom';
 
 function Error404() {
   return (

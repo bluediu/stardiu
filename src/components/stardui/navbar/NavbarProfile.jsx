@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+
+/* Components */
 import Avatar from '../../utils/Avatar';
 import NavbarProfileOptions from './navbarOptions/NavbarProfileOptions';
 

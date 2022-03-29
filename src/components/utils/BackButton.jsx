@@ -1,6 +1,8 @@
-import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
 import React from 'react';
 import { useHistory } from 'react-router';
+
+/* Components */
+import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
 
 function BackButton() {
   let history = useHistory();

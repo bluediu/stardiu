@@ -1,5 +1,7 @@
-import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
 import React from 'react';
+
+/* Components */
+import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
 
 function Social() {
   return (

@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* styles */
 import './MainLoader.css';
 
 function MainLoader() {

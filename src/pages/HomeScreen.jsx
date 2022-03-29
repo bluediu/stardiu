@@ -8,7 +8,6 @@ import {
   Hero,
   Navbar,
 } from '../components/stardui/';
-
 import Latest from '../components/stardui/latest/Latest';
 
 function HomeScreen() {

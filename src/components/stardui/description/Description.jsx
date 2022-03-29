@@ -1,9 +1,12 @@
 import React from 'react';
 
-import './Description.css';
+/* Components */
 import DescriptionContainer from './DescriptionContainer';
 import DescriptionImage from './DescriptionImage';
 import DescriptionText from './DescriptionText';
+
+/* styles */
+import './Description.css';
 
 function Description() {
   return (

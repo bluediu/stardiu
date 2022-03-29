@@ -11,7 +11,6 @@ import { startCheckingRenewToken } from '../context/actions/auth.action';
 import Error404 from '../components/utils/Error404';
 import MainLoader from '../components/utils/main-loader/MainLoader';
 import PrivateRoute from './PrivateRoute';
-// import Search from '../components/menu/search/Search';
 import ShoppingCartScreen from '../pages/ShoppingCartScreen';
 import { startCountProducts } from '../context/actions/shoppingCart';
 import CategoriesScreen from '../pages/CategoriesScreen';

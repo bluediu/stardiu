@@ -1,7 +1,8 @@
 import React from 'react';
-import Fade from 'react-reveal/Fade';
-
 import COFFE_IMAGE from '../../../assets/img/coffee-cup.svg';
+
+/* Components */
+import Fade from 'react-reveal/Fade';
 
 function HeroImageContainer() {
   return (

@@ -1,9 +1,12 @@
 import React from 'react';
-import Flip from 'react-reveal/Flip';
 
-import './NavbarOptions.css';
+/* Components */
+import Flip from 'react-reveal/Flip';
 import NavbarProfileOptionsBody from './NavbarProfileOptionsBody';
 import NavbarProfileOptionsHeader from './NavbarProfileOptionsHeader';
+
+/* styles */
+import './NavbarOptions.css';
 
 function NavbarProfileOptions() {
   return (

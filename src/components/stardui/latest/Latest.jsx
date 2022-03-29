@@ -1,12 +1,14 @@
 import React from 'react';
+import BLOB from '../../../assets/img/blob.svg';
+import RECOMMENDED from '../../../assets/img/recommended.svg';
+
+/* Components */
 import CarouselLatest from '../carousel/carouselLatest/CarouselLatest';
 
-import RECOMMENDED from '../../../assets/img/recommended.svg';
-import BLOB from '../../../assets/img/blob.svg';
+/* styles */
 import './Latest.css';
 
 function Latest() {
-  /* img-fluid w-50" */
   return (
     <section className="latest-container container my-5">
       <div className="row">
