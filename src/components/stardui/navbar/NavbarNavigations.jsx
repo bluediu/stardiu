@@ -8,7 +8,7 @@ function NavbarNavigations() {
       <article className="row d-flex align-items-center">
         <div className="col-sm-12 col-lg-4">
           <NavLink to="/" className="nav-link">
-            Home
+            Inicio
           </NavLink>
         </div>
 
@@ -28,7 +28,7 @@ function NavbarNavigations() {
             className="nav-link"
             activeClassName="active"
           >
-            About
+            Acerca
           </NavLink>
         </div>
       </article>
