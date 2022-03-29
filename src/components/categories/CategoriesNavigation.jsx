@@ -16,6 +16,7 @@ import CategoriesContainer from './CategoriesContainer';
 
 /* styles */
 import '../menu/card/Card.css';
+import Tabs from '../tabs/Tabs';
 
 function CategoriesNavigation() {
   const { path, url } = useRouteMatch();
@@ -40,6 +41,7 @@ function CategoriesNavigation() {
 
   return (
     <div>
+      <Tabs />
       <Switch>
         <Route exact path={`${path}/`}>
           <div className="container">
