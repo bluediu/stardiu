@@ -17,4 +17,5 @@ export const api_enpoint = {
   deleteOneFromShoppingCart: `${api_conn}/cart/delete`,
 
   getCategories: `${api_conn}/categories`,
+  getProductsByCategory: `${api_conn}/products/category`,
 };

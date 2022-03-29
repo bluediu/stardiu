@@ -1,9 +1,11 @@
 import React from 'react';
-
-import { Link } from 'react-router-dom';
-
 import CATEGORIES_BG from '../../../assets/img/categories.jpg';
+
+/* Components */
+import { Link } from 'react-router-dom';
 import { MDBBtn, MDBCard, MDBIcon } from 'mdb-react-ui-kit';
+
+/* styles */
 import './CategoriesCard.css';
 
 function CategoriesCard({ url, records }) {

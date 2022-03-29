@@ -7,9 +7,7 @@ function CategoriesScreen() {
   return (
     <>
       <Navbar />
-      <div className="container">
-        <CategoriesNavigation />
-      </div>
+      <CategoriesNavigation />
       <Footer />
     </>
   );

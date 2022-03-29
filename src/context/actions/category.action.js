@@ -26,9 +26,37 @@ export const startGetAllCategories = () => {
 
 /**
  *
+ * @param {string} id category id
+ */
+export const startGetProductByCategory = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await api.get(
+        `${api_enpoint.getProductsByCategory}/${id}`
+      );
+
+      dispatch(getProductsCategory(res.products));
+      dispatch(setIsLoading(false));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
+
+/**
+ *
  * @param {Array<object>} data
  */
 const getCategories = (data) => ({
   type: TYPES.CATEGORY_GET,
+  payload: data,
+});
+
+/**
+ *
+ * @param {Array<object>} data
+ */
+const getProductsCategory = (data) => ({
+  type: TYPES.PRODUCTS_CATEGORY,
   payload: data,
 });

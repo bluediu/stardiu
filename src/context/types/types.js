@@ -22,4 +22,5 @@ export const TYPES = {
 
   /* Categories */
   CATEGORY_GET: '[CATEGORY] GET',
+  PRODUCTS_CATEGORY: '[CATEGORY] PRODUCTS CATEGORY',
 };

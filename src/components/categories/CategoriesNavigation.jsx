@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
-  Link,
   Redirect,
   Route,
   Switch,
   useRouteMatch,
 } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
+import { startGetAllCategories } from '../../context/actions/category.action';
 
+/* Components */
 import CategoriesCard from './CategoriesCard';
 import Fade from 'react-reveal/Fade';
-import '../menu/card/Card.css';
 import { MDBSpinner } from 'mdb-react-ui-kit';
-import { startGetAllCategories } from '../../context/actions/category.action';
-import CardItem from '../menu/card/CardItem';
+import CategoriesContainer from './CategoriesContainer';
+
+/* styles */
+import '../menu/card/Card.css';
 
 function CategoriesNavigation() {
   const { path, url } = useRouteMatch();
@@ -39,25 +40,19 @@ function CategoriesNavigation() {
 
   return (
     <div>
-      {/*  <li>
-        <Link to={`${url}/hot-coffes`}> ver cate</Link>
-      </li> */}
-
       <Switch>
         <Route exact path={`${path}/`}>
-          <Fade right cascade>
-            <h2 className="mt-5">Categorias</h2>
-          </Fade>
+          <div className="container">
+            <Fade right cascade>
+              <h2 className="mt-5">Categorias</h2>
+            </Fade>
 
-          <hr />
-          <section className="cards-grid categories-mg">
-            <CategoriesCard url={url} records={records} />
-          </section>
+            <hr />
+            <section className="cards-grid categories-mg">
+              <CategoriesCard url={url} records={records} />
+            </section>
+          </div>
         </Route>
-
-        {/* <CardItem
-            {..record}
-            /> */}
 
         {records?.map((record) => (
           <Route
@@ -65,7 +60,10 @@ function CategoriesNavigation() {
             exact
             path={`${path}/${record.name}`}
           >
-            <h3>{record.name}</h3>
+            <CategoriesContainer
+              id={record._id}
+              name={record.name}
+            />
           </Route>
         ))}
 

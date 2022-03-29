@@ -2,6 +2,7 @@ import { TYPES } from '../types/types';
 
 const initialState = {
   records: [],
+  productsCategory: [],
   isLoading: true,
 };
 
@@ -14,6 +15,12 @@ export const categoryReducer = (
       return {
         ...state,
         records: [...action.payload],
+      };
+
+    case TYPES.PRODUCTS_CATEGORY:
+      return {
+        ...state,
+        productsCategory: [...action.payload],
       };
 
     case TYPES.IS_LOADING:
