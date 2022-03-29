@@ -1,7 +1,11 @@
 import React from 'react';
-import { MDBIcon } from 'mdb-react-ui-kit';
-import './GoogleButton.css';
 import PropTypes from 'prop-types';
+
+/* Components */
+import { MDBIcon } from 'mdb-react-ui-kit';
+
+/* styles */
+import './GoogleButton.css';
 
 function GoogleButton({ onClick, disabled }) {
   return (

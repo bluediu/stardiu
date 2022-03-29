@@ -38,7 +38,7 @@ function AuthSignInScreen() {
 
         <section className="form-outline">
           <label htmlFor="name" className="form-label mt-1">
-            Name
+            Nombre
           </label>
 
           <input
@@ -54,13 +54,13 @@ function AuthSignInScreen() {
           />
 
           {errors.name && (
-            <AuthErrorMessage msg="the name is not valid" />
+            <AuthErrorMessage msg="El nombre no es valido" />
           )}
         </section>
 
         <section className="form-outline">
           <label htmlFor="email" className="form-label">
-            Email Address
+            Correo electrónico
           </label>
           <input
             type="email"
@@ -74,7 +74,7 @@ function AuthSignInScreen() {
             })}
           />
           {errors.email && (
-            <AuthErrorMessage msg="The email is not valid" />
+            <AuthErrorMessage msg="El correo no es valido" />
           )}
         </section>
 
@@ -96,7 +96,7 @@ function AuthSignInScreen() {
           />
 
           {errors.password && (
-            <AuthErrorMessage msg="The password is not valid, must at least 6 letter or less that 22" />
+            <AuthErrorMessage msg="La contraseña no es valida, debe tener al menos 6 letras o menos que 22" />
           )}
         </section>
 
@@ -106,7 +106,7 @@ function AuthSignInScreen() {
       </Slide>
 
       <Link to={ROUTE.LOGIN} className="d-block mt-3">
-        I have an account
+        Ya tengo un cuenta
       </Link>
     </form>
   );

@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* styles */
 import './Auth.css';
 
 function AuthContainer({ children }) {

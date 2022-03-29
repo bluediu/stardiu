@@ -1,21 +1,22 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { MDBBtn } from 'mdb-react-ui-kit';
-import { useForm } from 'react-hook-form';
 import { ROUTE } from '../../constants/auth-routes';
 
-import Slide from 'react-reveal/Slide';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 
+/* Components */
+import { Link } from 'react-router-dom';
+import { MDBBtn } from 'mdb-react-ui-kit';
+import Slide from 'react-reveal/Slide';
 import AuthErrorMessage from './AuthErrorMessage';
 import GoogleButton from './googleButton/GoogleButton';
-import { useDispatch } from 'react-redux';
+/* GOOGLE AUTH */
+import GoogleLogin from 'react-google-login';
+
 import {
   startLoginWithEmailPassword,
   startLoginWithGoogle,
 } from '../../context/actions/auth.action';
-
-/* GOOGLE AUTH */
-import GoogleLogin from 'react-google-login';
 
 function AuthLoginScreen() {
   const dispatch = useDispatch();
@@ -67,7 +68,7 @@ function AuthLoginScreen() {
 
           <section className="form-outline">
             <label htmlFor="email" className="form-label">
-              Email Address
+              Correo electrónico
             </label>
             <input
               type="email"
@@ -81,7 +82,7 @@ function AuthLoginScreen() {
               })}
             />
             {errors.email && (
-              <AuthErrorMessage msg="The email is not valid" />
+              <AuthErrorMessage msg="El correo no es valido" />
             )}
           </section>
 
@@ -90,7 +91,7 @@ function AuthLoginScreen() {
               htmlFor="password"
               className="form-label mt-1"
             >
-              Password
+              Contraseña
             </label>
 
             <input
@@ -106,7 +107,7 @@ function AuthLoginScreen() {
             />
 
             {errors.password && (
-              <AuthErrorMessage msg="The password is not valid, must at least 6 letter or less that 22" />
+              <AuthErrorMessage msg="La contraseña no es valida, debe tener al menos 6 letras o menos que 22" />
             )}
           </section>
 
@@ -116,7 +117,7 @@ function AuthLoginScreen() {
         </Slide>
 
         <Link to={ROUTE.SIGN_IN} className="d-block mt-3">
-          Create an account
+          Crear un cuenta
         </Link>
       </form>
     </div>

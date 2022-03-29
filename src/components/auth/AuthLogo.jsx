@@ -1,6 +1,8 @@
 import React from 'react';
-import { MDBContainer, MDBNavbar } from 'mdb-react-ui-kit';
 import IMG_LOGO from '../../assets/img/stardiuLogo.svg';
+
+/* Components */
+import { MDBContainer, MDBNavbar } from 'mdb-react-ui-kit';
 
 function AuthLogo() {
   return (
