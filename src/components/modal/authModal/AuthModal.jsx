@@ -1,4 +1,7 @@
 import React from 'react';
+import LOGO from '../../../assets/img/stardiuLogo.svg';
+
+/* Components */
 import {
   MDBModal,
   MDBModalDialog,
@@ -8,13 +11,11 @@ import {
   MDBModalBody,
   MDBBtn,
 } from 'mdb-react-ui-kit';
-
-/* Components */
 import AuthButtons from '../../stardui/auth/AuthButtons';
 import AuthLoginBtn from '../../stardui/auth/AuthLoginBtn';
 import AuthSignInBtn from '../../stardui/auth/AuthSignInBtn';
 
-import LOGO from '../../../assets/img/stardiuLogo.svg';
+/* styles */
 import './AuthModal.css';
 
 function AuthModal({ showModal, setShowModal, toggleShow }) {

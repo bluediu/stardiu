@@ -1,10 +1,13 @@
 import React from 'react';
+import { formatPrice } from '../../../helpers/format-price';
+
+/* Components */
 import {
   MDBCardBody,
   MDBCardText,
   MDBCardTitle,
 } from 'mdb-react-ui-kit';
-import { formatPrice } from '../../../helpers/format-price';
+
 import PropTypes from 'prop-types';
 
 function CardItemBody({ price, name, category }) {

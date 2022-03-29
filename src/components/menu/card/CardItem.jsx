@@ -1,11 +1,13 @@
 import React from 'react';
-import { MDBCard } from 'mdb-react-ui-kit';
-import CardItemBody from './CardItemBody';
-import CardItemImage from './CardItemImage';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { ROUTE } from '../../../constants/auth-routes';
-import { useDispatch } from 'react-redux';
 import { setIsLoading } from '../../../context/actions/shared.action';
+
+/* Components */
+import CardItemBody from './CardItemBody';
+import CardItemImage from './CardItemImage';
+import { MDBCard } from 'mdb-react-ui-kit';
 
 function CardItem(props) {
   const dispatch = useDispatch();

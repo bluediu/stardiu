@@ -7,7 +7,7 @@ import {
   startGetProductsByPage,
 } from '../../../context/actions/product.action';
 
-/* omponents */
+/* Components */
 import CardItem from './CardItem';
 import Pagination from '../../utils/Pagination';
 import Loader from '../../utils/loader/Loader';

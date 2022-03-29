@@ -1,6 +1,8 @@
-import { MDBBadge } from 'mdb-react-ui-kit';
 import React from 'react';
 import { formatPrice } from '../../../helpers/format-price';
+
+/* Components */
+import { MDBBadge } from 'mdb-react-ui-kit';
 import ShoppingCartBtn from '../../stardui/cart/ShoppingCartBtn';
 
 function DetailsInfo(props) {

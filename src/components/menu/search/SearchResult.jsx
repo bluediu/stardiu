@@ -1,5 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+
+/* Components */
 import { MDBBadge, MDBListGroupItem } from 'mdb-react-ui-kit';
 
 function SearchResult({ product }) {

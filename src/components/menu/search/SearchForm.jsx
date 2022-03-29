@@ -1,9 +1,11 @@
+import React from 'react';
+
+/* Components */
 import {
   MDBIcon,
   MDBInputGroup,
   MDBSpinner,
 } from 'mdb-react-ui-kit';
-import React from 'react';
 
 function SearchForm(props) {
   const { loading, setShowList, inputText, handleInput } = props;

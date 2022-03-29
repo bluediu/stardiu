@@ -1,6 +1,9 @@
 import React from 'react';
-import { MDBCardImage, MDBRipple } from 'mdb-react-ui-kit';
 import DEFAULT_PRODUCT from '../../../assets/img/defaultProduct.webp';
+
+/* Components */
+import { MDBCardImage, MDBRipple } from 'mdb-react-ui-kit';
+
 import PropTypes from 'prop-types';
 
 function CardItemImage({ name, img, handleSelect }) {

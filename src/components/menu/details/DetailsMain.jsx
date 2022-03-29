@@ -1,13 +1,16 @@
-import { MDBContainer, MDBRow } from 'mdb-react-ui-kit';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import { startGetProductById } from '../../../context/actions/product.action';
+
+/* Components */
+import { MDBContainer, MDBRow } from 'mdb-react-ui-kit';
 import BackButton from '../../utils/BackButton';
 import Loader from '../../utils/loader/Loader';
 import DetailsImg from './DetailsImg';
 import DetailsInfo from './DetailsInfo';
 
+/* styles */
 import './Details.css';
 
 function DetailsMain() {

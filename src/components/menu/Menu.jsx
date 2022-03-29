@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* Components */
 import Card from './card/Card';
 import Tabs from '../tabs/Tabs';
 
