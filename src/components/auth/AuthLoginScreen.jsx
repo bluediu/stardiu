@@ -34,8 +34,9 @@ function AuthLoginScreen() {
   const responseGoogle = (resp) => {
     const { tokenId } = resp;
 
-    console.log('google', tokenId);
-    dispatch(startLoginWithGoogle(tokenId));
+    if (tokenId) {
+      dispatch(startLoginWithGoogle(tokenId));
+    }
   };
 
   useEffect(() => {
@@ -51,8 +52,7 @@ function AuthLoginScreen() {
         <Slide top>
           <h3 className="mt-3 mb-4">Log In</h3>
 
-          {/* TODO: REPARAR GOOGLE SIGN IN PRODUCCION */}
-          {/*  <GoogleLogin
+          <GoogleLogin
             // eslint-disable-next-line no-undef
             clientId={process.env.REACT_APP_CLIENT_ID}
             render={(renderProps) => (
@@ -63,8 +63,8 @@ function AuthLoginScreen() {
             )}
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}
-          /> */}
+            cookiePolicy="single_host_origin"
+          />
 
           <section className="form-outline">
             <label htmlFor="email" className="form-label">
