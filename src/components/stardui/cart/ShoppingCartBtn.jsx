@@ -35,7 +35,9 @@ function ShoppingCartBtn() {
             icon={productExist ? 'minus' : 'cart-plus'}
             className="me-2"
           />
-          {productExist ? 'Remove from cart' : 'Add to cart'}
+          {productExist
+            ? 'Remover del carrito'
+            : 'Añadir al carrito'}
         </div>
       </MDBBtn>
     </div>

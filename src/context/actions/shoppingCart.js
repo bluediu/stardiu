@@ -80,7 +80,7 @@ export const startAddToCart = (cartData) => {
         headers: { 'content-type': 'application/json' },
       };
 
-      toast.success('Adding to cart', {
+      toast.success('Se agregó el producto correctamente', {
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -110,7 +110,7 @@ export const startDeleteOneFromCart = async (
       `${api_enpoint.deleteOneFromShoppingCart}/${productId}/${userId}`
     );
 
-    toast.error('Deleting from cart', {
+    toast.error('Borrando del carrito', {
       autoClose: 200,
       hideProgressBar: false,
       closeOnClick: true,

@@ -25,7 +25,7 @@ function DetailsInfo(props) {
         </p>
 
         <div>
-          <small>Size</small>
+          <small>Tamaño</small>
 
           <select className="form-select">
             {size?.map((s) => (
