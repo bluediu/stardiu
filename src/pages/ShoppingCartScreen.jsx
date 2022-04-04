@@ -1,4 +1,5 @@
 import React from 'react';
+import CartContainer from '../components/cart/CartContainer';
 
 /* Components */
 import Footer from '../components/stardui/footer/Footer';
@@ -8,8 +9,7 @@ function ShoppingCartScreen() {
   return (
     <>
       <Navbar />
-
-      <h1>Carrito working!</h1>
+      <CartContainer />
       <Footer />
     </>
   );

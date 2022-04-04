@@ -51,6 +51,12 @@ function AppRouter() {
               isAuthenticated={!!uid}
             />
 
+            <PrivateRoute
+              path={ROUTE.CART}
+              component={ShoppingCartScreen}
+              isAuthenticated={!uid}
+            />
+
             <Route
               path={ROUTE.MENU_BASE}
               component={MenuScreen}
@@ -66,12 +72,6 @@ function AppRouter() {
               exact
               path={ROUTE.DETAILS_NAME}
               component={DetailsScreen}
-            />
-
-            <Route
-              exact
-              path={ROUTE.CART}
-              component={ShoppingCartScreen}
             />
 
             <Route

@@ -13,7 +13,8 @@ function NavbarOptions() {
 
   return (
     <div className="d-flex align-lg-items-center flex-lg-row flex-sm-column justify-content-between flex-md-column">
-      <ShoppingCart />
+      <ShoppingCart isAuth={checking} />
+
       {checking ? (
         <AuthButtons>
           <AuthLoginBtn margin={true} />

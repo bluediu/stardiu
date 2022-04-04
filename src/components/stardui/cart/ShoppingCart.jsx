@@ -10,13 +10,16 @@ import {
   MDBNavbarLink,
 } from 'mdb-react-ui-kit';
 
-function ShoppingCart() {
+import PropTypes from 'prop-types';
+
+function ShoppingCart({ isAuth }) {
   let history = useHistory();
   const { total } = useSelector((state) => state.shoppingCart);
 
   return (
-    <div>
+    <>
       <MDBNavbarLink
+        disabled={isAuth}
         className="me-3 pointer"
         onClick={() => history.push(ROUTE.CART)}
       >
@@ -27,8 +30,12 @@ function ShoppingCart() {
           <MDBIcon fas icon="shopping-cart"></MDBIcon>
         </span>
       </MDBNavbarLink>
-    </div>
+    </>
   );
 }
+
+ShoppingCart.propTypes = {
+  isAuth: PropTypes.bool,
+};
 
 export default ShoppingCart;
