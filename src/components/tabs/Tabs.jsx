@@ -27,15 +27,6 @@ function Tabs() {
             Categorias
           </NavLink>
         </li>
-        {/*   <li className="nav-item">
-          <NavLink
-            className="nav-link"
-            to="/search"
-            activeClassName="active"
-          >
-            Search
-          </NavLink>
-        </li> */}
       </ul>
     </div>
   );

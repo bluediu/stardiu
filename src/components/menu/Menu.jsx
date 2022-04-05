@@ -12,7 +12,6 @@ function MenuContainerGrid() {
         <div className="col-12">
           <div className="ms-4">
             <h1>Menu</h1>
-            <small>Colocar filtros</small>
             <hr />
           </div>
           <Card />

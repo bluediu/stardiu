@@ -1,8 +1,10 @@
 import { TYPES } from '../types/types';
 
 const initialState = {
+  isLoading: true,
   cart: [],
   total: 0,
+  resume: 0,
 };
 
 export const shoppingCartReducer = (
@@ -10,6 +12,18 @@ export const shoppingCartReducer = (
   action
 ) => {
   switch (action.type) {
+    case TYPES.GET_USER_CART:
+      return {
+        ...state,
+        cart: [...action.payload],
+      };
+
+    case TYPES.IS_LOADING:
+      return {
+        ...state,
+        isLoading: action.payload,
+      };
+
     case TYPES.ADD_TO_CART:
       return {
         ...state,
@@ -22,7 +36,17 @@ export const shoppingCartReducer = (
         total: action.payload,
       };
 
-    /*  case TYPES.REMOVE_ONE_FROM_CART: 
+    /*  case TYPES.ADD_IT_ALL_UP: {
+      let resume = 0;
+
+      state.cart.forEach((item) => {
+        resume += item.quantity * item.price;
+      });
+
+      return { ...state, resume };
+    } */
+
+    /*  case TYPES.REMOVE_ONE_FROM_CART:
     return {
       ...state,
       cart: state.cart.map((c) => action.payload.id === )

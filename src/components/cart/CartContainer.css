@@ -1,0 +1,145 @@
+.wrapper {
+  padding: 20px;
+}
+
+.cart-title {
+  font-weight: 300;
+  text-align: center;
+}
+
+.cart-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 992px) {
+  .cart-bottom {
+    flex-direction: column;
+    row-gap: 20px;
+    width: 100%;
+  }
+}
+
+/* ===== INFO ===== */
+
+.info {
+  row-gap: 2rem;
+  flex: 3;
+}
+
+.info-product {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-product:first-child {
+  margin-top: 0 !important;
+}
+
+.product-detail {
+  display: flex;
+  flex: 2;
+}
+
+.info-image {
+  width: 170px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media only screen and (max-width: 992px) {
+  .info-image {
+    width: 90px;
+  }
+}
+
+.info-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media only screen and (max-width: 992px) {
+  .info-details span {
+    font-size: 1rem;
+  }
+}
+
+.price-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-amount-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.product-amount {
+  font-size: 20px;
+  border: thin solid #eaeded;
+  border-radius: 8px;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 992px) {
+  .product-amount-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-amount {
+    font-size: 1rem;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.product-price {
+  font-size: 30px;
+  font-weight: 200;
+}
+
+@media only screen and (max-width: 992px) {
+  .product-price {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===== SUMMARY ===== */
+.summary {
+  flex: 1;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  height: 50vh;
+}
+.summary-title {
+  font-weight: 200;
+}
+
+.summary-item {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.summary-sub-item {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.disabled {
+  color: #d5dbdb;
+}

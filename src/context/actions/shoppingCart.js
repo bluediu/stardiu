@@ -4,6 +4,7 @@ import { api_enpoint } from '../../helpers/helpApi';
 import { helpHttp } from '../../helpers/helpHttp';
 
 import { toast } from 'react-toastify';
+import { setIsLoading } from './shared.action';
 
 // instance for http helper
 const api = helpHttp();
@@ -19,8 +20,12 @@ const api = helpHttp();
 export const startGetShoppingCart = (userId) => {
   return async (dispatch) => {
     try {
-      console.log(userId);
-      //const res = await api.post(api_enpoint.getShoppingCart);
+      const res = await api.get(
+        `${api_enpoint.getShoppingCart}/${userId}`
+      );
+
+      dispatch(setIsLoading(false));
+      dispatch(getShoppingCart(res.products));
     } catch (error) {
       console.error(error);
     }
@@ -136,4 +141,14 @@ export const addToCart = (data) => ({
 export const countProducts = (quantity = 0) => ({
   type: TYPES.COUNT_CART,
   payload: quantity,
+});
+
+/**
+ *
+ * @param {Array<object>} data
+ * @returns
+ */
+export const getShoppingCart = (data) => ({
+  type: TYPES.GET_USER_CART,
+  payload: data,
 });
