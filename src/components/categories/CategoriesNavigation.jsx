@@ -41,7 +41,9 @@ function CategoriesNavigation() {
 
   return (
     <div>
-      <Tabs />
+      <div className="mt-4 container-fluid">
+        <Tabs />
+      </div>
       <Switch>
         <Route exact path={`${path}/`}>
           <div className="container">
