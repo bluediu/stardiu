@@ -4,6 +4,7 @@ const initialState = {
   results: [],
   loading: false,
   error: null,
+  thereAreProducts: null,
 };
 
 export const searchReducer = (state = initialState, action) => {
@@ -11,7 +12,8 @@ export const searchReducer = (state = initialState, action) => {
     case TYPES.PRODUCT_SEARCH:
       return {
         ...state,
-        results: action.payload,
+        results: action.payload.products,
+        thereAreProducts: action.payload.thereAreProducts,
       };
 
     case TYPES.IS_LOADING:

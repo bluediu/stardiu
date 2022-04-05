@@ -26,7 +26,12 @@ export const startSearchByName = (searchTerm, type) => {
         // delete user object
         delete res.user;
 
-        dispatch(searchedProducts(res));
+        dispatch(
+          searchedProducts({
+            products: res.results,
+            thereAreProducts: res.thereAreProducts,
+          })
+        );
       } else {
         dispatch(setError(res));
       }
@@ -36,7 +41,10 @@ export const startSearchByName = (searchTerm, type) => {
   };
 };
 
-const searchedProducts = (data) => ({
+const searchedProducts = ({ products, thereAreProducts }) => ({
   type: TYPES.PRODUCT_SEARCH,
-  payload: data,
+  payload: {
+    products,
+    thereAreProducts,
+  },
 });

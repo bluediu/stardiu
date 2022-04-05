@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSearch } from '../../../hooks/useSearch';
 
 /* components */
 import {
@@ -6,13 +7,12 @@ import {
   MDBListGroup,
   MDBListGroupItem,
 } from 'mdb-react-ui-kit';
+import SearchForm from './SearchForm';
+import SearchResult from './SearchResult';
 
 /* styles */
 import '../../menu/card/Card.css';
 import './Search.css';
-import SearchForm from './SearchForm';
-import SearchResult from './SearchResult';
-import { useSearch } from '../../../hooks/useSearch';
 
 function Search() {
   const {
@@ -22,8 +22,11 @@ function Search() {
     handleInput,
     showList,
     products,
+    thereAreProducts,
   } = useSearch();
 
+  console.log(thereAreProducts);
+  console.log(products);
   return (
     <div className="search-container-main">
       <section className="container mt-4">
@@ -35,7 +38,7 @@ function Search() {
             handleInput={handleInput}
           />
 
-          {showList && (
+          {thereAreProducts !== null && (
             <div className="search-list">
               <MDBListGroup flush style={{ minWidth: '22rem' }}>
                 <MDBIcon
@@ -45,7 +48,7 @@ function Search() {
                   onClick={() => setShowList(false)}
                 />
 
-                {products.results?.map((product, index) => {
+                {products.map((product, index) => {
                   return (
                     <SearchResult
                       key={index}
@@ -54,7 +57,7 @@ function Search() {
                   );
                 })}
 
-                {products.length < 1 && (
+                {!thereAreProducts && (
                   <MDBListGroupItem className="no-results">
                     <b>
                       No hay resultado o escribe una entrada

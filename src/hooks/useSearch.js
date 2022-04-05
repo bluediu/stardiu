@@ -12,7 +12,7 @@ export const useSearch = () => {
   const [products, setProducts] = useState([]);
 
   /* Redux */
-  const { results, loading } = useSelector(
+  const { results, loading, thereAreProducts } = useSelector(
     (state) => state.search
   );
 
@@ -33,7 +33,7 @@ export const useSearch = () => {
 
   useEffect(() => {
     /* Verify if there are results for a product search */
-    if (results.results?.length >= 1) {
+    if (results.length >= 1) {
       setProducts(results);
     } else {
       setProducts([]);
@@ -55,5 +55,6 @@ export const useSearch = () => {
     handleInput,
     showList,
     products,
+    thereAreProducts,
   };
 };
