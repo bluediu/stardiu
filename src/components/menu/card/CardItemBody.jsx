@@ -30,7 +30,7 @@ function CardItemBody({ price, name, category }) {
 CardItemBody.propTypes = {
   price: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
+  category: PropTypes.string,
 };
 
 export default CardItemBody;

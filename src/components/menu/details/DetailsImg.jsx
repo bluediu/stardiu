@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 function DetailsImg({ img, name }) {
   return (
     <img
@@ -10,5 +12,10 @@ function DetailsImg({ img, name }) {
     />
   );
 }
+
+DetailsImg.propTypes = {
+  img: PropTypes.string,
+  name: PropTypes.string,
+};
 
 export default DetailsImg;

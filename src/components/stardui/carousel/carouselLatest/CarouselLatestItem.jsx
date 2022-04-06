@@ -7,6 +7,8 @@ import {
   MDBCarouselItem,
 } from 'mdb-react-ui-kit';
 
+import PropTypes from 'prop-types';
+
 function CarouselLatestItem({ id, item, name, img }) {
   let history = useHistory();
 
@@ -25,5 +27,12 @@ function CarouselLatestItem({ id, item, name, img }) {
     </MDBCarouselItem>
   );
 }
+
+CarouselLatestItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  item: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  img: PropTypes.string,
+};
 
 export default CarouselLatestItem;

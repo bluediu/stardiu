@@ -5,6 +5,8 @@ import CATEGORIES_BG from '../../../assets/img/categories.jpg';
 import { Link } from 'react-router-dom';
 import { MDBBtn, MDBCard, MDBIcon } from 'mdb-react-ui-kit';
 
+import PropTypes from 'prop-types';
+
 /* styles */
 import './CategoriesCard.css';
 
@@ -49,5 +51,10 @@ function CategoriesCard({ url, records }) {
     </>
   );
 }
+
+CategoriesCard.propTypes = {
+  url: PropTypes.string,
+  records: PropTypes.array.isRequired,
+};
 
 export default CategoriesCard;
