@@ -4,8 +4,10 @@ import React from 'react';
 import Loader from '../../utils/loader/Loader';
 import CartInfoItem from './CartInfoItem/CartInfoItem';
 
-/* styles */
 import PropTypes from 'prop-types';
+
+/* styles */
+import './CartInfo.css';
 
 function CartInfo({ products, isLoading }) {
   return (
@@ -27,6 +29,7 @@ function CartInfo({ products, isLoading }) {
 
 CartInfo.propTypes = {
   products: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default CartInfo;

@@ -61,7 +61,7 @@ function CartInfoItem({ productId, quantity }) {
 }
 
 CartInfoItem.propTypes = {
-  productId: PropTypes.object.isRequired,
+  productId: PropTypes.object,
   quantity: PropTypes.number.isRequired,
 };
 

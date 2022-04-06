@@ -1,10 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
+/* Components */
 import { MDBBtn } from 'mdb-react-ui-kit';
 
 import PropTypes from 'prop-types';
 
+/* styles */
+import './CartSummary.css';
+
 function CartSummary({ userName, total }) {
+  const { resume } = useSelector((state) => state.shoppingCart);
+
   return (
     <div className="summary">
       <h2 className="summary-title">RESUMEN</h2>
@@ -16,7 +23,7 @@ function CartSummary({ userName, total }) {
         <span className="summary-item-price">{total}</span>
       </div>
 
-      <div className="summary-sub-item ">
+      <div className="summary-sub-item">
         <span className="summary-item-text font-weight-bold">
           Propietario
         </span>
@@ -25,7 +32,7 @@ function CartSummary({ userName, total }) {
 
       <div className="summary-item">
         <span className="summary-item-text">Total</span>
-        <span className="summary-item-price">$000</span>
+        <span className="summary-item-price">${resume}</span>
       </div>
 
       <div className="d-grid gap-2">
