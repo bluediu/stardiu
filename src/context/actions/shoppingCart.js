@@ -26,6 +26,7 @@ export const startGetShoppingCart = (userId) => {
 
       dispatch(setIsLoading(false));
       dispatch(getShoppingCart(res.products));
+      dispatch(addItAllUp());
     } catch (error) {
       console.error(error);
     }
@@ -151,4 +152,8 @@ export const countProducts = (quantity = 0) => ({
 export const getShoppingCart = (data) => ({
   type: TYPES.GET_USER_CART,
   payload: data,
+});
+
+export const addItAllUp = () => ({
+  type: TYPES.ADD_IT_ALL_UP,
 });

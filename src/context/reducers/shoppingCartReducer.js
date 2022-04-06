@@ -36,15 +36,15 @@ export const shoppingCartReducer = (
         total: action.payload,
       };
 
-    /*  case TYPES.ADD_IT_ALL_UP: {
+    case TYPES.ADD_IT_ALL_UP: {
       let resume = 0;
 
       state.cart.forEach((item) => {
-        resume += item.quantity * item.price;
+        resume += item.quantity * item.productId.price;
       });
 
       return { ...state, resume };
-    } */
+    }
 
     /*  case TYPES.REMOVE_ONE_FROM_CART:
     return {
