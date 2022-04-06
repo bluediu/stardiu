@@ -1,0 +1,29 @@
+/* ===== SUMMARY ===== */
+.summary {
+  flex: 1;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  height: 50vh;
+}
+.summary-title {
+  font-weight: 200;
+}
+
+.summary-item {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.summary-sub-item {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.disabled {
+  color: #d5dbdb;
+}
