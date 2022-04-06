@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 /* Components */
 import { MDBBadge, MDBListGroupItem } from 'mdb-react-ui-kit';
 
+import PropTypes from 'prop-types';
+
 function SearchResult({ product }) {
   let history = useHistory();
 
@@ -30,5 +32,9 @@ function SearchResult({ product }) {
     </MDBListGroupItem>
   );
 }
+
+SearchResult.propTypes = {
+  products: PropTypes.object.isRequired,
+};
 
 export default SearchResult;

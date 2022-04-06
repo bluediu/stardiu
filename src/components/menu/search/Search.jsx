@@ -21,12 +21,10 @@ function Search() {
     inputText,
     handleInput,
     showList,
-    products,
+    results,
     thereAreProducts,
   } = useSearch();
 
-  console.log(thereAreProducts);
-  console.log(products);
   return (
     <div className="search-container-main">
       <section className="container mt-4">
@@ -38,7 +36,7 @@ function Search() {
             handleInput={handleInput}
           />
 
-          {thereAreProducts !== null && (
+          {thereAreProducts !== null && showList && (
             <div className="search-list">
               <MDBListGroup flush style={{ minWidth: '22rem' }}>
                 <MDBIcon
@@ -48,7 +46,7 @@ function Search() {
                   onClick={() => setShowList(false)}
                 />
 
-                {products.map((product, index) => {
+                {results.map((product, index) => {
                   return (
                     <SearchResult
                       key={index}
@@ -60,8 +58,8 @@ function Search() {
                 {!thereAreProducts && (
                   <MDBListGroupItem className="no-results">
                     <b>
-                      No hay resultado o escribe una entrada
-                      valida 😕
+                      Lo sentimos, no hemos encontrado
+                      resultados.
                     </b>
                   </MDBListGroupItem>
                 )}

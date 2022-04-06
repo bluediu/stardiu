@@ -104,3 +104,8 @@
     left: -2rem;
   }
 }
+
+mark {
+  margin-left: 0.2rem;
+  border-radius: 6px;
+}
