@@ -9,7 +9,6 @@ export const useSearch = () => {
   const [inputText, setInputText] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState(null);
   const [showList, setShowList] = useState(false);
-  const [products, setProducts] = useState([]);
 
   /* Redux */
   const { results, loading, thereAreProducts } = useSelector(
@@ -31,15 +30,6 @@ export const useSearch = () => {
     }
   }, [debouncedSearch]);
 
-  useEffect(() => {
-    /* Verify if there are results for a product search */
-    if (results.length >= 1) {
-      setProducts(results);
-    } else {
-      setProducts([]);
-    }
-  }, [results]);
-
   const handleInput = (e) => {
     if (e.target.value) {
       setInputText(e.target.value);
@@ -54,7 +44,7 @@ export const useSearch = () => {
     inputText,
     handleInput,
     showList,
-    products,
+    results,
     thereAreProducts,
   };
 };

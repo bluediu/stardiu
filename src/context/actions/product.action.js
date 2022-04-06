@@ -140,7 +140,8 @@ const detailsItem = (data) => ({
 });
 
 /**
- *
+ * Set the current page products
+ * @param {number} current
  */
 export const startCurrentPage = (current) => ({
   type: TYPES.CURRENT_PAGE,

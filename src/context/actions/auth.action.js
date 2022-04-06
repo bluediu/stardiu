@@ -47,10 +47,12 @@ export const startLoginWithEmailPassword = (email, password) => {
   };
 };
 
-/***
-  action for register a new user
-  @params -> email:string, password: string, name: string
-*/
+/**
+ * action for register a new user
+ * @param {string} name
+ * @param {string} email
+ * @param {string} password
+ */
 export const startRegisterWithEmailPasswordName = (
   name,
   email,
@@ -92,8 +94,8 @@ export const startRegisterWithEmailPasswordName = (
 /* ----- GOOGLE SIGN IN SECTION ----- */
 
 /**
- *
- * @param {*} token:string
+ * Google Sign In action
+ * @param {string} token
  */
 export const startLoginWithGoogle = (token) => {
   return async (dispatch) => {
@@ -130,11 +132,9 @@ export const startLoginWithGoogle = (token) => {
 
 /* ----- VALIDATE JWT SECTION ----- */
 
-/***
-  action for renew the previous token and create a new token for the user section
-  @return new token in localstore
-*/
-
+/**
+ * action for renew the previous token and create a new token for the user section
+ */
 export const startCheckingRenewToken = () => {
   return async (dispatch) => {
     try {
@@ -163,20 +163,20 @@ export const startCheckingRenewToken = () => {
   };
 };
 
-/***
+/**
  * verified if there is authenticated user
- * @return boolean
+ * @return { boolean }
  */
 const checkingFinish = (checking = true) => ({
   type: TYPES.AUTH_CHECKING,
   payload: checking,
 });
 
-/***
-  reducer action for login and sign in
-  @params -> uid: string, name: string
-  @return object
-*/
+/**
+ * Action for login and sign in
+ * @param {{uid: string, name: string}} user
+ * @returns {object}
+ */
 const authAction = (user) => ({
   type: TYPES.AUTH_LOGIN,
   payload: user,
