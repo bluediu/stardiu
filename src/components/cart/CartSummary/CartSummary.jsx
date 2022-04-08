@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { formatPrice } from '../../../helpers/format-price';
 
 /* Components */
 import { MDBBtn } from 'mdb-react-ui-kit';
@@ -32,7 +33,9 @@ function CartSummary({ userName, total }) {
 
       <div className="summary-item">
         <span className="summary-item-text">Total</span>
-        <span className="summary-item-price">${resume}</span>
+        <span className="summary-item-price">
+          {formatPrice.format(resume)}
+        </span>
       </div>
 
       <div className="d-grid gap-2">

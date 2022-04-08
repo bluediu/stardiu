@@ -1,8 +1,11 @@
 import React, { useCallback } from 'react';
+import { useCounter } from '../../../../hooks/useCounter';
+import { formatPrice } from '../../../../helpers/format-price';
+
+/* Components */
+import { MDBBtn, MDBBtnGroup } from 'mdb-react-ui-kit';
 
 import PropTypes from 'prop-types';
-import { MDBBtn, MDBBtnGroup } from 'mdb-react-ui-kit';
-import { useCounter } from '../../../../hooks/useCounter';
 
 function CartInfoItem({ productId, quantity }) {
   const { counter, increaseBy, maxCount } = useCounter({
@@ -53,7 +56,9 @@ function CartInfoItem({ productId, quantity }) {
               </MDBBtn>
             </MDBBtnGroup>
           </div>
-          <div className="product-price">${productId.price}</div>
+          <div className="product-price">
+            {formatPrice.format(productId.price)}
+          </div>
         </div>
       </div>
     </div>
