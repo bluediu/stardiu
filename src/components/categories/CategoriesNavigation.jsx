@@ -41,7 +41,7 @@ function CategoriesNavigation() {
 
   return (
     <div>
-      <div className="mt-4 container-fluid">
+      <div className="mt-4 container">
         <Tabs />
       </div>
       <Switch>

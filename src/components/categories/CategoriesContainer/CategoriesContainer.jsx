@@ -37,18 +37,20 @@ function CategoriesContainer({ id, name }) {
         <BackButton />
       </div>
 
-      <h4 className="mx-2 my-4">
-        <Fade right cascade>
-          <h2>Categoria</h2>
-          <h5 style={{ display: 'inline' }}>
-            <MDBBadge className="" color="dark">
-              {name.toLowerCase()}
-            </MDBBadge>
-          </h5>
-        </Fade>
-      </h4>
+      <div className="container">
+        <h4 className="mx-2 my-4">
+          <Fade right cascade>
+            <h2>Categoria</h2>
+            <h5 style={{ display: 'inline' }}>
+              <MDBBadge className="" color="dark">
+                {name.toLowerCase()}
+              </MDBBadge>
+            </h5>
+          </Fade>
+        </h4>
+      </div>
 
-      <div className="container-fluid cards-grid">
+      <div className="container cards-grid">
         {productsCategory?.map((p) => (
           <CardItem key={p._id} {...p} />
         ))}

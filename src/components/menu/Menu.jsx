@@ -6,7 +6,7 @@ import Tabs from '../tabs/Tabs';
 
 function MenuContainerGrid() {
   return (
-    <main className="container-fluid mt-4">
+    <main className="container mt-4">
       <Tabs />
       <section className="row">
         <div className="col-12">
