@@ -30,15 +30,6 @@ function CategoriesNavigation() {
     dispatch(startGetAllCategories());
   }, []);
 
-  if (isLoading)
-    return (
-      <div className="d-flex justify-content-center mt-5">
-        <MDBSpinner color="dark">
-          <span className="visually-hidden">Loading...</span>
-        </MDBSpinner>
-      </div>
-    );
-
   return (
     <div>
       <div className="mt-4 container">
@@ -52,9 +43,19 @@ function CategoriesNavigation() {
             </Fade>
 
             <hr />
-            <section className="cards-grid categories-mg">
-              <CategoriesCard url={url} records={records} />
-            </section>
+            {isLoading ? (
+              <div className="d-flex justify-content-center mt-5">
+                <MDBSpinner color="dark">
+                  <span className="visually-hidden">
+                    Loading...
+                  </span>
+                </MDBSpinner>
+              </div>
+            ) : (
+              <section className="cards-grid categories-mg">
+                <CategoriesCard url={url} records={records} />
+              </section>
+            )}
           </div>
         </Route>
 
