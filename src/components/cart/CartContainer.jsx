@@ -22,7 +22,7 @@ function CartContainer() {
     if (checking) return;
 
     dispath(startGetShoppingCart(uid));
-  }, [uid]);
+  }, []);
 
   return (
     <main className="container mt-4">
