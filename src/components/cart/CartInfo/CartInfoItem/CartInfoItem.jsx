@@ -7,7 +7,7 @@ import { MDBBtn, MDBBtnGroup } from 'mdb-react-ui-kit';
 
 import PropTypes from 'prop-types';
 
-function CartInfoItem({ productId, quantity }) {
+function CartInfoItem({ productId, quantity, size }) {
   const { counter, increaseBy, maxCount } = useCounter({
     value: quantity,
     initialValues: {
@@ -27,8 +27,12 @@ function CartInfoItem({ productId, quantity }) {
         <img src={productId.img} className="info-image" alt="" />
 
         <div className="info-details">
-          <span>{productId.name}</span>
-          <span>Size: ****</span>
+          <span>
+            <b>{productId.name}</b>
+          </span>
+          <span>
+            <b>Size:</b> {size}
+          </span>
         </div>
 
         <div className="price-details">
@@ -68,6 +72,7 @@ function CartInfoItem({ productId, quantity }) {
 CartInfoItem.propTypes = {
   productId: PropTypes.object,
   quantity: PropTypes.number.isRequired,
+  size: PropTypes.string.isRequired,
 };
 
 export default CartInfoItem;

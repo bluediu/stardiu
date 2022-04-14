@@ -15,11 +15,12 @@ function CartInfo({ products, isLoading }) {
       {isLoading ? (
         <Loader />
       ) : (
-        products?.map(({ quantity, productId }) => (
+        products?.map(({ quantity, productId, size }) => (
           <CartInfoItem
             key={productId._id}
             productId={productId}
             quantity={quantity}
+            size={size}
           />
         ))
       )}
