@@ -81,9 +81,15 @@ export const startIsProductAddedToCart = async (
 export const startAddToCart = (cartData) => {
   return async (dispatch) => {
     try {
-      let data = {
+      // read token from local storage
+      const token = localStorage.getItem('star-token') || '';
+
+      let meta = {
         body: cartData,
-        headers: { 'content-type': 'application/json' },
+        headers: {
+          'content-type': 'application/json',
+          'x-token': token,
+        },
       };
 
       toast.success('Se agregó el producto correctamente', {
@@ -92,7 +98,9 @@ export const startAddToCart = (cartData) => {
         closeOnClick: true,
       });
 
-      const res = await api.post(api_enpoint.addToCart, data);
+      const res = await api.post(api_enpoint.addToCart, meta);
+
+      console.log(res, token);
 
       dispatch(addToCart(res.cart));
     } catch (error) {
@@ -112,8 +120,19 @@ export const startDeleteOneFromCart = async (
   userId
 ) => {
   try {
+    // read token from local storage
+    const token = localStorage.getItem('star-token') || '';
+
+    let meta = {
+      headers: {
+        'content-type': 'application/json',
+        'x-token': token,
+      },
+    };
+
     const res = await api.del(
-      `${api_enpoint.deleteOneFromShoppingCart}/${productId}/${userId}`
+      `${api_enpoint.deleteOneFromShoppingCart}/${productId}/${userId}`,
+      meta
     );
 
     toast.error('Borrando del carrito', {
