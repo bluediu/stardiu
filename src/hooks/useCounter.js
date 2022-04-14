@@ -17,10 +17,10 @@ export const useCounter = ({ value = 0, initialValues }) => {
   const increaseBy = (value) => {
     const newValue = initialValues?.maxCount
       ? Math.min(
-          Math.max(counter + value, 0),
+          Math.max(counter + value, 1),
           initialValues.maxCount
         )
-      : Math.max(counter + value, 0);
+      : Math.max(counter + value, 1);
 
     setCounter(newValue);
   };
