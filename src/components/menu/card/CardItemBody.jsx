@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatPrice } from '../../../helpers/format-price';
+import { formatPrice } from '../../../helpers/helpFormat-price';
 
 /* Components */
 import {
