@@ -1,5 +1,5 @@
-import React from 'react';
-import { formatPrice } from '../../../helpers/format-price';
+import React, { useEffect, useState } from 'react';
+import { formatPrice } from '../../../helpers/helpFormat-price';
 
 /* Components */
 import { MDBBadge } from 'mdb-react-ui-kit';
@@ -7,6 +7,13 @@ import ShoppingCartBtn from '../../stardui/cart/ShoppingCartBtn';
 
 function DetailsInfo(props) {
   const { name, description, category, price, size } = props;
+  const [selectValue, setSelectValue] = useState(null);
+
+  useEffect(() => {
+    if (size) setSelectValue(size[0]);
+  }, [size]);
+
+  const handleSelect = (e) => setSelectValue(e.target.value);
 
   return (
     <section className="mt-5">
@@ -27,9 +34,13 @@ function DetailsInfo(props) {
         <div>
           <small>Tamaño</small>
 
-          <select className="form-select">
+          <select
+            className="form-select"
+            value={selectValue || ''}
+            onChange={handleSelect}
+          >
             {size?.map((s) => (
-              <option key={s} value="1">
+              <option key={s} value={s}>
                 {s}
               </option>
             ))}
@@ -37,7 +48,7 @@ function DetailsInfo(props) {
         </div>
 
         <hr />
-        <ShoppingCartBtn />
+        <ShoppingCartBtn size={selectValue} />
       </div>
     </section>
   );

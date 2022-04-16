@@ -10,10 +10,11 @@ import {
 
 /**
  *
- * @param {function}
+ * @param {function} setShowModal handle modal function
+ * @param {string} size product size
  * @return {object}
  */
-export const useCart = (setShowModal) => {
+export const useCart = (setShowModal, size) => {
   const dispatch = useDispatch();
 
   /* Component states */
@@ -34,10 +35,10 @@ export const useCart = (setShowModal) => {
           userId: uid,
           productId: detailsData._id,
           quantity: 1,
+          size,
         })
       );
       dispatch(countProducts(total + 1));
-      // verifyProduct();
 
       setProductExist(true);
       setLoadingAction(false);
@@ -50,7 +51,7 @@ export const useCart = (setShowModal) => {
     if (uid) {
       setLoadingAction(true);
 
-      startDeleteOneFromCart(detailsData._id, uid);
+      dispatch(startDeleteOneFromCart(detailsData._id, uid));
 
       dispatch(countProducts(total - 1));
       setProductExist(false);
