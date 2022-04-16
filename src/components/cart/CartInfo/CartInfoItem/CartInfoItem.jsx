@@ -1,13 +1,17 @@
 import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { useCounter } from '../../../../hooks/useCounter';
-import { formatPrice } from '../../../../helpers/format-price';
+import { formatPrice } from '../../../../helpers/helpFormat-price';
+import { startUpdateProductInCart } from '../../../../context/actions/shoppingCart';
 
 /* Components */
 import { MDBBtn, MDBBtnGroup } from 'mdb-react-ui-kit';
+import CartRemoveBtn from '../CartRemoveBtn/CartRemoveBtn';
 
 import PropTypes from 'prop-types';
 
-function CartInfoItem({ productId, quantity, size }) {
+function CartInfoItem({ productId, quantity, size, id }) {
+  const dispatch = useDispatch();
   const { counter, increaseBy, maxCount } = useCounter({
     value: quantity,
     initialValues: {
@@ -21,6 +25,11 @@ function CartInfoItem({ productId, quantity, size }) {
     [counter, maxCount]
   );
 
+  const handleUpdate = (counter) => {
+    const productSchema = { id, counter };
+    dispatch(startUpdateProductInCart(productSchema));
+  };
+
   return (
     <div className="info-product mt-2">
       <div className="product-detail">
@@ -33,6 +42,10 @@ function CartInfoItem({ productId, quantity, size }) {
           <span>
             <b>Size:</b> {size}
           </span>
+
+          <span>
+            <CartRemoveBtn productId={productId} id={id} />
+          </span>
         </div>
 
         <div className="price-details">
@@ -42,8 +55,11 @@ function CartInfoItem({ productId, quantity, size }) {
               <MDBBtn
                 color="dark"
                 outline
-                style={{ border: '1px' }}
-                onClick={() => increaseBy(1)}
+                style={{ border: '0' }}
+                onClick={() => {
+                  increaseBy(1);
+                  handleUpdate(counter + 1);
+                }}
                 disabled={isMaxReached()}
               >
                 <span className={isMaxReached() && 'disabled'}>
@@ -54,9 +70,15 @@ function CartInfoItem({ productId, quantity, size }) {
                 color="dark"
                 outline
                 style={{ border: 0 }}
-                onClick={() => increaseBy(-1)}
+                onClick={() => {
+                  increaseBy(-1);
+                  handleUpdate(counter - 1);
+                }}
+                disabled={counter === 1}
               >
-                -
+                <span className={counter === 1 && 'disabled'}>
+                  -
+                </span>
               </MDBBtn>
             </MDBBtnGroup>
           </div>
@@ -73,6 +95,7 @@ CartInfoItem.propTypes = {
   productId: PropTypes.object,
   quantity: PropTypes.number.isRequired,
   size: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default CartInfoItem;
