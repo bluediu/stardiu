@@ -1,5 +1,4 @@
-import { api_enpoint } from '../../helpers/helpApi';
-import { helpHttp } from '../../helpers/helpHttp';
+import { api_enpoint, helpHttp } from '../../helpers';
 import { TYPES } from '../types/types';
 import { setIsLoading, setError } from './shared.action';
 

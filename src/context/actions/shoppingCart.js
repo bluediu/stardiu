@@ -1,7 +1,6 @@
 import { TYPES } from '../types/types';
 
-import { api_enpoint } from '../../helpers/helpApi';
-import { helpHttp } from '../../helpers/helpHttp';
+import { api_enpoint, helpHttp } from '../../helpers';
 
 import { toast } from 'react-toastify';
 import { setIsLoading } from './shared.action';
@@ -93,14 +92,12 @@ export const startAddToCart = (cartData) => {
       };
 
       toast.success('Se agregó el producto correctamente', {
-        autoClose: 1000,
+        autoClose: 500,
         hideProgressBar: false,
         closeOnClick: true,
       });
 
       const res = await api.post(api_enpoint.addToCart, meta);
-
-      console.log(res, token);
 
       dispatch(addToCart(res.cart));
     } catch (error) {
@@ -112,39 +109,59 @@ export const startAddToCart = (cartData) => {
 /* ----- DELETE SECTION ----- */
 /**
  *
- * @param {string} productId
- * @param {string} userId
+ * @param {string} productId product id database
+ * @param {string} userId user id
+ * @param {true | false} reducer
+ * @param {string} reducer product id in Redux store
  */
-export const startDeleteOneFromCart = async (
+export const startDeleteOneFromCart = (
   productId,
-  userId
+  userId,
+  reducer = false,
+  id = ''
 ) => {
-  try {
-    // read token from local storage
-    const token = localStorage.getItem('star-token') || '';
+  return async (dispatch) => {
+    try {
+      // read token from local storage
+      const token = localStorage.getItem('star-token') || '';
 
-    let meta = {
-      headers: {
-        'content-type': 'application/json',
-        'x-token': token,
-      },
-    };
+      let meta = {
+        headers: {
+          'content-type': 'application/json',
+          'x-token': token,
+        },
+      };
 
-    const res = await api.del(
-      `${api_enpoint.deleteOneFromShoppingCart}/${productId}/${userId}`,
-      meta
-    );
+      const res = await api.del(
+        `${api_enpoint.deleteOneFromShoppingCart}/${productId}/${userId}`,
+        meta
+      );
 
-    toast.error('Borrando del carrito', {
-      autoClose: 200,
-      hideProgressBar: false,
-      closeOnClick: true,
-    });
+      toast.error('Borrando del carrito', {
+        autoClose: 200,
+        hideProgressBar: false,
+        closeOnClick: true,
+      });
 
-    return res;
-  } catch (error) {
-    return error;
-  }
+      if (reducer) {
+        return dispatch(deleteOneFromCart(id));
+      }
+
+      return res;
+    } catch (error) {
+      return error;
+    }
+  };
+};
+
+/* ----- UPDATE SECTION ----- */
+export const startUpdateProductInCart = (product) => {
+  return async (dispatch) => {
+    const { id, counter } = product;
+
+    dispatch(updateProductInCart(id, counter));
+    dispatch(addItAllUp());
+  };
 };
 
 /* ----- ACTIONS SECTION ----- */
@@ -175,4 +192,27 @@ export const getShoppingCart = (data) => ({
 
 export const addItAllUp = () => ({
   type: TYPES.ADD_IT_ALL_UP,
+});
+
+/**
+ *
+ * @param {string} id product id that want be updated
+ * @param {object} product product schema
+ * @returns
+ */
+export const updateProductInCart = (id, quantity) => ({
+  type: TYPES.UPDATE_PRODUCT_IN_CART,
+  payload: {
+    id,
+    quantity,
+  },
+});
+
+/**
+ *
+ * @param {string} id product id
+ */
+export const deleteOneFromCart = (id) => ({
+  type: TYPES.REMOVE_ONE_FROM_CART,
+  payload: id,
 });
