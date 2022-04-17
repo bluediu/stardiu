@@ -46,6 +46,27 @@ export const shoppingCartReducer = (
       return { ...state, resume };
     }
 
+    case TYPES.UPDATE_PRODUCT_IN_CART:
+      return {
+        ...state,
+        cart: state.cart.map((product) =>
+          product._id === action.payload.id
+            ? {
+                ...product,
+                quantity: action.payload.quantity,
+              }
+            : product
+        ),
+      };
+
+    case TYPES.REMOVE_ONE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter(
+          (product) => product._id !== action.payload
+        ),
+      };
+
     /*  case TYPES.REMOVE_ONE_FROM_CART:
     return {
       ...state,
