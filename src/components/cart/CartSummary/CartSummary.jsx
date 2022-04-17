@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { formatPrice } from '../../../helpers/format-price';
+import { formatPrice } from '../../../helpers/helpFormat-price';
 
 /* Components */
 import { MDBBtn } from 'mdb-react-ui-kit';
-
-import PropTypes from 'prop-types';
+import Payment from '../../payment/Payment';
 
 /* styles */
 import './CartSummary.css';
 
+import PropTypes from 'prop-types';
+
 function CartSummary({ userName, total }) {
   const { resume } = useSelector((state) => state.shoppingCart);
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleShow = () => setShowModal(!showModal);
 
   return (
     <div className="summary">
@@ -38,8 +42,11 @@ function CartSummary({ userName, total }) {
         </span>
       </div>
 
+      <Payment show={showModal} toggleShow={toggleShow} />
       <div className="d-grid gap-2">
-        <MDBBtn color="dark">Ordenar ahora</MDBBtn>
+        <MDBBtn color="dark" onClick={toggleShow}>
+          Ordenar ahora
+        </MDBBtn>
       </div>
     </div>
   );
