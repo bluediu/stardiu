@@ -14,6 +14,7 @@ import PrivateRoute from './PrivateRoute';
 import ShoppingCartScreen from '../pages/ShoppingCartScreen';
 import { startCountProducts } from '../context/actions/shoppingCart';
 import CategoriesScreen from '../pages/CategoriesScreen';
+import ProfileScreen from '../pages/ProfileScreen';
 
 /* Lazy Load */
 const AboutScreen = lazy(() => import('../pages/AboutScreen'));
@@ -77,6 +78,11 @@ function AppRouter() {
             <Route
               path={ROUTE.CATEGORIES}
               component={CategoriesScreen}
+            />
+
+            <Route
+              path={ROUTE.PROFILE}
+              component={ProfileScreen}
             />
 
             <Route path="*" component={Error404} />
