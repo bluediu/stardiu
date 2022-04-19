@@ -22,3 +22,8 @@
     width: 90%;
   }
 }
+
+.toast-links {
+  display: flex;
+  flex-direction: column;
+}

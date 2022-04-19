@@ -21,8 +21,15 @@ function NavbarProfileOptionsBody() {
 
   return (
     <section className="toast-body">
-      <div className="mt-3">
-        <Link className="text-dark exit" to={ROUTE.LOGIN}>
+      <div className="toast-links">
+        <Link className="text-dark exit" to={ROUTE.PROFILE}>
+          <div style={bodyStyled}>
+            <MDBIcon fas icon="user" />
+            <span className="mx-3">Perfil</span>
+          </div>
+        </Link>
+
+        <Link className="text-dark exit mt-2" to={ROUTE.LOGIN}>
           <div style={bodyStyled} onClick={handleLogout}>
             <MDBIcon fas icon="sign-out-alt" />
             <span className="mx-3">Cerrar sección</span>
