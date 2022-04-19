@@ -1,0 +1,38 @@
+.avatar-card {
+  position: relative;
+  width: 20rem;
+}
+
+.avatar-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  /* Rounded border */
+  border-radius: 50%;
+  height: 94px;
+  width: 94px;
+}
+
+.avatar__image {
+  /* Rounded border */
+  border-radius: 50%;
+
+  /* Take full size */
+  height: 100%;
+  width: 100%;
+}
+
+.avatar-name {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.avatar-setting {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
