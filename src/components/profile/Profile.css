@@ -1,23 +1,26 @@
 .avatar-card {
   position: relative;
   width: 20rem;
+  height: 12rem;
 }
 
 .avatar-card .card-body {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
-.avatar {
+.avatar-profile {
   /* Rounded border */
   border-radius: 50%;
   height: 94px;
   width: 94px;
+  height: 104px;
+  width: 104px;
 }
 
-.avatar__image {
+.avatar-profile__image {
   /* Rounded border */
   border-radius: 50%;
 
@@ -31,8 +34,19 @@
   font-size: 1.3rem;
 }
 
+.avatar-setting > i {
+  color: #ffff;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
 .avatar-setting {
+  background-color: #f4f6f7;
+  border-radius: 50%;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  padding: 0.18rem 0.45rem;
   position: absolute;
-  top: 5px;
   right: 10px;
+  top: 5px;
 }

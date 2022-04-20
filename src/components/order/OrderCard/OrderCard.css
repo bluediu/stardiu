@@ -1,0 +1,135 @@
+:root {
+  --sub-color: #a2a2a2;
+}
+
+/* ===== CONTAINER ===== */
+.orders-container {
+  background-color: #f3f3f5;
+  border-radius: 10px;
+  column-gap: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  row-gap: 1rem;
+}
+
+/* ===== CARD ===== */
+.order-card {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== HEADER ===== */
+.orders-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.orders-header-1 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.orders-header-1 span {
+  color: var(--sub-color);
+}
+
+.avatar {
+  /* Rounded border */
+  border-radius: 50%;
+  height: 44px;
+  width: 44px;
+}
+
+.avatar__image {
+  /* Rounded border */
+  border-radius: 50%;
+
+  /* Take full size */
+  height: 100%;
+  width: 100%;
+}
+
+/* ===== ITEMS ===== */
+.order-card__item {
+  /* arriba lados */
+  padding: 1rem 0.1rem;
+  border-bottom: thin dashed var(--sub-color);
+}
+
+.order-card__item-1 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.order-info {
+  margin-left: 1.1rem;
+}
+
+.order-info-item-1 p {
+  font-weight: 600;
+  margin: 0;
+  text-align: left;
+
+  /* Break text */
+  inline-size: 150px;
+  overflow-wrap: break-word;
+}
+
+.order-info-item-1 span {
+  color: var(--sub-color);
+  display: block;
+  text-align: left;
+}
+
+.order-info-item-1 {
+}
+
+.order-info-item-2 {
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.order-info-item-2 :first-child {
+  margin-right: 3rem;
+}
+
+.product {
+  /* Rounded border */
+  border-radius: 50%;
+  height: 84px;
+  width: 84px;
+}
+
+.product__image {
+  /* Rounded border */
+  border-radius: 50%;
+
+  /* Take full size */
+  height: 100%;
+  width: 100%;
+}
+
+/* ===== FOOTER ===== */
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-footer-1 small,
+.order-footer-1 span {
+  display: block;
+}
+
+.order-footer-1 small {
+  color: var(--sub-color);
+}
+
+.order-footer-1 span {
+  font-weight: 600;
+}
