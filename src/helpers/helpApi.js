@@ -20,4 +20,5 @@ export const api_enpoint = {
   getProductsByCategory: `${api_conn}/products/category`,
 
   createOrder: `${api_conn}/order/create`,
+  getOrders: `${api_conn}/order/find`,
 };
