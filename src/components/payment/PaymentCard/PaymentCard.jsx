@@ -63,6 +63,7 @@ function PaymentCard(props) {
             <input
               type="text"
               name="name"
+              autoComplete="off"
               className="form-control mt-2"
               placeholder="Nombre"
               required
@@ -104,6 +105,7 @@ function PaymentCard(props) {
             <label htmlFor="address">Dirección</label>
             <input
               name="address"
+              autoComplete="off"
               placeholder="Ingresa tu dirección"
               type="text"
               value={defaultAddress}

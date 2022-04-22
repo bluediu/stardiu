@@ -34,6 +34,7 @@ function SearchForm(props) {
           type="text"
           placeholder="Buscar un producto..."
           id="search"
+          autoComplete="off"
           value={inputText}
           onChange={handleInput}
         />
