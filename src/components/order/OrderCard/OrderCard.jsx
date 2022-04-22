@@ -74,7 +74,12 @@ function OrderCard() {
               />
             </MDBCardHeader>
             <MDBCardBody>
+              <small className="text-black-50">
+                Vista previa
+              </small>
+
               <OrderProduct product={order.products[0]} />
+
               {order.products.length > 1 && (
                 <OrderProduct product={order.products[1]} />
               )}
