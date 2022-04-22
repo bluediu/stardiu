@@ -3,7 +3,13 @@ import React, { useState } from 'react';
 /* Components */
 import Card from 'react-credit-cards';
 import TimePicker from 'react-time-picker';
-import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
+import {
+  MDBBtn,
+  MDBIcon,
+  MDBPopover,
+  MDBPopoverBody,
+  MDBPopoverHeader,
+} from 'mdb-react-ui-kit';
 
 /* styles */
 import './PaymentCard.css';
@@ -49,7 +55,7 @@ function PaymentCard(props) {
               onChange={handleInputChange}
               onFocus={handleInputFocus}
             />
-            <small className="mx-2">
+            <small className="mx-2 text-black-50">
               Ej.: 49..., 51..., 36..., 37...
             </small>
           </div>
@@ -108,6 +114,19 @@ function PaymentCard(props) {
           </div>
 
           <div className="form-group mt-3">
+            <MDBPopover
+              color="light"
+              size="sm"
+              style={{ marginRight: '1rem', color: '#000000' }}
+              btnChildren="?"
+              placement="right"
+            >
+              <MDBPopoverHeader>Horarios</MDBPopoverHeader>
+              <MDBPopoverBody>
+                Los horarios valido son de 8 AM hasta las 7:30 PM
+              </MDBPopoverBody>
+            </MDBPopover>
+
             <label htmlFor="Fecha de entrega deseada">
               Fecha de entrega
             </label>
