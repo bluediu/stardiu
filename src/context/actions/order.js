@@ -79,3 +79,47 @@ export const startCreateOrder = (orderDate) => {
     }
   };
 };
+
+export const startGetOrders = (userId) => {
+  return async (dispatch) => {
+    try {
+      // read token from local storage
+      const token = localStorage.getItem('star-token');
+
+      let meta = {
+        headers: {
+          'content-type': 'application/json',
+          'x-token': token,
+        },
+      };
+
+      const res = await api.get(
+        `${api_enpoint.getOrders}/${userId}`,
+        meta
+      );
+
+      dispatch(setIsLoading(false));
+      return dispatch(getOrders(res));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+/**
+ * Get orders by user
+ * @param {Array<object>} data
+ */
+const getOrders = (data) => ({
+  type: TYPES.GET_ORDERS,
+  payload: data,
+});
+
+/**
+ * Set active order selected
+ * @param {Array<object>} data
+ */
+export const activeOrder = (data) => ({
+  type: TYPES.SHOW_ACTIVE_ORDER,
+  payload: data,
+});
