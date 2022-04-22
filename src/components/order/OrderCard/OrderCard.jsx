@@ -19,6 +19,7 @@ import OrderActive from './OrderActive/OrderActive';
 
 /* styles */
 import './OrderCard.css';
+import Loader from '../../utils/loader/Loader';
 
 function OrderCard() {
   /* Redux Hooks */
@@ -50,6 +51,12 @@ function OrderCard() {
     }
   }, [uid]);
 
+  if (isLoading)
+    return (
+      <div className="order-loader mt-5">
+        <Loader />
+      </div>
+    );
   return (
     <div className="container">
       <section className="orders-container">
