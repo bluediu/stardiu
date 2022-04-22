@@ -1,6 +1,9 @@
 import React from 'react';
+import { formatPrice } from '../../../../helpers';
 
-function OrderProduct() {
+function OrderProduct({ product }) {
+  const { img, name, category, price } = product?.productId;
+
   return (
     <>
       <article className="order-card__item">
@@ -8,37 +11,20 @@ function OrderProduct() {
           <div className="product">
             <img
               className="product__image"
-              src="https://res.cloudinary.com/djpwtohdw/image/upload/v1649964442/stardiu/products/r4nbtbci8fhfwxgelub9.webp"
+              src={img}
+              alt={name}
             />
           </div>
           <div className="order-info">
             <div className="order-info-item-1">
-              <p>Vanilla Sweet Crem Nitro Cold Brew</p>
-              <span>Hot Coffes</span>
+              <p className="order-cap">{name.toLowerCase()}</p>
+              <span className="order-cap">
+                {category.name.toLowerCase()}
+              </span>
             </div>
             <div className="order-info-item-2">
-              <span>$5.40</span>
-              <span>$Qty: 1</span>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article className="order-card__item">
-        <div className="order-card__item-1">
-          <div className="product">
-            <img
-              className="product__image"
-              src="https://res.cloudinary.com/djpwtohdw/image/upload/v1645724240/stardiu/products/onvlzpgzcoizqmsqeq2p.webp"
-            />
-          </div>
-          <div className="order-info">
-            <div className="order-info-item-1">
-              <p>Caffe Misto</p>
-              <span>Hot Coffes</span>
-            </div>
-            <div className="order-info-item-2">
-              <span>$5.40</span>
-              <span>$Qty: 1</span>
+              <span>{formatPrice.format(price)}</span>
+              <span>Cant: {product.quantity}</span>
             </div>
           </div>
         </div>

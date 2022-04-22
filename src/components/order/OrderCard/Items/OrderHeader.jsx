@@ -1,18 +1,35 @@
 import React from 'react';
+import DEFAULT_PIC from '../../../../assets/img/defaultProfile.png';
 
-function OrderHeader() {
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import dayjs from 'dayjs';
+import 'dayjs/locale/es';
+
+dayjs.locale('es');
+
+function OrderHeader({ user, num, date }) {
+  // config for dayjs library
+  dayjs.extend(advancedFormat);
+
+  const productDate = dayjs(date);
+
   return (
     <>
       <div className="orders-header-1">
-        <b>Orden #1</b>
-        <span>Jueves 16 de Abril 2022</span>
+        <b>Orden #{num}</b>
+        <span>
+          {productDate.format('dddd D MMMM YYYY h:mm A')}
+        </span>
       </div>
       <div>
         <div className="avatar">
           <img
             className="avatar__image"
-            src="https://lh3.googleusercontent.com/a-/AOh14GgKEHB1fB40oxf-Ws58DhZrm29UzqzKs9JGX2DA=s96-c"
-            alt="profile-pic"
+            src={user.img}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null; // prevents looping
+              currentTarget.src = DEFAULT_PIC;
+            }}
           />
         </div>
       </div>

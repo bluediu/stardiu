@@ -36,6 +36,7 @@
 
 .orders-header-1 span {
   color: var(--sub-color);
+  font-size: 0.8rem;
 }
 
 .avatar {
@@ -59,6 +60,10 @@
   /* arriba lados */
   padding: 1rem 0.1rem;
   border-bottom: thin dashed var(--sub-color);
+}
+.order-card__item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .order-card__item-1 {
@@ -132,4 +137,9 @@
 
 .order-footer-1 span {
   font-weight: 600;
+}
+
+/* UTILITIES */
+.order-cap {
+  text-transform: capitalize;
 }
