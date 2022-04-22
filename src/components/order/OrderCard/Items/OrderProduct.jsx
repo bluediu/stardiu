@@ -1,6 +1,8 @@
 import React from 'react';
 import { formatPrice } from '../../../../helpers';
 
+import PropTypes from 'prop-types';
+
 function OrderProduct({ product }) {
   const { img, name, category, price } = product?.productId;
 
@@ -32,5 +34,9 @@ function OrderProduct({ product }) {
     </>
   );
 }
+
+OrderProduct.propTypes = {
+  product: PropTypes.object.isRequired,
+};
 
 export default OrderProduct;

@@ -1,33 +1,48 @@
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  activeOrder,
+  startGetOrders,
+} from '../../../context/actions/order';
+
+/* Components */
 import {
   MDBCard,
   MDBCardBody,
   MDBCardFooter,
   MDBCardHeader,
   MDBModal,
-  MDBModalBody,
-  MDBModalContent,
-  MDBModalDialog,
 } from 'mdb-react-ui-kit';
-import React, { useEffect, useState } from 'react';
+
 import { OrderHeader, OrderFooter, OrderProduct } from './Items';
-import { useDispatch, useSelector } from 'react-redux';
+import OrderActive from './OrderActive/OrderActive';
+
+/* styles */
 import './OrderCard.css';
-import { startGetOrders } from '../../../context/actions/order';
 
 function OrderCard() {
+  /* Redux Hooks */
   const { uid } = useSelector((state) => state.auth);
-  const { orders, isLoading } = useSelector(
+  const { orders, isLoading, active } = useSelector(
     (state) => state.orders
   );
+  const dispath = useDispatch();
 
+  /* React states */
   const [showProduct, setShowProduct] = useState(false);
+  const [clidrenModal, setClidrenModal] = useState(null);
+
+  useEffect(() => {
+    if (showProduct) {
+      setClidrenModal(<OrderActive active={active} />);
+    }
+  }, [showProduct]);
 
   const toggleShow = (order) => {
     setShowProduct(!showProduct);
-    console.log(order);
-  };
 
-  const dispath = useDispatch();
+    dispath(activeOrder(order));
+  };
 
   useEffect(() => {
     if (uid) {
@@ -74,11 +89,7 @@ function OrderCard() {
         setShow={setShowProduct}
         tabIndex="-1"
       >
-        <MDBModalDialog>
-          <MDBModalContent>
-            <MDBModalBody>Hola...</MDBModalBody>
-          </MDBModalContent>
-        </MDBModalDialog>
+        {clidrenModal}
       </MDBModal>
     </div>
   );

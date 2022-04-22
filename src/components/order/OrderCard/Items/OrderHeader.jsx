@@ -1,14 +1,16 @@
 import React from 'react';
 import DEFAULT_PIC from '../../../../assets/img/defaultProfile.png';
 
+/* config day.js */
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import dayjs from 'dayjs';
 import 'dayjs/locale/es';
-
 dayjs.locale('es');
 
-function OrderHeader({ user, num, date }) {
-  // config for dayjs library
+import PropTypes from 'prop-types';
+
+function OrderHeader({ user, num, date, isModal = false }) {
+  // config for date
   dayjs.extend(advancedFormat);
 
   const productDate = dayjs(date);
@@ -16,7 +18,7 @@ function OrderHeader({ user, num, date }) {
   return (
     <>
       <div className="orders-header-1">
-        <b>Orden #{num}</b>
+        {!isModal ? <b>Orden #{num}</b> : <b>{user.name}</b>}
         <span>
           {productDate.format('dddd D MMMM YYYY h:mm A')}
         </span>
@@ -36,5 +38,12 @@ function OrderHeader({ user, num, date }) {
     </>
   );
 }
+
+OrderHeader.propTypes = {
+  user: PropTypes.object.isRequired,
+  num: PropTypes.number,
+  date: PropTypes.string,
+  isModal: PropTypes.bool,
+};
 
 export default OrderHeader;
