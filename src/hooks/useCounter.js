@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 /**
  *
@@ -7,6 +8,10 @@ import { useState } from 'react';
  * @returns
  */
 export const useCounter = ({ value = 0, initialValues }) => {
+  const { updatingQt } = useSelector(
+    (state) => state.shoppingCart
+  );
+
   const [counter, setCounter] = useState(
     initialValues?.count ?? value
   );
@@ -32,5 +37,6 @@ export const useCounter = ({ value = 0, initialValues }) => {
     maxCount: initialValues?.maxCount,
     counter,
     increaseBy,
+    updatingQt,
   };
 };

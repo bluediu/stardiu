@@ -159,7 +159,19 @@ export const startUpdateProductInCart = (product) => {
   return async (dispatch) => {
     const { id, counter } = product;
 
+    let meta = {
+      body: { quantity: counter },
+      headers: {
+        'content-type': 'application/json',
+      },
+    };
+
+    dispatch(updatingQt(true));
+
+    await api.put(`${api_enpoint.updateQt}/${id}`, meta);
+
     dispatch(updateProductInCart(id, counter));
+    dispatch(updatingQt(false));
     dispatch(addItAllUp());
   };
 };
@@ -215,4 +227,9 @@ export const updateProductInCart = (id, quantity) => ({
 export const deleteOneFromCart = (id) => ({
   type: TYPES.REMOVE_ONE_FROM_CART,
   payload: id,
+});
+
+const updatingQt = (status = false) => ({
+  type: TYPES.UPDATING_QT,
+  payload: status,
 });

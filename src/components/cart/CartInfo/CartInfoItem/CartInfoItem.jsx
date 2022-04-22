@@ -5,20 +5,25 @@ import { formatPrice } from '../../../../helpers/helpFormat-price';
 import { startUpdateProductInCart } from '../../../../context/actions/shoppingCart';
 
 /* Components */
-import { MDBBtn, MDBBtnGroup } from 'mdb-react-ui-kit';
+import {
+  MDBBtn,
+  MDBBtnGroup,
+  MDBSpinner,
+} from 'mdb-react-ui-kit';
 import CartRemoveBtn from '../CartRemoveBtn/CartRemoveBtn';
 
 import PropTypes from 'prop-types';
 
 function CartInfoItem({ productId, quantity, size, id }) {
   const dispatch = useDispatch();
-  const { counter, increaseBy, maxCount } = useCounter({
-    value: quantity,
-    initialValues: {
-      counter: 1,
-      maxCount: 10,
-    },
-  });
+  const { counter, increaseBy, maxCount, updatingQt } =
+    useCounter({
+      value: quantity,
+      initialValues: {
+        counter: 1,
+        maxCount: 10,
+      },
+    });
 
   const isMaxReached = useCallback(
     () => !!maxCount && counter === maxCount,
@@ -50,7 +55,17 @@ function CartInfoItem({ productId, quantity, size, id }) {
 
         <div className="price-details">
           <div className="product-amount-container">
-            <div className="product-amount">{counter}</div>
+            <div className="product-amount">
+              {updatingQt ? (
+                <MDBSpinner size="sm">
+                  <span className="visually-hidden">
+                    Loading...
+                  </span>
+                </MDBSpinner>
+              ) : (
+                counter
+              )}
+            </div>
             <MDBBtnGroup size="sm">
               <MDBBtn
                 color="dark"
@@ -60,7 +75,7 @@ function CartInfoItem({ productId, quantity, size, id }) {
                   increaseBy(1);
                   handleUpdate(counter + 1);
                 }}
-                disabled={isMaxReached()}
+                disabled={isMaxReached() || updatingQt}
               >
                 <span className={isMaxReached() && 'disabled'}>
                   +
@@ -74,7 +89,7 @@ function CartInfoItem({ productId, quantity, size, id }) {
                   increaseBy(-1);
                   handleUpdate(counter - 1);
                 }}
-                disabled={counter === 1}
+                disabled={counter === 1 || updatingQt}
               >
                 <span className={counter === 1 && 'disabled'}>
                   -
