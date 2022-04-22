@@ -8,10 +8,22 @@
   border-radius: 10px;
   column-gap: 0.5rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   justify-content: center;
   padding: 3rem 1.5rem;
   row-gap: 1rem;
+}
+
+@media only screen and (min-width: 811px) {
+  .orders-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .orders-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* ===== CARD ===== */
