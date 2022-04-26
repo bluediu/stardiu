@@ -1,38 +1,17 @@
 import React from 'react';
-import { MDBCard, MDBCardBody, MDBIcon } from 'mdb-react-ui-kit';
-import './Profile.css';
+
+/* Components */
 import OrderCard from '../order/OrderCard/OrderCard';
-import DEFAULT_PIC from '../../assets/img/defaultProfile.png';
+import { Avatar } from './AvatarCard';
+
+/* styles */
+import './Profile.css';
 
 function Profile() {
   return (
     <main className="container mt-5 d-flex flex-column">
-      <section>
-        <MDBCard
-          style={{
-            boxShadow: '0 2px 9px rgba(0, 0, 0, 0.2)',
-          }}
-          className="avatar-card mb-4"
-        >
-          <MDBCardBody>
-            <div className="avatar-profile">
-              <img
-                className="avatar-profile__image"
-                src="https://lh3.googleusercontent.com/a-/AOh14GgKEHB1fB40oxf-Ws58DhZrm29UzqzKs9JGX2DA=s96-c"
-                alt="profile-pic"
-                loading="lazy"
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null; // prevents looping
-                  currentTarget.src = DEFAULT_PIC;
-                }}
-              />
-            </div>
-            <span className="avatar-name">Josué Rivas</span>
-          </MDBCardBody>
-          <div className="avatar-setting">
-            <MDBIcon fas icon="pen" />
-          </div>
-        </MDBCard>
+      <section className="avatar-section">
+        <Avatar />
       </section>
 
       <section>
