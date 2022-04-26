@@ -2,6 +2,7 @@ import React from 'react';
 import { MDBCard, MDBCardBody, MDBIcon } from 'mdb-react-ui-kit';
 import './Profile.css';
 import OrderCard from '../order/OrderCard/OrderCard';
+import DEFAULT_PIC from '../../assets/img/defaultProfile.png';
 
 function Profile() {
   return (
@@ -20,6 +21,10 @@ function Profile() {
                 src="https://lh3.googleusercontent.com/a-/AOh14GgKEHB1fB40oxf-Ws58DhZrm29UzqzKs9JGX2DA=s96-c"
                 alt="profile-pic"
                 loading="lazy"
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null; // prevents looping
+                  currentTarget.src = DEFAULT_PIC;
+                }}
               />
             </div>
             <span className="avatar-name">Josué Rivas</span>
