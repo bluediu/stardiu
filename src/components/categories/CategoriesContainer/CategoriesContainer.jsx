@@ -52,7 +52,9 @@ function CategoriesContainer({ id, name }) {
 
       <div className="container cards-grid">
         {productsCategory?.map((p) => (
-          <CardItem key={p._id} {...p} />
+          <Fade bottom key={p._id}>
+            <CardItem {...p} />
+          </Fade>
         ))}
       </div>
     </>

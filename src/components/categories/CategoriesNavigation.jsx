@@ -52,9 +52,11 @@ function CategoriesNavigation() {
                 </MDBSpinner>
               </div>
             ) : (
-              <section className="cards-grid categories-mg">
-                <CategoriesCard url={url} records={records} />
-              </section>
+              <Fade>
+                <section className="cards-grid categories-mg">
+                  <CategoriesCard url={url} records={records} />
+                </section>
+              </Fade>
             )}
           </div>
         </Route>

@@ -16,6 +16,7 @@ import {
 
 import { OrderHeader, OrderFooter, OrderProduct } from './Items';
 import OrderActive from './OrderActive/OrderActive';
+import Zoom from 'react-reveal/Zoom';
 
 /* styles */
 import './OrderCard.css';
@@ -61,38 +62,36 @@ function OrderCard() {
     <div className="container">
       <section className="orders-container">
         {orders?.map((order, i) => (
-          <MDBCard
-            alignment="center"
-            className="order-card"
-            key={order._id}
-          >
-            <MDBCardHeader className="orders-header">
-              <OrderHeader
-                user={order.userId}
-                num={i + 1}
-                date={order.createdAt}
-              />
-            </MDBCardHeader>
-            <MDBCardBody>
-              <small className="text-black-50">
-                Vista previa
-              </small>
+          <Zoom key={order._id}>
+            <MDBCard alignment="center" className="order-card">
+              <MDBCardHeader className="orders-header">
+                <OrderHeader
+                  user={order.userId}
+                  num={i + 1}
+                  date={order.createdAt}
+                />
+              </MDBCardHeader>
+              <MDBCardBody>
+                <small className="text-black-50">
+                  Vista previa
+                </small>
 
-              <OrderProduct product={order.products[0]} />
+                <OrderProduct product={order.products[0]} />
 
-              {order.products.length > 1 && (
-                <OrderProduct product={order.products[1]} />
-              )}
-            </MDBCardBody>
-            <MDBCardFooter>
-              <OrderFooter
-                total={order.products.length}
-                amount={order.amount}
-                toggleShow={toggleShow}
-                order={order}
-              />
-            </MDBCardFooter>
-          </MDBCard>
+                {order.products.length > 1 && (
+                  <OrderProduct product={order.products[1]} />
+                )}
+              </MDBCardBody>
+              <MDBCardFooter>
+                <OrderFooter
+                  total={order.products.length}
+                  amount={order.amount}
+                  toggleShow={toggleShow}
+                  order={order}
+                />
+              </MDBCardFooter>
+            </MDBCard>
+          </Zoom>
         ))}
       </section>
 

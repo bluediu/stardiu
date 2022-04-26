@@ -12,6 +12,7 @@ import CardItem from './CardItem';
 import Pagination from '../../utils/Pagination';
 import Loader from '../../utils/loader/Loader';
 import Alert from '../../utils/Alert';
+import Fade from 'react-reveal/Fade';
 
 /* styles */
 import './Card.css';
@@ -57,7 +58,9 @@ function Card() {
 
       <section className="cards-grid">
         {products.map((product) => (
-          <CardItem key={product._id} {...product} />
+          <Fade key={product._id}>
+            <CardItem {...product} />
+          </Fade>
         ))}
       </section>
       <section className="mt-5">
