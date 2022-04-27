@@ -58,7 +58,7 @@ function OrderCard() {
         <Loader />
       </div>
     );
-  console.log(thereAreOrdersDone);
+
   return (
     <div className="container">
       <section
