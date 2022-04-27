@@ -22,9 +22,14 @@ export const startGetShoppingCart = (userId) => {
       const res = await api.get(
         `${api_enpoint.getShoppingCart}/${userId}`
       );
-
+      console.log(res);
       dispatch(setIsLoading(false));
-      dispatch(getShoppingCart(res.products));
+      dispatch(
+        getShoppingCart({
+          data: res.products,
+          thereAreProducts: res.thereAreProducts,
+        })
+      );
       dispatch(addItAllUp());
     } catch (error) {
       console.error(error);
@@ -197,9 +202,9 @@ export const countProducts = (quantity = 0) => ({
  * @param {Array<object>} data
  * @returns
  */
-export const getShoppingCart = (data) => ({
+export const getShoppingCart = ({ data, thereAreProducts }) => ({
   type: TYPES.GET_USER_CART,
-  payload: data,
+  payload: { data, thereAreProducts },
 });
 
 export const addItAllUp = () => ({
