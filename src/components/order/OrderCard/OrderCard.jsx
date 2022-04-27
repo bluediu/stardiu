@@ -21,13 +21,13 @@ import Zoom from 'react-reveal/Zoom';
 /* styles */
 import './OrderCard.css';
 import Loader from '../../utils/loader/Loader';
+import Empty from '../../utils/Empty/Empty';
 
 function OrderCard() {
   /* Redux Hooks */
   const { uid } = useSelector((state) => state.auth);
-  const { orders, isLoading, active } = useSelector(
-    (state) => state.orders
-  );
+  const { orders, isLoading, active, thereAreOrdersDone } =
+    useSelector((state) => state.orders);
   const dispath = useDispatch();
 
   /* React states */
@@ -58,41 +58,50 @@ function OrderCard() {
         <Loader />
       </div>
     );
+  console.log(thereAreOrdersDone);
   return (
     <div className="container">
-      <section className="orders-container">
-        {orders?.map((order, i) => (
-          <Zoom key={order._id}>
-            <MDBCard alignment="center" className="order-card">
-              <MDBCardHeader className="orders-header">
-                <OrderHeader
-                  user={order.userId}
-                  num={i + 1}
-                  date={order.createdAt}
-                />
-              </MDBCardHeader>
-              <MDBCardBody>
-                <small className="text-black-50">
-                  Vista previa
-                </small>
+      <section
+        className={`orders-container ${
+          !thereAreOrdersDone && 'no-orders'
+        }`}
+      >
+        {thereAreOrdersDone ? (
+          orders?.map((order, i) => (
+            <Zoom key={order._id}>
+              <MDBCard alignment="center" className="order-card">
+                <MDBCardHeader className="orders-header">
+                  <OrderHeader
+                    user={order.userId}
+                    num={i + 1}
+                    date={order.createdAt}
+                  />
+                </MDBCardHeader>
+                <MDBCardBody>
+                  <small className="text-black-50">
+                    Vista previa
+                  </small>
 
-                <OrderProduct product={order.products[0]} />
+                  <OrderProduct product={order.products[0]} />
 
-                {order.products.length > 1 && (
-                  <OrderProduct product={order.products[1]} />
-                )}
-              </MDBCardBody>
-              <MDBCardFooter>
-                <OrderFooter
-                  total={order.products.length}
-                  amount={order.amount}
-                  toggleShow={toggleShow}
-                  order={order}
-                />
-              </MDBCardFooter>
-            </MDBCard>
-          </Zoom>
-        ))}
+                  {order.products.length > 1 && (
+                    <OrderProduct product={order.products[1]} />
+                  )}
+                </MDBCardBody>
+                <MDBCardFooter>
+                  <OrderFooter
+                    total={order.products.length}
+                    amount={order.amount}
+                    toggleShow={toggleShow}
+                    order={order}
+                  />
+                </MDBCardFooter>
+              </MDBCard>
+            </Zoom>
+          ))
+        ) : (
+          <Empty title="Aún no has realizado ninguna orden" />
+        )}
       </section>
 
       <MDBModal
