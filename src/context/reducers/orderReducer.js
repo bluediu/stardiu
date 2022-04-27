@@ -4,6 +4,7 @@ const initialState = {
   isLoading: true,
   orders: [],
   active: null,
+  thereAreOrdersDone: null,
 };
 
 export const orderReducer = (state = initialState, action) => {

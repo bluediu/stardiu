@@ -3,6 +3,7 @@ import { TYPES } from '../types/types';
 const initialState = {
   isLoading: true,
   updatingQt: false,
+  thereAreProducts: null,
   cart: [],
   total: 0,
   resume: 0,
@@ -16,7 +17,8 @@ export const shoppingCartReducer = (
     case TYPES.GET_USER_CART:
       return {
         ...state,
-        cart: [...action.payload],
+        cart: action.payload.data,
+        thereAreProducts: action.payload.thereAreProducts,
       };
 
     case TYPES.IS_LOADING:
