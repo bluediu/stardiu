@@ -97,9 +97,15 @@ export const startGetOrders = (userId) => {
         `${api_enpoint.getOrders}/${userId}`,
         meta
       );
+      console.log(res);
 
       dispatch(setIsLoading(false));
-      return dispatch(getOrders(res));
+      return dispatch(
+        getOrders({
+          data: res.orders,
+          thereAreOrdersDone: res.thereAreOrdersDone,
+        })
+      );
     } catch (error) {
       console.error(error);
     }
@@ -110,9 +116,9 @@ export const startGetOrders = (userId) => {
  * Get orders by user
  * @param {Array<object>} data
  */
-const getOrders = (data) => ({
+const getOrders = ({ data, thereAreOrdersDone }) => ({
   type: TYPES.GET_ORDERS,
-  payload: data,
+  payload: { data, thereAreOrdersDone },
 });
 
 /**

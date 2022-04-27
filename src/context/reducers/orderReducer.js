@@ -12,7 +12,8 @@ export const orderReducer = (state = initialState, action) => {
     case TYPES.GET_ORDERS:
       return {
         ...state,
-        orders: [...action.payload],
+        orders: [...action.payload.data],
+        thereAreOrdersDone: action.payload.thereAreOrdersDone,
       };
 
     case TYPES.SHOW_ACTIVE_ORDER:
