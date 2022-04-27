@@ -1,10 +1,13 @@
 import React from 'react';
 import DEFAULT_PIC from '../../../assets/img/defaultProfile.png';
+import { useSelector } from 'react-redux';
 
 /* Components */
 import { MDBCard, MDBCardBody, MDBIcon } from 'mdb-react-ui-kit';
 
 function Avatar() {
+  const { name, img } = useSelector((state) => state.auth);
+
   return (
     <MDBCard
       style={{
@@ -16,8 +19,7 @@ function Avatar() {
         <div className="avatar-profile">
           <img
             className="avatar-profile__image"
-            src="https://lh3.googleusercontent.com/a-/AOh14GgKEHB1fB40oxf-Ws58DhZrm29UzqzKs9JGX2DA=s96-c"
-            alt="profile-pic"
+            src={img}
             loading="lazy"
             onError={({ currentTarget }) => {
               currentTarget.onerror = null; // prevents looping
@@ -25,7 +27,7 @@ function Avatar() {
             }}
           />
         </div>
-        <span className="avatar-name">Josué Rivas</span>
+        <span className="avatar-name">{name}</span>
       </MDBCardBody>
       <div className="avatar-setting">
         <MDBIcon fas icon="pen" />
