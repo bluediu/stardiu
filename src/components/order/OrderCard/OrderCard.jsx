@@ -14,14 +14,14 @@ import {
   MDBModal,
 } from 'mdb-react-ui-kit';
 
-import { OrderHeader, OrderFooter, OrderProduct } from './Items';
 import OrderActive from './OrderActive/OrderActive';
 import Zoom from 'react-reveal/Zoom';
+import Loader from '../../utils/loader/Loader';
+import Empty from '../../utils/Empty/Empty';
+import { OrderHeader, OrderFooter, OrderProduct } from './Items';
 
 /* styles */
 import './OrderCard.css';
-import Loader from '../../utils/loader/Loader';
-import Empty from '../../utils/Empty/Empty';
 
 function OrderCard() {
   /* Redux Hooks */
