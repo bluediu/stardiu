@@ -12,7 +12,9 @@ import './CartSummary.css';
 import PropTypes from 'prop-types';
 
 function CartSummary({ userName, total }) {
-  const { resume } = useSelector((state) => state.shoppingCart);
+  const { resume, thereAreProducts } = useSelector(
+    (state) => state.shoppingCart
+  );
   const [showModal, setShowModal] = useState(false);
 
   const toggleShow = () => setShowModal(!showModal);
@@ -44,7 +46,11 @@ function CartSummary({ userName, total }) {
 
       <Payment show={showModal} toggleShow={toggleShow} />
       <div className="d-grid gap-2">
-        <MDBBtn color="dark" onClick={toggleShow}>
+        <MDBBtn
+          color="dark"
+          disabled={!thereAreProducts}
+          onClick={toggleShow}
+        >
           Ordenar ahora
         </MDBBtn>
       </div>
