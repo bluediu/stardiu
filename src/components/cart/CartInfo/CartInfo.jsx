@@ -1,8 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 /* Components */
 import Loader from '../../utils/loader/Loader';
 import CartInfoItem from './CartInfoItem/CartInfoItem';
+import Empty from '../../utils/Empty/Empty';
 
 import PropTypes from 'prop-types';
 
@@ -10,11 +12,15 @@ import PropTypes from 'prop-types';
 import './CartInfo.css';
 
 function CartInfo({ products, isLoading }) {
+  const { thereAreProducts } = useSelector(
+    (state) => state.shoppingCart
+  );
+
   return (
     <article className="info">
-      {isLoading ? (
-        <Loader />
-      ) : (
+      {isLoading && <Loader />}
+
+      {thereAreProducts ? (
         products?.map(({ quantity, productId, size, _id }) => (
           <CartInfoItem
             key={productId._id}
@@ -24,6 +30,8 @@ function CartInfo({ products, isLoading }) {
             id={_id}
           />
         ))
+      ) : (
+        <Empty title={'Aún no tienes productos agregados'} />
       )}
     </article>
   );
