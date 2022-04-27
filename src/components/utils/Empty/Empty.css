@@ -1,0 +1,13 @@
+:root {
+  --sub-color: #a2a2a2;
+}
+
+.empty {
+  display: flex;
+  border: thin dashed var(--sub-color);
+  border-radius: 8px;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
