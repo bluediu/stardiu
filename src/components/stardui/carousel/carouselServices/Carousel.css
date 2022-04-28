@@ -1,3 +1,7 @@
+.carousel-width {
+  max-width: 674.47px;
+}
+
 @media only screen and (min-width: 976px) {
   .carousel-width {
     width: 57%;
