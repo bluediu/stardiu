@@ -29,7 +29,7 @@ function AuthModal({ showModal, setShowModal, toggleShow }) {
       <MDBModalDialog onClick={(e) => e.stopPropagation()}>
         <MDBModalContent>
           <MDBModalHeader>
-            <MDBModalTitle>Account</MDBModalTitle>
+            <MDBModalTitle>Crear una cuenta</MDBModalTitle>
             <MDBBtn
               className="btn-close"
               color="none"
@@ -39,7 +39,7 @@ function AuthModal({ showModal, setShowModal, toggleShow }) {
           <MDBModalBody>
             <section className="auth-modal">
               <div className="auth-modal-info">
-                <h5>Start now</h5>
+                <h5>Inicia ahora</h5>
                 <img
                   src={LOGO}
                   alt="stardui - logo"
