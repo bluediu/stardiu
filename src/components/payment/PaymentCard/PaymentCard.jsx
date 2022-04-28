@@ -125,7 +125,8 @@ function PaymentCard(props) {
             >
               <MDBPopoverHeader>Horarios</MDBPopoverHeader>
               <MDBPopoverBody>
-                Los horarios valido son de 8 AM hasta las 7:30 PM
+                Los horarios validos son de 8:00 AM hasta las
+                7:30 PM
               </MDBPopoverBody>
             </MDBPopover>
 
