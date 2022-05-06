@@ -75,8 +75,9 @@ function AppRouter() {
             component={CategoriesScreen}
           />
 
-          <Route
+          <PrivateRoute
             path={ROUTE.PROFILE}
+            isAuthenticated={!uid}
             component={ProfileScreen}
           />
 
