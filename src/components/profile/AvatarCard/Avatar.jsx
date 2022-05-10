@@ -1,7 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import DEFAULT_PIC from '../../../assets/img/defaultProfile.png';
 import { useSelector } from 'react-redux';
-import { useDropzone } from 'react-dropzone';
 
 /* Components */
 import { MDBCard, MDBCardBody, MDBIcon } from 'mdb-react-ui-kit';
@@ -16,18 +15,6 @@ function Avatar() {
   const [titleModal, setTitleModal] = useState('');
   const [clidrenModal, setClidrenModal] = useState(null);
   const [showModal, setShowModal] = useState(false);
-
-  const toggleShow = () => setShowModal(!showModal);
-
-  const onDrop = useCallback(async (aceptedFile) => {
-    const file = aceptedFile[0];
-
-    try {
-      console.log(file);
-    } catch (error) {
-      console.error(error);
-    }
-  });
 
   /**
    * Handle options for profile modal
@@ -56,13 +43,6 @@ function Avatar() {
     }
   };
 
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: 'image/png, image/jpeg, image/jpg',
-    noKeyboard: true,
-    multiple: true,
-    onDrop,
-  });
-
   return (
     <MDBCard
       style={{
@@ -74,7 +54,7 @@ function Avatar() {
         <div className="avatar-profile">
           <img
             onClick={() => handleModal('avatar')}
-            className="avatar-profile__image"
+            className="avatar-profile__image pointer"
             src={img}
             loading="lazy"
             onError={({ currentTarget }) => {
@@ -100,9 +80,6 @@ function Avatar() {
       >
         {clidrenModal}
       </ProfileModal>
-
-      {/* <MDBIcon fas icon="pen" {...getRootProps()} />
-      <input {...getInputProps()} /> */}
     </MDBCard>
   );
 }
