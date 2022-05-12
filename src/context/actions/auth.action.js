@@ -35,7 +35,7 @@ export const startLoginWithEmailPassword = (email, password) => {
           })
         );
       } else {
-        return toast.error('Email or password incorred', {
+        return toast.error('Correo o contraseña incorrecto', {
           hideProgressBar: false,
           autoClose: 2000,
         });
@@ -76,12 +76,14 @@ export const startRegisterWithEmailPasswordName = (
         const { uid, name, img, role } = res;
         localStorage.setItem('star-token', res.token);
 
+        toast.success('Ya estás registrado 🎉');
+
         return dispatch(authAction({ uid, name, img, role }));
       } else {
         dispatch(checkingFinish());
 
         return toast.error(
-          'This user already exists, please try another'
+          'Ese correo ya esta tomado, por favor intenta con otro'
         );
       }
     } catch (error) {

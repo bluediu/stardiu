@@ -7,6 +7,9 @@ export const TYPES = {
   AUTH_LOGIN: '[AUTH] LOGIN',
   AUTH_LOGOUT: '[AUTH] LOGOUT',
 
+  /* Users */
+  UPDATE_AVATAR: '[USER] AVATAR',
+
   /* Products */
   PRODUCT_GET: '[PRODUCT] GET',
   PRODUCT_GET_ID: '[PRODUCT] GET BY ID',

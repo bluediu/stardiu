@@ -24,6 +24,12 @@ export const authReducer = (state = initialState, action) => {
         checking: true,
       };
 
+    case TYPES.UPDATE_AVATAR:
+      return {
+        ...state,
+        img: action.payload,
+      };
+
     default:
       return state;
   }
