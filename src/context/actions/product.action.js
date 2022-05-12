@@ -81,6 +81,8 @@ export const startGetProductsByPage = (page = 1) => {
 export const startGetProductById = (id) => {
   return async (dispatch) => {
     try {
+      dispatch(setIsLoading(true));
+
       const res = await api.get(
         `${api_enpoint.getProducts}/${id}`
       );
