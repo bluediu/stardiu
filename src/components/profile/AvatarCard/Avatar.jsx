@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import DEFAULT_PIC from '../../../assets/img/defaultProfile.png';
 import { useSelector } from 'react-redux';
+import jwt_decode from 'jwt-decode';
+import Swal from 'sweetalert2';
 
 /* Components */
 import { MDBCard, MDBCardBody, MDBIcon } from 'mdb-react-ui-kit';
@@ -16,9 +18,14 @@ function Avatar() {
   const [clidrenModal, setClidrenModal] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
+  /* JWT: check out for google acounts */
+  // read the previous token from local storage
+  const token = localStorage.getItem('star-token');
+  const decoded = jwt_decode(token);
+
   /**
    * Handle options for profile modal
-   * @param {'avatar' | 'settings'} type what type of modal do you want to show
+   * @param {'avatar' | 'settings'} type what type of modal do you want to show?
    */
   const handleModal = (type) => {
     switch (type) {
@@ -33,7 +40,11 @@ function Avatar() {
       case 'settings':
         setTitleModal('Configuraciones');
         setClidrenModal(
-          <SettingForm setShowModal={setShowModal} />
+          <SettingForm
+            setShowModal={setShowModal}
+            setTitleModal={setTitleModal}
+            setClidrenModal={setClidrenModal}
+          />
         );
         setShowModal(true);
         break;
@@ -53,7 +64,9 @@ function Avatar() {
       <MDBCardBody>
         <div className="avatar-profile">
           <img
-            onClick={() => handleModal('avatar')}
+            onClick={() => {
+              decoded.google !== true && handleModal('avatar');
+            }}
             className="avatar-profile__image pointer"
             src={img}
             loading="lazy"
@@ -67,8 +80,19 @@ function Avatar() {
       </MDBCardBody>
 
       <div
-        className="avatar-setting"
-        onClick={() => handleModal('settings')}
+        className={`avatar-setting ${
+          decoded.google && 'avatar-google'
+        }`}
+        onClick={() => {
+          decoded.google !== true && handleModal('settings');
+
+          decoded.google &&
+            Swal.fire(
+              'Aclaración',
+              'Tu cuenta esta asocida con google por lo tanto no es permido hacer cambio en tu perfil por politicas de privacidad.',
+              'warning'
+            );
+        }}
       >
         <MDBIcon fas icon="pen" />
       </div>
