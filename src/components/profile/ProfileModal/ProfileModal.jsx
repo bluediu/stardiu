@@ -1,5 +1,7 @@
+import React from 'react';
+
+/* Components */
 import {
-  MDBBtn,
   MDBModal,
   MDBModalBody,
   MDBModalContent,
@@ -7,7 +9,6 @@ import {
   MDBModalHeader,
   MDBModalTitle,
 } from 'mdb-react-ui-kit';
-import React from 'react';
 
 function ProfileModal({
   children,
