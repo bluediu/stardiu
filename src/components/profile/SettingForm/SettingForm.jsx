@@ -1,7 +1,26 @@
-import { MDBListGroupItem } from 'mdb-react-ui-kit';
 import React from 'react';
 
-function SettingForm({ setShowModal }) {
+/* Components */
+import { MDBListGroupItem } from 'mdb-react-ui-kit';
+import NameForm from '../NameForm';
+import PasswordForm from '../PasswordForm';
+
+import PropTypes from 'prop-types';
+
+function SettingForm({
+  setShowModal,
+  setTitleModal,
+  setClidrenModal,
+}) {
+  const onChangeName = () => {
+    setTitleModal('Cambia tu nombre');
+    setClidrenModal(<NameForm />);
+  };
+
+  const onChangePassword = () => {
+    setTitleModal('Cambia tu contraseña');
+    setClidrenModal(<PasswordForm />);
+  };
   return (
     <ul
       style={{
@@ -12,8 +31,12 @@ function SettingForm({ setShowModal }) {
       }}
       className="pointer list-group-flush"
     >
-      <MDBListGroupItem>Cambiar nombre</MDBListGroupItem>
-      <MDBListGroupItem>Cambiar contraseña</MDBListGroupItem>
+      <MDBListGroupItem onClick={onChangeName}>
+        Cambiar nombre
+      </MDBListGroupItem>
+      <MDBListGroupItem onClick={onChangePassword}>
+        Cambiar contraseña
+      </MDBListGroupItem>
       <MDBListGroupItem className="text-danger">
         Cerrar sección
       </MDBListGroupItem>
@@ -26,5 +49,11 @@ function SettingForm({ setShowModal }) {
     </ul>
   );
 }
+
+SettingForm.propTypes = {
+  setShowModal: PropTypes.func.isRequired,
+  setTitleModal: PropTypes.func.isRequired,
+  setClidrenModal: PropTypes.func.isRequired,
+};
 
 export default SettingForm;
