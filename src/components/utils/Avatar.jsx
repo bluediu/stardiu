@@ -11,6 +11,8 @@ function Avatar({ img, name }) {
         className="img-fluid"
         style={{
           width: '30px',
+          height: '30px',
+          objectFit: 'cover',
           borderRadius: '50%',
           marginLeft: '0.4rem',
         }}
