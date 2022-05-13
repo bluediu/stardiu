@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { startUpdateUserName } from '../../../context/actions/user.action';
 
 /* Components */
 import { MDBBtn } from 'mdb-react-ui-kit';
 import AuthErrorMessage from '../../auth/AuthErrorMessage';
-import { useDispatch } from 'react-redux';
-import { startUpdateUserName } from '../../../context/actions/user.action';
 
 function NameForm() {
   const dispatch = useDispatch();

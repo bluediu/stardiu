@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { startUpdateUserPassword } from '../../../context/actions/user.action';
 
 /* Components */
 import { MDBBtn } from 'mdb-react-ui-kit';
 import AuthErrorMessage from '../../auth/AuthErrorMessage';
-import { startUpdateUserPassword } from '../../../context/actions/user.action';
 
 function PasswordForm() {
   const dispatch = useDispatch();

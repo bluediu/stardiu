@@ -1,11 +1,10 @@
-import { MDBListGroupItem } from 'mdb-react-ui-kit';
-import { useDropzone } from 'react-dropzone';
 import React, { useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
 import { useDispatch } from 'react-redux';
-import {
-  startDeleteUserAvatar,
-  startUpdateUserAvatar,
-} from '../../../context/actions/user.action';
+import { startUpdateUserAvatar } from '../../../context/actions/user.action';
+
+/* Components */
+import { MDBListGroupItem } from 'mdb-react-ui-kit';
 
 function AvatarForm({ setShowModal }) {
   const dispatch = useDispatch();
