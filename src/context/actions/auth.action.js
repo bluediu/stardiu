@@ -122,7 +122,7 @@ export const startLoginWithGoogle = (token) => {
         dispatch(checkingFinish());
 
         return toast.error(
-          'This user already exists, please try another'
+          'La autenticación fallo, por favor intenta de nuevo'
         );
       }
     } catch (err) {
