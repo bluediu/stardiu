@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
-import { MDBBtn } from 'mdb-react-ui-kit';
-import { ROUTE } from '../../constants/auth-routes';
-import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
 
-import Slide from 'react-reveal/Slide';
-import AuthErrorMessage from './AuthErrorMessage';
+import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { startRegisterWithEmailPasswordName } from '../../context/actions/auth.action';
+import { ROUTE } from '../../constants/auth-routes';
+
+/* Components */
+import { MDBBtn } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
+import AuthErrorMessage from './AuthErrorMessage';
+import Slide from 'react-reveal/Slide';
 
 function AuthSignInScreen() {
   const dispatch = useDispatch();
