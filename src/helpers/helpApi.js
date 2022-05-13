@@ -6,6 +6,7 @@ export const api_enpoint = {
   loginWithGoogle: `${api_conn}/auth/google`,
   renew: `${api_conn}/auth/renew`,
   createUser: `${api_conn}/users`,
+  updateUserData: `${api_conn}/users`,
   updateAvatar: `${api_conn}/uploads/users`,
 
   getProducts: `${api_conn}/products`,

@@ -97,7 +97,6 @@ export const startGetOrders = (userId) => {
         `${api_enpoint.getOrders}/${userId}`,
         meta
       );
-      console.log(res);
 
       dispatch(setIsLoading(false));
       return dispatch(

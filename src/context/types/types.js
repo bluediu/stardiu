@@ -9,6 +9,7 @@ export const TYPES = {
 
   /* Users */
   UPDATE_AVATAR: '[USER] AVATAR',
+  UPDATE_USER: '[USER] USER DATA',
 
   /* Products */
   PRODUCT_GET: '[PRODUCT] GET',

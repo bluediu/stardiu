@@ -30,6 +30,12 @@ export const authReducer = (state = initialState, action) => {
         img: action.payload,
       };
 
+    case TYPES.UPDATE_USER:
+      return {
+        ...state,
+        name: action.payload,
+      };
+
     default:
       return state;
   }
