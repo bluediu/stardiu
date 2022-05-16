@@ -20,11 +20,10 @@ function OrderFooter({
           <small>X{total} Items</small>
           <span>{formatPrice.format(amount)}</span>
         </div>
-        {!modal && (
+        {!modal ? (
           <MDBBtn
             size="sm"
             outline
-            color="dark"
             style={{
               borderColor: '#92bdaa',
               color: '#92bdaa',
@@ -37,6 +36,21 @@ function OrderFooter({
           >
             <MDBIcon fas icon="check" className="me-2" />
             Detalles
+          </MDBBtn>
+        ) : (
+          <MDBBtn
+            size="sm"
+            outline
+            style={{
+              borderColor: '#E74C3C',
+              color: '#E74C3C',
+              height: '2.2rem',
+              borderRadius: '8px',
+            }}
+            onClick={toggleShow}
+          >
+            <MDBIcon fas icon="times" className="me-2" />
+            Cerrar
           </MDBBtn>
         )}
       </div>

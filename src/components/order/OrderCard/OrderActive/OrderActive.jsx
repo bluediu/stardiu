@@ -17,7 +17,7 @@ import {
 
 import PropTypes from 'prop-types';
 
-function OrderActive({ active }) {
+function OrderActive({ active, toggleShow }) {
   const { userId, createdAt, products, amount } = active;
 
   return (
@@ -46,6 +46,7 @@ function OrderActive({ active }) {
               total={products.length}
               amount={amount}
               modal={true}
+              toggleShow={toggleShow}
             />
           </MDBModalFooter>
         </MDBModalContent>
