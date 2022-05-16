@@ -34,17 +34,19 @@ function OrderCard() {
   const [showProduct, setShowProduct] = useState(false);
   const [clidrenModal, setClidrenModal] = useState(null);
 
-  useEffect(() => {
-    if (showProduct) {
-      setClidrenModal(<OrderActive active={active} />);
-    }
-  }, [showProduct]);
-
   const toggleShow = (order) => {
     setShowProduct(!showProduct);
 
     dispath(activeOrder(order));
   };
+
+  useEffect(() => {
+    if (showProduct) {
+      setClidrenModal(
+        <OrderActive active={active} toggleShow={toggleShow} />
+      );
+    }
+  }, [showProduct]);
 
   useEffect(() => {
     if (uid) {
