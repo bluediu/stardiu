@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DEFAULT_PIC from '../../../assets/img/defaultProfile.png';
 import { useSelector } from 'react-redux';
 import jwt_decode from 'jwt-decode';
@@ -17,11 +17,17 @@ function Avatar() {
   const [titleModal, setTitleModal] = useState('');
   const [clidrenModal, setClidrenModal] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [googleUser, setGoogleUser] = useState(null);
 
   /* JWT: check out for google acounts */
   // read the previous token from local storage
   const token = localStorage.getItem('star-token');
   const decoded = jwt_decode(token);
+
+  /* Check out for google user. */
+  useEffect(() => {
+    setGoogleUser(decoded.google);
+  }, [decoded]);
 
   /**
    * Handle options for profile modal
@@ -65,7 +71,7 @@ function Avatar() {
         <div className="avatar-profile">
           <img
             onClick={() => {
-              decoded.google !== true && handleModal('avatar');
+              googleUser !== true && handleModal('avatar');
             }}
             className="avatar-profile__image pointer"
             src={img}
@@ -81,12 +87,12 @@ function Avatar() {
 
       <div
         className={`avatar-setting ${
-          decoded.google && 'avatar-google'
+          googleUser && 'avatar-google'
         }`}
         onClick={() => {
-          decoded.google !== true && handleModal('settings');
+          googleUser !== true && handleModal('settings');
 
-          decoded.google &&
+          googleUser &&
             Swal.fire(
               'Aclaración',
               'Tu cuenta esta asocida con google por lo tanto no es permido hacer cambio en tu perfil por politicas de privacidad.',
