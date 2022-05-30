@@ -28,6 +28,10 @@
   margin-left: -0.4rem;
 }
 
+.discover-btn-color {
+  background: rgba(0, 0, 0, 0.86);
+}
+
 .hero-image-size {
   width: 320px;
 }

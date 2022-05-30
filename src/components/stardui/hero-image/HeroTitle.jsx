@@ -40,9 +40,8 @@ function HeroTitle() {
         <Fade delay={1000}>
           <MDBBtn
             rounded
-            outline
             color="dark"
-            className="mt-3"
+            className="mt-3 discover-btn-color"
             onClick={() => history.push(ROUTE.MENU_BASE)}
           >
             Descubrir
