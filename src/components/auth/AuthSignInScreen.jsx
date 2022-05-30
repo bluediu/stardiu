@@ -6,10 +6,10 @@ import { startRegisterWithEmailPasswordName } from '../../context/actions/auth.a
 import { ROUTE } from '../../constants/auth-routes';
 
 /* Components */
-import { MDBBtn } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 import AuthErrorMessage from './AuthErrorMessage';
 import Slide from 'react-reveal/Slide';
+import AuthContinue from './AuthContinue';
 
 function AuthSignInScreen() {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ function AuthSignInScreen() {
   };
 
   useEffect(() => {
-    document.title = 'Stardui - Sing In';
+    document.title = 'Stardiu - Regístrate';
   }, []);
 
   return (
@@ -36,7 +36,7 @@ function AuthSignInScreen() {
       onSubmit={handleSubmit(onSubmit)}
     >
       <Slide top>
-        <h2>Sign In</h2>
+        <h2>Regístrate</h2>
 
         <section className="form-outline">
           <label htmlFor="name" className="form-label mt-1">
@@ -102,9 +102,7 @@ function AuthSignInScreen() {
           )}
         </section>
 
-        <MDBBtn rounded className="mt-4" color="dark">
-          Log In
-        </MDBBtn>
+        <AuthContinue />
       </Slide>
 
       <Link to={ROUTE.LOGIN} className="d-block mt-3">

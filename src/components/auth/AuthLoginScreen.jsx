@@ -17,6 +17,7 @@ import {
   startLoginWithEmailPassword,
   startLoginWithGoogle,
 } from '../../context/actions/auth.action';
+import AuthContinue from './AuthContinue';
 
 function AuthLoginScreen() {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ function AuthLoginScreen() {
   };
 
   useEffect(() => {
-    document.title = 'Stardui - Login';
+    document.title = 'Stardiu - Iniciar sección';
   }, []);
 
   return (
@@ -50,7 +51,7 @@ function AuthLoginScreen() {
         className="form-container p-4"
       >
         <Slide top>
-          <h3 className="mt-3 mb-4">Log In</h3>
+          <h3 className="mt-3 mb-4">Iniciar sección</h3>
 
           <GoogleLogin
             // eslint-disable-next-line no-undef
@@ -111,9 +112,7 @@ function AuthLoginScreen() {
             )}
           </section>
 
-          <MDBBtn rounded className="mt-4" color="dark">
-            Log In
-          </MDBBtn>
+          <AuthContinue />
         </Slide>
 
         <Link to={ROUTE.SIGN_IN} className="d-block mt-3">

@@ -19,7 +19,7 @@ function GoogleButton({ onClick, disabled }) {
       </div>
 
       <div className="social-text">
-        <span>Sign in with google</span>
+        <span>Continuar con Google</span>
       </div>
     </div>
   );

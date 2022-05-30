@@ -15,7 +15,7 @@ function AuthSignInBtn() {
         color="dark"
         onClick={() => history.push(ROUTE.SIGN_IN)}
       >
-        Sign In
+        Regístrate
       </MDBBtn>
     </>
   );
