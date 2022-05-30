@@ -35,3 +35,21 @@ body {
 .pointer {
   cursor: pointer;
 }
+
+/* Avatar */
+.avatar {
+  /* Rounded border */
+  border-radius: 50%;
+  height: 44px;
+  width: 44px;
+}
+
+.avatar__image {
+  /* Rounded border */
+  border-radius: 50%;
+
+  /* Take full size */
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
