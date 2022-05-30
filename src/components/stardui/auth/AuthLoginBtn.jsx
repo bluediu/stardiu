@@ -17,7 +17,7 @@ function AuthLoginBtn({ margin }) {
         className={margin ? 'me-2' : ''}
         onClick={() => history.push(ROUTE.LOGIN)}
       >
-        Log In
+        Inicia
       </MDBBtn>
     </>
   );
