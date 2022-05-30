@@ -12,7 +12,7 @@ import Latest from '../components/stardui/latest/Latest';
 
 function HomeScreen() {
   useEffect(() => {
-    document.title = 'Stardui - Home';
+    document.title = 'Stardiu - Inicio';
   }, []);
 
   return (

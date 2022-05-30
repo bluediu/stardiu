@@ -6,7 +6,7 @@ import CategoriesNavigation from '../components/categories';
 
 function CategoriesScreen() {
   useEffect(() => {
-    document.title = 'Stardui - Categories';
+    document.title = 'Stardiu - Categorias';
   }, []);
 
   return (
