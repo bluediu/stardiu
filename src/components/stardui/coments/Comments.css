@@ -1,0 +1,6 @@
+.comment-container {
+  background-color: ##f4f6f6;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 60rem;
+}
