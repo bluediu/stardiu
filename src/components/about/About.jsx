@@ -18,15 +18,15 @@ function About() {
         <h2>Nuestra empresa</h2>
 
         <p className="fw-light">
-          Solo la empresa lider en la producción y venta de cafe
+          Solo la empresa lider en la producción y venta de café
           ofreciendo productos de calidad y el mejor servicio a
-          nuestros cliente y consumidores siempre buscando
+          nuestros clientes y consumidores siempre buscando
           ofrecer los mejores productos en el mercado.
         </p>
       </div>
 
       <div className="about-2">
-        <h2>Nuestro cafè</h2>
+        <h2>Nuestro café</h2>
         <p className="fw-light">
           Se necesitan muchas manos para elaborar la taza de café
           perfecta, desde los agricultores que cuidan las cerezas
