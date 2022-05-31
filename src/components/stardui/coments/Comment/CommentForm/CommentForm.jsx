@@ -4,6 +4,8 @@ import { MDBBtn } from 'mdb-react-ui-kit';
 /* Components */
 import { useForm } from 'react-hook-form';
 
+import './CommentForm.css';
+
 function CommentForm({ checking }) {
   const {
     register,

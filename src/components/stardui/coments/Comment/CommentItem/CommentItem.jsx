@@ -10,9 +10,11 @@ import {
   MDBIcon,
 } from 'mdb-react-ui-kit';
 
-function CommentItem() {
+import './CommentItem.css';
+
+function CommentItem({ title }) {
   return (
-    <section className="mt-4 d-flex flex-row justify-content-evenly align-items-start comment-item">
+    <section className="mt-4 comment-item">
       <div>
         <div className="avatar me-3">
           <img
@@ -26,12 +28,10 @@ function CommentItem() {
         </div>
       </div>
       <div>
-        <section className="comment-item-text">
-          Excelente cafe muy bueno
-        </section>
+        <section className="comment-item-text">{title}</section>
         <small className="text-black-50">hace 1 hora</small>
       </div>
-      <div>
+      <div className="comment-action">
         <MDBDropdown group className="shadow-0">
           <MDBDropdownToggle color="light">
             <MDBIcon fas icon="ellipsis-v" className="me-2" />

@@ -1,0 +1,41 @@
+/* Items */
+.comment-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  width: 38rem;
+}
+
+.comment-item-text {
+  background-color: #eaecee;
+  width: 28rem;
+  padding: 0.9rem 0.5rem;
+  border-radius: 8px;
+}
+
+@media only screen and (max-width: 767px) {
+  .comment-item-text {
+    width: 20rem;
+  }
+
+  .comment-item {
+    justify-content: flex-start;
+  }
+
+  .comment-action {
+    margin-left: 0.2rem;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .comment-item-text {
+    width: 13rem;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .comment-item-text {
+    width: 11rem;
+  }
+}

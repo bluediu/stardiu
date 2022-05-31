@@ -10,9 +10,6 @@ import { useSelector } from 'react-redux';
 import CommentForm from './CommentForm';
 import CommentItem from './CommentItem';
 
-/* styles */
-import './Comment.css';
-
 function Comment() {
   const { img, checking } = useSelector((state) => state.auth);
 
@@ -33,10 +30,14 @@ function Comment() {
         <CommentForm checking={checking} />
       </div>
 
-      <CommentItem />
-      <CommentItem />
-      <CommentItem />
-      <CommentItem />
+      <CommentItem title={'Excelente cafe, muy recomendado'} />
+      <CommentItem
+        title={'Cafe de muy buena calidad, lo recomiendo'}
+      />
+      <CommentItem title={'No esta nada mal'} />
+      <CommentItem
+        title={'Lo recomiendo, pero esta un poco caro'}
+      />
     </>
   );
 }

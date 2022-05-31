@@ -1,0 +1,11 @@
+.comment-textarea {
+  width: 28.77rem;
+  height: 5rem;
+}
+
+@media only screen and (max-width: 560px) {
+  .comment-textarea {
+    border: 1px solid black;
+    width: 14.3rem;
+  }
+}

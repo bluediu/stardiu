@@ -1,22 +1,26 @@
+import { MDBCard, MDBCardBody } from 'mdb-react-ui-kit';
 import React from 'react';
 
 /* Components */
 import Comment from './Comment';
-import NoComments from './NoComments';
+// import NoComments from './NoComments';
 
 /* styles */
 import './Comments.css';
-import { useForm } from 'react-hook-form';
 
 function Comments() {
+  // 712
   return (
-    <section className="container comment-container p-3">
-      <h4 className="mb-3">Comentarios</h4>
+    <div className="container" style={{ zIndex: '998' }}>
+      <MDBCard className="comment-container">
+        <MDBCardBody>
+          <h4 className="mb-3">Comentarios</h4>
 
-      {/* <NoComments /> */}
-
-      <Comment />
-    </section>
+          {/* <NoComments /> */}
+          <Comment />
+        </MDBCardBody>
+      </MDBCard>
+    </div>
   );
 }
 

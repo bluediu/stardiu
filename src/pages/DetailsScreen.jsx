@@ -11,12 +11,12 @@ function DetailsScreen() {
   }, []);
 
   return (
-    <>
+    <div style={{ overflowX: 'hidden' }}>
       <Navbar />
       <DetailsMain />
       <Comments />
       <Footer />
-    </>
+    </div>
   );
 }
 
