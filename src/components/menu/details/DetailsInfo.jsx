@@ -4,6 +4,7 @@ import { formatPrice } from '../../../helpers/helpFormat-price';
 /* Components */
 import { MDBBadge } from 'mdb-react-ui-kit';
 import ShoppingCartBtn from '../../stardui/cart/ShoppingCartBtn';
+import Likes from '../../stardui/likes/Likes';
 
 function DetailsInfo(props) {
   const { name, description, category, price, size } = props;
@@ -46,6 +47,8 @@ function DetailsInfo(props) {
             ))}
           </select>
         </div>
+
+        <Likes />
 
         <hr />
         <ShoppingCartBtn size={selectValue} />
