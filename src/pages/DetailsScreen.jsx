@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 /* Components */
 import DetailsMain from '../components/menu/details/DetailsMain';
 import { Footer, Navbar } from '../components/stardui';
-import Comments from '../components/stardui/coments/Comments';
+import Comments from '../components/stardui/comments/Comments';
 
 function DetailsScreen() {
   useEffect(() => {
