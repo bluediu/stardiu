@@ -14,7 +14,7 @@ function DetailsScreen() {
     <div style={{ overflowX: 'hidden' }}>
       <Navbar />
       <DetailsMain />
-      <Comments />
+      {/* <Comments /> */}
       <Footer />
     </div>
   );

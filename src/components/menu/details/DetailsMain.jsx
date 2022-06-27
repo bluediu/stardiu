@@ -26,6 +26,10 @@ function DetailsMain() {
     const code = pathname.slice(3);
 
     dispatch(startGetProductById(code.toString()));
+
+    window.scrollTo({
+      top: 0,
+    });
   }, [pathname]);
 
   return (
