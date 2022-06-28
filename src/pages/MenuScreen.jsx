@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 /* Components */
 import Menu from '../components/menu/Menu';
-import { Footer, Navbar } from '../components/stardui';
+import { MainLayout } from '../layouts';
 
 function MenuScreen() {
   useEffect(() => {
@@ -11,9 +11,9 @@ function MenuScreen() {
 
   return (
     <>
-      <Navbar />
-      <Menu />
-      <Footer />
+      <MainLayout>
+        <Menu />
+      </MainLayout>
     </>
   );
 }

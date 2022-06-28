@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 
 /* Components */
 import DetailsMain from '../components/menu/details/DetailsMain';
-import { Footer, Navbar } from '../components/stardui';
-import Comments from '../components/stardui/comments/Comments';
+// import Comments from '../components/stardui/comments/Comments';
+import { MainLayout } from '../layouts';
 
 function DetailsScreen() {
   useEffect(() => {
@@ -12,10 +12,10 @@ function DetailsScreen() {
 
   return (
     <div style={{ overflowX: 'hidden' }}>
-      <Navbar />
-      <DetailsMain />
-      {/* <Comments /> */}
-      <Footer />
+      <MainLayout>
+        <DetailsMain />
+        {/* <Comments /> */}
+      </MainLayout>
     </div>
   );
 }

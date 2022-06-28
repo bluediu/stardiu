@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
 /* Components */
-import { Footer, Navbar } from '../components/stardui';
 import CategoriesNavigation from '../components/categories';
+import { MainLayout } from '../layouts';
 
 function CategoriesScreen() {
   useEffect(() => {
@@ -11,9 +11,9 @@ function CategoriesScreen() {
 
   return (
     <>
-      <Navbar />
-      <CategoriesNavigation />
-      <Footer />
+      <MainLayout>
+        <CategoriesNavigation />
+      </MainLayout>
     </>
   );
 }

@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 
 /* Components */
 import Profile from '../components/profile/Profile';
-import Footer from '../components/stardui/footer/Footer';
-import Navbar from '../components/stardui/navbar/Navbar';
+import { MainLayout } from '../layouts';
 
 function ProfileScreen() {
   useEffect(() => {
@@ -12,9 +11,9 @@ function ProfileScreen() {
 
   return (
     <>
-      <Navbar />
-      <Profile />
-      <Footer />
+      <MainLayout>
+        <Profile />
+      </MainLayout>
     </>
   );
 }

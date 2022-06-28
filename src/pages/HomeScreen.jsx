@@ -4,11 +4,10 @@ import React, { useEffect } from 'react';
 import {
   Carousel,
   Description,
-  Footer,
   Hero,
-  Navbar,
 } from '../components/stardui/';
 import Latest from '../components/stardui/latest/Latest';
+import { MainLayout } from '../layouts';
 
 function HomeScreen() {
   useEffect(() => {
@@ -17,12 +16,12 @@ function HomeScreen() {
 
   return (
     <>
-      <Navbar />
-      <Hero />
-      <Description />
-      <Latest />
-      <Carousel />
-      <Footer />
+      <MainLayout>
+        <Hero />
+        <Description />
+        <Latest />
+        <Carousel />
+      </MainLayout>
     </>
   );
 }

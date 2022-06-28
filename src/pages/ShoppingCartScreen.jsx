@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import CartContainer from '../components/cart/CartContainer';
 
 /* Components */
-import Footer from '../components/stardui/footer/Footer';
-import Navbar from '../components/stardui/navbar/Navbar';
+import { MainLayout } from '../layouts';
 
 function ShoppingCartScreen() {
   useEffect(() => {
@@ -12,9 +11,9 @@ function ShoppingCartScreen() {
 
   return (
     <>
-      <Navbar />
-      <CartContainer />
-      <Footer />
+      <MainLayout>
+        <CartContainer />
+      </MainLayout>
     </>
   );
 }
