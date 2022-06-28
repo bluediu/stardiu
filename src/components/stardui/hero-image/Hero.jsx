@@ -7,9 +7,10 @@ import HeroTitle from './HeroTitle';
 import HeroWrapper from './HeroWrapper';
 
 function Hero() {
+  /* bg-image */
   return (
     <section
-      className="p-5 text-center bg-image"
+      className="p-5 text-center hero-bg bg-image"
       style={{
         backgroundImage: `url("${HERO_IMAGE}")`,
         height: 640,
@@ -17,7 +18,6 @@ function Hero() {
     >
       <HeroWrapper>
         <HeroImageContainer />
-
         <HeroTitle />
       </HeroWrapper>
     </section>

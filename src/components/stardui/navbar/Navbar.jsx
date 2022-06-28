@@ -18,7 +18,12 @@ function Navbar() {
   const [showNavSecond, setShowNavSecond] = useState(false);
 
   return (
-    <MDBNavbar expand="lg" light bgColor="light">
+    <MDBNavbar
+      expand="lg"
+      light
+      bgColor="light"
+      style={{ zIndex: '999' }}
+    >
       <MDBContainer fluid>
         <NavbarLogo />
 

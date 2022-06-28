@@ -1,3 +1,25 @@
+/* Hero */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 65%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.hero-bg {
+  position: relative;
+  min-height: 100vh;
+  margin-top: -5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
 .hero-image-position {
   position: relative;
 }
