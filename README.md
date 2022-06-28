@@ -2,9 +2,9 @@
 
 # Execute this project:
 
-3. Import .env variables
-1. First step, install dependencies with the command: `npm install`
-1. Second step, run app with the command: `yarn dev`
+1. Import .env variables
+2. First step, install dependencies with the command: `npm install`
+3. Second step, run app with the command: `yarn dev`
 
 > Tecnologies
 
