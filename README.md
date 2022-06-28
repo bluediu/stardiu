@@ -1,37 +1,21 @@
-# Project Rules 🔒
+# Stardiu ☕
 
-API ENPOINT: https://rest-server-bluediu.herokuapp.com/api
+# Execute this project:
 
-## Routes 🚧
+3. Import .env variables
+1. First step, install dependencies with the command: `npm install`
+1. Second step, run app with the command: `yarn dev`
 
-- Home "/"
-- Home "/auth"
-  - Avoid use "exact" in AppRouter -> `<Route path="/auth" />`
-- Menu "/menu"
-- About "/about"
+> Tecnologies
 
-## helpers 🛠
+- React.js
+- Material UI
+- React-Redux
+- Redux
 
-the file name for helpers folder must initial with extension "help(name)"
+> Libraries
 
-Example:
-
-` helpHttps.js`
-
-## redux files (context) ✨
-
-### actions
-
-the file name for action folder must the extension ".action." before close and put the javascript extension
-
-Example:
-
-`auth.action.js`
-
-### reducers
-
-The file name for reducer folder must initial with camelcase and put the reducer word in Uppercase after reducer name
-
-Example:
-
-`authReducer.js`
+- SweetAlert2
+- React-Router-Dom
+- React-toastify
+- etc
