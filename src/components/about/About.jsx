@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* assets */
 import ABOUT from '../../assets/img/about.svg';
 
 /* styles */

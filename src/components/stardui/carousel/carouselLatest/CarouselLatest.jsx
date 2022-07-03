@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+
+/* context */
 import { getLatestProduct } from '../../../../context/actions/product.action';
 
 /* Components */

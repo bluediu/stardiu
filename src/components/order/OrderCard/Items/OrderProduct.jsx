@@ -1,7 +1,8 @@
 import React from 'react';
-import { formatPrice } from '../../../../helpers';
-
 import PropTypes from 'prop-types';
+
+/* helpers */
+import { formatPrice } from '../../../../helpers';
 
 function OrderProduct({ product }) {
   const { img, name, category, price } = product?.productId;

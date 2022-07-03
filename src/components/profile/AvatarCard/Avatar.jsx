@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
+
+/* assets */
 import DEFAULT_PIC from '../../../assets/img/defaultProfile.png';
-import { useSelector } from 'react-redux';
+
+/* libs */
 import jwt_decode from 'jwt-decode';
 import Swal from 'sweetalert2';
+
+/* hooks */
+import { useSelector } from 'react-redux';
 
 /* Components */
 import { MDBCard, MDBCardBody, MDBIcon } from 'mdb-react-ui-kit';

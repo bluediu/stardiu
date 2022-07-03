@@ -1,5 +1,9 @@
 import React from 'react';
+
+/* assets */
 import error from '../../assets/img/error404.svg';
+
+/* hooks */
 import { Link } from 'react-router-dom';
 
 function Error404() {

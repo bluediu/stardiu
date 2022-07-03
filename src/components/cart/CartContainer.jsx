@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+
+/* context */
 import { useDispatch, useSelector } from 'react-redux';
 import { startGetShoppingCart } from '../../context/actions/shoppingCart';
 

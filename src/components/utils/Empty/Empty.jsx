@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* hooks */
 import { useHistory } from 'react-router-dom';
 
 /* Components */
@@ -6,6 +8,7 @@ import { MDBBtn } from 'mdb-react-ui-kit';
 import Fade from 'react-reveal/Fade';
 import { ROUTE } from '../../../constants/auth-routes';
 
+/* styles */
 import './Empty.css';
 
 function Empty({ title }) {

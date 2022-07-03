@@ -1,23 +1,26 @@
 import React, { useEffect } from 'react';
+
+/* libs */
 import { ROUTE } from '../../constants/auth-routes';
 
+/* hooks */
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
 
 /* Components */
 import { Link } from 'react-router-dom';
-import { MDBBtn } from 'mdb-react-ui-kit';
 import Slide from 'react-reveal/Slide';
 import AuthErrorMessage from './AuthErrorMessage';
 import GoogleButton from './googleButton/GoogleButton';
 /* GOOGLE AUTH */
 import GoogleLogin from 'react-google-login';
+import AuthContinue from './AuthContinue';
 
+/* Context */
+import { useDispatch } from 'react-redux';
 import {
   startLoginWithEmailPassword,
   startLoginWithGoogle,
 } from '../../context/actions/auth.action';
-import AuthContinue from './AuthContinue';
 
 function AuthLoginScreen() {
   const dispatch = useDispatch();

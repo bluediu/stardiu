@@ -1,6 +1,8 @@
 import React from 'react';
-import DEFAULT_PROFILE from '../../assets/img/defaultProfile.png';
 import PropTypes from 'prop-types';
+
+/* assets */
+import DEFAULT_PROFILE from '../../assets/img/defaultProfile.png';
 
 function Avatar({ img, name }) {
   return (

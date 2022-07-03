@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* assets */
 import BLOB from '../../../assets/img/blob.svg';
 import RECOMMENDED from '../../../assets/img/recommended.svg';
 

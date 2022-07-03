@@ -1,5 +1,9 @@
 import React, { useCallback } from 'react';
+
+/* hooks */
 import { useDropzone } from 'react-dropzone';
+
+/* context */
 import { useDispatch } from 'react-redux';
 import { startUpdateUserAvatar } from '../../../context/actions/user.action';
 

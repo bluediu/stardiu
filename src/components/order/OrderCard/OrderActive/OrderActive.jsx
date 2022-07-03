@@ -56,7 +56,8 @@ function OrderActive({ active, toggleShow }) {
 }
 
 OrderActive.propTypes = {
-  product: PropTypes.object.isRequired,
+  active: PropTypes.object.isRequired,
+  toggleShow: PropTypes.func.isRequired,
 };
 
 export default memo(OrderActive);

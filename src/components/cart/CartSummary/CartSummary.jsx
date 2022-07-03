@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+
+/* helpers */
+import { formatPrice } from '../../../helpers';
+
+/* hooks */
 import { useSelector } from 'react-redux';
-import { formatPrice } from '../../../helpers/helpFormat-price';
 
 /* Components */
 import { MDBBtn } from 'mdb-react-ui-kit';

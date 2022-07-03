@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
+/* context */
+import { useDispatch, useSelector } from 'react-redux';
 import {
   startCurrentPage,
   startGetInitialProducts,
@@ -13,10 +14,10 @@ import Pagination from '../../utils/Pagination';
 import Loader from '../../utils/loader/Loader';
 import Alert from '../../utils/Alert';
 import Fade from 'react-reveal/Fade';
+import Search from '../search/Search';
 
 /* styles */
 import './Card.css';
-import Search from '../search/Search';
 
 function Card() {
   const dispatch = useDispatch();

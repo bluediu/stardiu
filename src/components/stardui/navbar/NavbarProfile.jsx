@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+/* hooks */
 import { useSelector } from 'react-redux';
 
 /* Components */

@@ -1,6 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { ROUTE } from '../../../constants/auth-routes';
+
+/* hooks */
+import { NavLink } from 'react-router-dom';
 
 function NavbarNavigations() {
   return (

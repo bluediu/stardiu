@@ -1,7 +1,13 @@
 import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+
+/* helpers */
+import { formatPrice } from '../../../../helpers';
+
+/* hooks */
 import { useCounter } from '../../../../hooks/useCounter';
-import { formatPrice } from '../../../../helpers/helpFormat-price';
+
+/* context */
+import { useDispatch } from 'react-redux';
 import { startUpdateProductInCart } from '../../../../context/actions/shoppingCart';
 
 /* Components */

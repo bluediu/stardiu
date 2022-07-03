@@ -1,5 +1,9 @@
 import React from 'react';
+
+/* assets */
 import STAR_LOGO from '../../../assets/img/stardiuLogo.svg';
+
+/* hooks */
 import { useHistory } from 'react-router';
 
 /* Components */

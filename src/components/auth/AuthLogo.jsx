@@ -1,6 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+
+/* assets */
 import IMG_LOGO from '../../assets/img/stardiuLogo.svg';
+
+/* hooks */
+import { useHistory } from 'react-router-dom';
 
 /* Components */
 import { MDBContainer, MDBNavbar } from 'mdb-react-ui-kit';

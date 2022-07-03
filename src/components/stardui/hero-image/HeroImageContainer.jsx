@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* assets */
 import COFFE_IMAGE from '../../../assets/img/coffee-cup.svg';
 
 /* Components */

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { formatPrice } from '../../../helpers/helpFormat-price';
+
+/* helpers */
+import { formatPrice } from '../../../helpers';
 
 /* Components */
 import { MDBBadge } from 'mdb-react-ui-kit';

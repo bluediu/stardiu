@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
+/* context */
 import { useDispatch, useSelector } from 'react-redux';
 import { startGetProductByCategory } from '../../../context/actions/category.action';
 
@@ -11,8 +13,6 @@ import { MDBBadge } from 'mdb-react-ui-kit';
 
 /* styles */
 import '../../menu/card/Card.css';
-
-import PropTypes from 'prop-types';
 
 function CategoriesContainer({ id, name }) {
   const stylesBtn = {

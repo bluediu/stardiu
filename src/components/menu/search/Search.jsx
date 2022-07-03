@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* hooks */
 import { useSearch } from '../../../hooks/useSearch';
 
 /* components */

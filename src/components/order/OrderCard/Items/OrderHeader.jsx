@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* assets */
 import DEFAULT_PIC from '../../../../assets/img/defaultProfile.png';
 
 /* config day.js */

@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* assets */
 import DEFAULT_PRODUCT from '../../../assets/img/defaultProduct.webp';
 
 /* Components */

@@ -1,7 +1,11 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { ROUTE } from '../../../constants/auth-routes';
+
+/* hooks */
+import { useHistory } from 'react-router-dom';
+
+/* context */
+import { useSelector } from 'react-redux';
 
 /* Components */
 import {

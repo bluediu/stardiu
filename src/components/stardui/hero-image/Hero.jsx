@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* assets */
 import HERO_IMAGE from '../../../assets/img/hero.svg';
 
 /* Components */

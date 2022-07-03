@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* context */
 import { useSelector, useDispatch } from 'react-redux';
 import {
   countProducts,
@@ -7,7 +9,6 @@ import {
 
 /* Components */
 import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
-
 import PropTypes from 'prop-types';
 
 function CartRemoveBtn({ productId, id }) {

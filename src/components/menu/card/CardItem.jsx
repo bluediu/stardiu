@@ -1,8 +1,12 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+
+/* hooks */
 import { useHistory } from 'react-router';
-import { ROUTE } from '../../../constants/auth-routes';
+
+/* context */
+import { useDispatch } from 'react-redux';
 import { setIsLoading } from '../../../context/actions/shared.action';
+import { ROUTE } from '../../../constants/auth-routes';
 
 /* Components */
 import CardItemBody from './CardItemBody';

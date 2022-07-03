@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { ROUTE } from '../../../../constants/auth-routes';
+
+/* context */
+import { useDispatch } from 'react-redux';
 import { startLogout } from '../../../../context/actions/auth.action';
 
 /* Components */
 import { MDBIcon } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 function NavbarProfileOptionsBody() {
   /* styles */

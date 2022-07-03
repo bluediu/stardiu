@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+
+/* context */
 import {
   Redirect,
   Route,
@@ -13,10 +15,10 @@ import CategoriesCard from './CategoriesCard';
 import Fade from 'react-reveal/Fade';
 import { MDBSpinner } from 'mdb-react-ui-kit';
 import CategoriesContainer from './CategoriesContainer';
+import Tabs from '../tabs/Tabs';
 
 /* styles */
 import '../menu/card/Card.css';
-import Tabs from '../tabs/Tabs';
 
 function CategoriesNavigation() {
   const { path, url } = useRouteMatch();

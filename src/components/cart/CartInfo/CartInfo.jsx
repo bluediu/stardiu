@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+/* context */
 import { useSelector } from 'react-redux';
 
 /* Components */
 import Loader from '../../utils/loader/Loader';
 import CartInfoItem from './CartInfoItem/CartInfoItem';
 import Empty from '../../utils/Empty/Empty';
-
-import PropTypes from 'prop-types';
 
 /* styles */
 import './CartInfo.css';

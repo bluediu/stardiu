@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 
+/* hooks & constants */
+import { ROUTE } from '../../constants/auth-routes';
 import { useForm } from 'react-hook-form';
+
+/* context */
 import { useDispatch } from 'react-redux';
 import { startRegisterWithEmailPasswordName } from '../../context/actions/auth.action';
-import { ROUTE } from '../../constants/auth-routes';
 
 /* Components */
 import { Link } from 'react-router-dom';

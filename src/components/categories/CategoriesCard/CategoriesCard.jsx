@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* assets */
 import CATEGORIES_BG from '../../../assets/img/categories.jpg';
 
 /* Components */

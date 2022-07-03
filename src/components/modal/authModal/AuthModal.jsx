@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* assets */
 import LOGO from '../../../assets/img/stardiuLogo.svg';
 
 /* Components */
