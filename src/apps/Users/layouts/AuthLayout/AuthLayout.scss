@@ -1,0 +1,9 @@
+.auth-page-bg {
+  background-image: linear-gradient(
+    to top,
+    #f3e7e9 0%,
+    #e3eeff 99%,
+    #e3eeff 100%
+  );
+  min-height: calc(100vh - 63px) !important;
+}
