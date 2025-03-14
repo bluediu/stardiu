@@ -1,0 +1,30 @@
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.url-no-style {
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
+}
+
+// Forms
+.form-container {
+  background-color: rgba(253, 254, 254, 0.7);
+  width: 47%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.2);
+}
+
+/* 990px */
+@media only screen and (max-width: 976px) {
+  .form-container {
+    width: 100%;
+  }
+}
