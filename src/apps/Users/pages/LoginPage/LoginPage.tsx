@@ -12,9 +12,11 @@ import { startLogin } from '../../context';
 import { ErrorMessage } from '@/apps/UI/components';
 
 /* Hooks */
-import { useAppDispatch } from '@/hooks';
+import { useAppDispatch, useDynamicPageTitle } from '@/hooks';
 
 export const LoginPage = () => {
+  useDynamicPageTitle('Sign in');
+
   const dispatch = useAppDispatch();
 
   const { values, errors, handleSubmit, handleChange } = useFormik({

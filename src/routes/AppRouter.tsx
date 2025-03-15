@@ -10,6 +10,9 @@ import { startRenewToken } from '@/apps/Users/context';
 import { AuthRouter } from './AuthRouter';
 import { PrivateRoute } from './PrivateRoute';
 
+/* Pages */
+import { HomePage } from '@/apps/Home/pages';
+
 /* Hooks */
 import { useAppDispatch, useAppSelector } from '@/hooks';
 
@@ -32,7 +35,7 @@ export const AppRouter = () => {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<h1>JJJJ</h1>} />
+          <Route path="/" element={<HomePage />} />
 
           {/* Private routes */}
           <Route

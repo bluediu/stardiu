@@ -12,9 +12,11 @@ import { startRegister } from '../../context';
 import { ErrorMessage } from '@/apps/UI/components';
 
 /* Hooks */
-import { useAppDispatch } from '@/hooks';
+import { useAppDispatch, useDynamicPageTitle } from '@/hooks';
 
 export const RegisterPage = () => {
+  useDynamicPageTitle('Sign up');
+
   const dispatch = useAppDispatch();
 
   const { values, errors, handleSubmit, handleChange } = useFormik({

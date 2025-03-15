@@ -26,6 +26,17 @@ export const generateUrl = (
 };
 
 /**
+ * Asynchronously delays execution for a specified number of seconds.
+ */
+export const sleep = (seconds: number = 1): Promise<boolean> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, seconds * 1000);
+  });
+};
+
+/**
  * Generate a URL-encoded query string from an object of key-value pairs.
  */
 export const generateUrlParams = (

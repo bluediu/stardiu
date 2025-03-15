@@ -88,7 +88,7 @@ export const startGoogleSignIn = (token: string): AppThunk => {
   };
 };
 
-export const startRenewToken = () => {
+export const startRenewToken = (): AppThunk => {
   return async (dispatch: Dispatch) => {
     const token = localStorage.getItem(TOKEN) ?? '';
 
@@ -110,5 +110,13 @@ export const startRenewToken = () => {
         dispatch(authActions.onLogout());
       }
     }
+  };
+};
+
+export const startLogout = (): AppThunk => {
+  return (dispatch: Dispatch) => {
+    localStorage.removeItem(TOKEN);
+    dispatch(authActions.onLogout());
+    toast.success('Logout successful!');
   };
 };
