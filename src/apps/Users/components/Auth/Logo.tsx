@@ -1,9 +1,12 @@
+/* Components */
+import { Link } from 'react-router-dom';
 import { MDBContainer, MDBNavbar } from 'mdb-react-ui-kit';
+
+/* Constants */
+import { usersPath } from '../../constants';
 
 /* Statics */
 import LOGO from '/img/logo.svg';
-import { Link } from 'react-router-dom';
-import { usersPath } from '../../constants';
 
 export const Logo = () => {
   return (
