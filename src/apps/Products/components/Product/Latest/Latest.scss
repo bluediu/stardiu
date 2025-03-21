@@ -1,0 +1,40 @@
+.latest-text {
+  display: block;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-top: 1.9rem;
+  text-align: center;
+  margin-right: 3.4rem;
+
+  background: linear-gradient(to right, #134e5e 0%, #71b280 51%, #134e5e 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @media only screen and (max-width: 976px) {
+    font-size: 1rem;
+  }
+}
+
+.background-container {
+  position: relative;
+  height: 20rem;
+  width: 22rem;
+
+  .background-info {
+    position: absolute;
+    top: 3rem;
+    left: 3.3rem;
+  }
+
+  .background-img {
+    opacity: 0.27;
+    opacity: 0.1;
+    background-repeat: no-repeat;
+  }
+
+  @media only screen and (max-width: 976px) {
+    height: 16rem;
+    width: 16rem;
+  }
+}

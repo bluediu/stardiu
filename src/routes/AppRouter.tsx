@@ -12,11 +12,13 @@ import { PrivateRoute } from './PrivateRoute';
 
 /* Pages */
 import { HomePage } from '@/apps/Home/pages';
+import { MenuPage, ProductDetail } from '@/apps/Products/pages';
 
 /* Hooks */
 import { useAppDispatch, useAppSelector } from '@/hooks';
 
 /* Constants */
+import { productPaths } from '@/apps/Products/constants';
 import { TOKEN, usersPath } from '@/apps/Users/constants';
 
 export const AppRouter = () => {
@@ -35,7 +37,10 @@ export const AppRouter = () => {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          {/* TODO: Change user paths name */}
+          <Route path={usersPath.HOME} element={<HomePage />} />
+          <Route path={productPaths.MENU} element={<MenuPage />} />
+          <Route path={productPaths.MENU_DETAIL} element={<ProductDetail />} />
 
           {/* Private routes */}
           <Route

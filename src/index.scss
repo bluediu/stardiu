@@ -3,6 +3,27 @@ body {
   overflow-x: hidden;
 }
 
+.main-title-color {
+  background: linear-gradient(to right, #1e130c 0%, #9a8478 51%, #1e130c 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+.product-title::first-letter {
+  text-transform: capitalize;
+}
+
+.price-text {
+  background: linear-gradient(to right, #283048 0%, #859398 51%, #283048 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem !important;
+}
+
 .cursor-pointer {
   cursor: pointer !important;
 }

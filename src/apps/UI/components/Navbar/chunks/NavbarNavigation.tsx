@@ -3,12 +3,17 @@ import { MDBNavbarNav } from 'mdb-react-ui-kit';
 
 import { NavbarOptions } from './NavbarOptions';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 /* Hooks */
 import { useDeviceType } from '@/hooks';
 
+/* Constants */
+import { usersPath } from '@/apps/Users/constants';
+import { productPaths } from '@/apps/Products/constants';
+
 export const NavbarNavigation = () => {
+  const location = useLocation();
   const isMobile = useDeviceType();
 
   const styles = 'd-flex w-100 justify-content-between';
@@ -21,12 +26,22 @@ export const NavbarNavigation = () => {
     >
       <li className={!isMobile ? 'd-flex' : ''}>
         <article className="ms-1">
-          <Link className="nav-link active" to="/">
+          <Link
+            className={`nav-link ${
+              location.pathname === usersPath.HOME ? 'active' : ''
+            }`}
+            to={usersPath.HOME}
+          >
             Home
           </Link>
         </article>
         <article className="ms-1">
-          <Link className="nav-link" to="/">
+          <Link
+            className={`nav-link ${
+              location.pathname.startsWith(productPaths.MENU) ? 'active' : ''
+            }`}
+            to={productPaths.MENU}
+          >
             Menu
           </Link>
         </article>
