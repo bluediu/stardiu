@@ -20,7 +20,7 @@ export const NavbarProfile = () => {
 
   return (
     <section className="d-flex align-align-items-center align-items-center">
-      <span className="fw-bold">{name.toLowerCase()}</span>
+      <span>{name.toLowerCase()}</span>
 
       <div className="toast-wrapper cursor-pointer" onClick={toggleMenu}>
         <img

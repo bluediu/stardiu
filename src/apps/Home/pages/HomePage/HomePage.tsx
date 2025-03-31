@@ -2,6 +2,7 @@
 import { MainLayout } from '@/apps/UI/layouts';
 
 /* Components */
+import { Latest } from '@/apps/Products/components/Product';
 import { Description, Hero, CarouselServices } from '../../components';
 
 /* Hooks */
@@ -14,6 +15,7 @@ export const HomePage = () => {
     <MainLayout>
       <Hero />
       <Description />
+      <Latest />
       <CarouselServices />
     </MainLayout>
   );

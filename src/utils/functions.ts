@@ -63,3 +63,10 @@ export const getSessionToken = (): ISessionTokenResponse => {
     },
   };
 };
+
+/**
+ * Return a format price in US Dolar.
+ */
+export const formatPrice = (price: number): string => {
+  return `$${price.toFixed(2)}`;
+};
