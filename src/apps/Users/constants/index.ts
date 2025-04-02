@@ -1,3 +1,3 @@
-export * as usersPath from './paths';
+export * as userPaths from './paths';
 
 export const TOKEN = 'stardiu-token';

@@ -18,7 +18,7 @@ import { useDeviceType } from '@/hooks';
 import { useNavigate } from 'react-router-dom';
 
 /* Constants */
-import { usersPath } from '@/apps/Users/constants';
+import { userPaths } from '@/apps/Users/constants';
 
 /* Statics */
 import LOGO from '/img/logo.svg';
@@ -38,7 +38,7 @@ export const Navbar = () => {
             src={LOGO}
             alt="stardiu"
             height="35"
-            onClick={() => navigate(usersPath.HOME)}
+            onClick={() => navigate(userPaths.HOME)}
             style={{ cursor: 'pointer' }}
           />
         </MDBNavbarBrand>

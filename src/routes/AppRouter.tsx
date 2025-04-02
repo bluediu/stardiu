@@ -8,18 +8,18 @@ import { startRenewToken } from '@/apps/Users/context';
 
 /* Routers */
 import { AuthRouter } from './AuthRouter';
+import { MenuRouter } from './MenuRouter';
 import { PrivateRoute } from './PrivateRoute';
 
 /* Pages */
 import { HomePage } from '@/apps/Home/pages';
-import { MenuPage, ProductDetail } from '@/apps/Products/pages';
 
 /* Hooks */
 import { useAppDispatch, useAppSelector } from '@/hooks';
 
 /* Constants */
 import { productPaths } from '@/apps/Products/constants';
-import { TOKEN, usersPath } from '@/apps/Users/constants';
+import { TOKEN, userPaths } from '@/apps/Users/constants';
 
 export const AppRouter = () => {
   const dispatch = useAppDispatch();
@@ -37,14 +37,12 @@ export const AppRouter = () => {
     <>
       <Router>
         <Routes>
-          {/* TODO: Change user paths name */}
-          <Route path={usersPath.HOME} element={<HomePage />} />
-          <Route path={productPaths.MENU} element={<MenuPage />} />
-          <Route path={productPaths.MENU_DETAIL} element={<ProductDetail />} />
+          <Route path={userPaths.HOME} element={<HomePage />} />
+          <Route path={productPaths.MENU_PATH} element={<MenuRouter />} />
 
           {/* Private routes */}
           <Route
-            path={usersPath.AUTH_PATH}
+            path={userPaths.AUTH_PATH}
             element={
               <PrivateRoute
                 isAuthenticated={isAuthenticated}

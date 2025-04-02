@@ -8,17 +8,14 @@ import {
 
 /* Components */
 import { Search } from '../Search';
-import { Fade } from 'react-awesome-reveal';
-import { ProductItem } from './ProductItem';
-import { Loader, Pagination } from '@/apps/UI/components';
+import { Pagination } from '@/apps/UI/components';
 
 /* Hooks */
 import { useAppDispatch, useAppSelector } from '@/hooks';
 
 /* Constants */
 import { LIMIT } from '@/apps/Products/constants';
-
-import './ProductList.scss';
+import { ItemsLayout } from '@/apps/Products/layouts';
 
 export const ProductList = () => {
   const [page, setPage] = useState(1);
@@ -52,15 +49,7 @@ export const ProductList = () => {
     <>
       <Search />
 
-      {loading && <Loader />}
-
-      <section className="products-grid">
-        {products.map((product) => (
-          <Fade triggerOnce key={product._id}>
-            <ProductItem product={product} />
-          </Fade>
-        ))}
-      </section>
+      <ItemsLayout loading={loading} products={products} />
 
       {!!products.length && (
         <section className="mt-5">
