@@ -1,8 +1,12 @@
 /* Components */
+import { productPaths } from '@/apps/Products/constants';
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { Fade } from 'react-awesome-reveal';
+import { useNavigate } from 'react-router-dom';
 
 export const HeroTitle = () => {
+  const navigate = useNavigate();
+
   /* styles */
   const heroTitleStyled = {
     letterSpacing: '3px',
@@ -26,7 +30,12 @@ export const HeroTitle = () => {
 
       <div>
         <Fade delay={700} triggerOnce>
-          <MDBBtn rounded color="dark" className="mt-3">
+          <MDBBtn
+            rounded
+            color="dark"
+            className="mt-3"
+            onClick={() => navigate(productPaths.MENU)}
+          >
             Discover
           </MDBBtn>
         </Fade>

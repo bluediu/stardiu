@@ -3,7 +3,7 @@ import { MDBBtn } from 'mdb-react-ui-kit';
 import { useNavigate } from 'react-router-dom';
 
 /* Constants */
-import { usersPath } from '@/apps/Users/constants';
+import { userPaths } from '@/apps/Users/constants';
 
 export const LoginButton = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ export const LoginButton = () => {
       rounded
       outline
       color="dark"
-      onClick={() => navigate(usersPath.LOGIN)}
+      onClick={() => navigate(userPaths.LOGIN)}
     >
       Sign In
     </MDBBtn>

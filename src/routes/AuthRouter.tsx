@@ -7,18 +7,18 @@ import { AuthLayout } from '@/apps/Users/layouts';
 import { LoginPage, RegisterPage } from '@/apps/Users/pages';
 
 /* Constants */
-import { usersPath } from '@/apps/Users/constants';
+import { userPaths } from '@/apps/Users/constants';
 
 export const AuthRouter = () => {
   return (
     <AuthLayout>
       <article>
         <Routes>
-          <Route path={usersPath.LOGIN_PATH} element={<LoginPage />} />
-          <Route path={usersPath.REGISTER_PATH} element={<RegisterPage />} />
+          <Route path={userPaths.LOGIN_PATH} element={<LoginPage />} />
+          <Route path={userPaths.REGISTER_PATH} element={<RegisterPage />} />
 
           {/* Default route */}
-          <Route path="*" element={<Navigate to={usersPath.LOGIN} />} />
+          <Route path="*" element={<Navigate to={userPaths.LOGIN} />} />
         </Routes>
       </article>
     </AuthLayout>

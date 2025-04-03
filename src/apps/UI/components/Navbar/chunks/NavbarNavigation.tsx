@@ -9,7 +9,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useDeviceType } from '@/hooks';
 
 /* Constants */
-import { usersPath } from '@/apps/Users/constants';
+import { userPaths } from '@/apps/Users/constants';
 import { productPaths } from '@/apps/Products/constants';
 
 export const NavbarNavigation = () => {
@@ -28,9 +28,9 @@ export const NavbarNavigation = () => {
         <article className="ms-1">
           <Link
             className={`nav-link ${
-              location.pathname === usersPath.HOME ? 'active' : ''
+              location.pathname === userPaths.HOME ? 'active' : ''
             }`}
-            to={usersPath.HOME}
+            to={userPaths.HOME}
           >
             Home
           </Link>

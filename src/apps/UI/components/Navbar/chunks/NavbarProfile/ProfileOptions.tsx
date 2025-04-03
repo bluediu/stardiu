@@ -10,7 +10,7 @@ import { startLogout } from '@/apps/Users/context';
 import { useAppDispatch } from '@/hooks';
 
 /* Constants */
-import { usersPath } from '@/apps/Users/constants';
+import { userPaths } from '@/apps/Users/constants';
 
 export const ProfileOptions = () => {
   const dispatch = useAppDispatch();
@@ -33,7 +33,7 @@ export const ProfileOptions = () => {
               <hr />
               <Link
                 className="text-dark exit"
-                to={usersPath.LOGIN}
+                to={userPaths.LOGIN}
                 onClick={() => dispatch(startLogout())}
               >
                 <MDBIcon fas icon="sign-out-alt" />

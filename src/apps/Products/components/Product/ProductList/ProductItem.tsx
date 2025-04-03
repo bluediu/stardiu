@@ -52,8 +52,8 @@ export const ProductItem = ({ product }: { product: IProduct }) => {
       </MDBRipple>
 
       <MDBCardBody>
-        <section className="d-flex justify-content-between">
-          <MDBCardTitle className="product-title">
+        <section className="d-flex justify-content-between align-items-center mb-2">
+          <MDBCardTitle className="product-title m-0">
             {truncatedName.toLocaleLowerCase()}
           </MDBCardTitle>
           <div>

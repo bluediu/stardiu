@@ -11,7 +11,7 @@ import { useAppSelector } from '@/hooks';
 import { IReactNodeProps } from '@/interfaces';
 
 /* Constants */
-import { usersPath } from '../../constants';
+import { userPaths } from '../../constants';
 
 interface IProps extends IReactNodeProps {
   register: boolean;
@@ -33,7 +33,7 @@ export const AuthFormLayout = (props: IProps) => {
           {register ? 'Already have a account?' : "Don't have an account?"}
         </span>
         <Link
-          to={register ? usersPath.LOGIN : usersPath.REGISTER}
+          to={register ? userPaths.LOGIN : userPaths.REGISTER}
           className="ms-1"
         >
           {register ? 'Sign in' : 'Sign up'}
