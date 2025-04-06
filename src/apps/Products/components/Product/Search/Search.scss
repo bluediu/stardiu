@@ -18,7 +18,7 @@
   margin-bottom: 0.4rem;
 
   /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1) !important;
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6.6px);
@@ -51,14 +51,10 @@
 .main-text {
   font-weight: bold;
   font-size: 0.9rem;
-}
 
-.main-text:hover {
-  text-decoration: underline;
-}
-
-.no-results {
-  background-color: transparent;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 /* List styles */
@@ -78,6 +74,7 @@
   padding: 0.7rem 1rem !important;
   border-radius: 8px !important;
   max-height: 340px !important;
+  width: 98%;
   overflow-y: scroll;
 }
 
@@ -97,9 +94,4 @@
   .search-list {
     left: -2rem;
   }
-}
-
-mark {
-  margin-left: 0.2rem;
-  border-radius: 6px;
 }

@@ -1,12 +1,25 @@
+/* Components */
 import { MDBIcon, MDBInputGroup, MDBSpinner } from 'mdb-react-ui-kit';
 
-export const SearchForm = () => {
+/* Interfaces */
+import { InputTypeElement } from '@/interfaces';
+
+interface IProps {
+  input: string;
+  loading: boolean;
+  handleInput: (e: InputTypeElement) => void;
+  showResults: (value: boolean) => void;
+}
+
+export const SearchForm = (props: IProps) => {
+  const { input, loading, handleInput, showResults } = props;
+
   return (
     <form onSubmit={(e) => e.preventDefault()} className="search-input">
       <MDBInputGroup
         noWrap
         textBefore={
-          !false ? (
+          !loading ? (
             <MDBIcon fas icon="search" className="search-icon" />
           ) : (
             <MDBSpinner color="dark" size="sm">
@@ -15,7 +28,7 @@ export const SearchForm = () => {
           )
         }
         className="mb-3"
-        // onClick={() => setShowList(true)}
+        onClick={() => showResults(true)}
       >
         <input
           className="form-control"
@@ -23,8 +36,8 @@ export const SearchForm = () => {
           placeholder="Search a product..."
           id="search"
           autoComplete="off"
-          // value={inputText}
-          // onChange={handleInput}
+          value={input}
+          onChange={handleInput}
         />
       </MDBInputGroup>
     </form>

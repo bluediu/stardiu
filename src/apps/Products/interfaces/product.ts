@@ -5,6 +5,11 @@ export interface IProductResponse {
   products: IProduct[];
 }
 
+export interface ISearchResponse {
+  results: IProduct[];
+  validProductsExists: boolean;
+}
+
 export interface IProduct {
   _id: string;
   price: number;
