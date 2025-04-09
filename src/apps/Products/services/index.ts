@@ -2,7 +2,7 @@
 import { productApi } from '../api';
 
 /* Interfaces */
-import { IProduct } from '../interfaces';
+import { IProduct, ISearchResponse } from '../interfaces';
 
 export const getLatestProducts = async () => {
   try {
@@ -18,6 +18,17 @@ export const getProductById = async (id: string) => {
   try {
     const { data } = await productApi.get<IProduct>(`/get/${id}`);
 
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const searchProducts = async (
+  term: string
+): Promise<ISearchResponse | void> => {
+  try {
+    const { data } = await productApi.get<ISearchResponse>(`/search/${term}`);
     return data;
   } catch (error) {
     console.error(error);

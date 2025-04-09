@@ -8,3 +8,5 @@ export interface IStylesProps {
 export interface IReactNodeProps {
   children: ReactElement | ReactElement[];
 }
+
+export type InputTypeElement = React.ChangeEvent<HTMLInputElement>;
