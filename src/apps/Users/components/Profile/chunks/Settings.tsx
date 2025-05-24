@@ -2,47 +2,56 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
-/* Layouts */
-import { AuthFormLayout } from '../../layouts';
-
 /* Context */
-import { startRegister } from '../../context';
+import { startLogout, startUpdateUser } from '@/apps/Users/context';
 
 /* Components */
+import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
 import { ErrorMessage } from '@/apps/UI/components';
 
 /* Hooks */
-import { useAppDispatch, useDynamicPageTitle } from '@/hooks';
+import { useAppDispatch } from '@/hooks';
 
-export const RegisterPage = () => {
-  useDynamicPageTitle('Sign up');
+interface IProps {
+  user: { name: string; email: string };
+}
+
+export const Settings = (props: IProps) => {
+  const { user } = props;
 
   const dispatch = useAppDispatch();
 
   const { values, errors, handleSubmit, handleChange } = useFormik({
     initialValues: {
-      name: '',
-      email: '',
-      password: '',
-      repeatPassword: '',
+      name: user.name || '',
+      email: user.email || '',
     },
     validationSchema: Yup.object({
       name: Yup.string()
         .trim()
         .matches(/^[a-zA-ZÀ-ÿ\s]+$/, 'Name can only contain letters and spaces')
         .required(),
-      email: Yup.string().email().required(),
-      password: Yup.string().trim().required('Password is required').min(6),
+      email: Yup.string().email().optional(),
     }),
     onSubmit: (data) => {
-      dispatch(startRegister({ ...data, role: 'USER_ROLE' }));
+      dispatch(startUpdateUser(data)).then(() => {
+        if (user.email !== data.email) {
+          dispatch(startLogout());
+        }
+      });
     },
   });
 
   return (
-    <form onSubmit={handleSubmit} className="form-container p-4">
-      <AuthFormLayout register={true}>
+    <>
+      <form onSubmit={handleSubmit} className="p-4 ">
         <article>
+          <div className="alert alert-primary ">
+            <MDBIcon fas icon="exclamation-triangle" className="me-2" />
+            <small>
+              If you change you e-mail, you will need to sign up again.
+            </small>
+          </div>
           {/* E-mail */}
           <section className="form-outline">
             <label htmlFor="email" className="form-label">
@@ -73,23 +82,11 @@ export const RegisterPage = () => {
             {errors.email && <ErrorMessage msg={errors.email} />}
           </section>
 
-          {/* Password */}
-          <section className="form-outline mt-3">
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              className="form-control border"
-              value={values.password}
-              onChange={handleChange}
-            />
-
-            {errors.password && <ErrorMessage msg={errors.password} />}
-          </section>
+          <MDBBtn rounded className="mt-4" color="dark" type="submit" block>
+            Save
+          </MDBBtn>
         </article>
-      </AuthFormLayout>
-    </form>
+      </form>
+    </>
   );
 };

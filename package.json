@@ -20,6 +20,7 @@
     "react": "^19.0.0",
     "react-awesome-reveal": "^4.3.1",
     "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.8",
     "react-paginate": "^8.3.0",
     "react-redux": "^9.2.0",
     "react-responsive": "^10.0.1",

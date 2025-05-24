@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { AppThunk } from '@/context/store';
 import { Dispatch } from '@reduxjs/toolkit';
 
-import { authActions } from '../slices';
+import { userActions } from '../slices';
 
 /* Api */
 import { authApi, userApi } from '../../api';
@@ -30,14 +30,14 @@ export const startLogin = (props: ILogin): AppThunk => {
       const { data } = await authApi.post<IAuthResponse>('/login', props);
       _saveToken(data.token);
 
-      dispatch(authActions.onLogin(data.user));
+      dispatch(userActions.onLogin(data.user));
       toast.success('Login successful!');
     } catch (err: unknown) {
       console.log(err);
 
       if (err instanceof AxiosError) {
         toast.error(err.response?.data.msg);
-        dispatch(authActions.onLogout());
+        dispatch(userActions.onLogout());
       }
     }
   };
@@ -49,14 +49,14 @@ export const startRegister = (props: IRegister): AppThunk => {
       const { data } = await userApi.post<IAuthResponse>('/create', props);
       _saveToken(data.token);
 
-      dispatch(authActions.onLogin(data.user));
+      dispatch(userActions.onLogin(data.user));
       toast.success('Login successful!');
     } catch (err: unknown) {
       console.log(err);
 
       if (err instanceof AxiosError) {
         toast.error(err.response?.data.msg);
-        dispatch(authActions.onLogout());
+        dispatch(userActions.onLogout());
       }
     }
   };
@@ -71,18 +71,18 @@ export const startGoogleSignIn = (token: string): AppThunk => {
 
       if (data.ok) {
         _saveToken(data.token);
-        dispatch(authActions.onLogin(data.user));
+        dispatch(userActions.onLogin(data.user));
         toast.success('Login successful!');
       } else {
         toast.error('Failed to login with Google');
-        dispatch(authActions.onLogout());
+        dispatch(userActions.onLogout());
       }
     } catch (err: unknown) {
       console.log(err);
 
       if (err instanceof AxiosError) {
         toast.error(err.response?.data.msg);
-        dispatch(authActions.onLogout());
+        dispatch(userActions.onLogout());
       }
     }
   };
@@ -92,7 +92,7 @@ export const startRenewToken = (): AppThunk => {
   return async (dispatch: Dispatch) => {
     const token = localStorage.getItem(TOKEN) ?? '';
 
-    if (!token) return dispatch(authActions.onLogout());
+    if (!token) return dispatch(userActions.onLogout());
 
     try {
       const { data } = await authApi.get<IAuthResponse>(
@@ -101,13 +101,13 @@ export const startRenewToken = (): AppThunk => {
       );
       _saveToken(data.token);
 
-      dispatch(authActions.onLogin(data.user));
+      dispatch(userActions.onLogin(data.user));
     } catch (err: unknown) {
       console.log(err);
 
       if (err instanceof AxiosError) {
         toast.error(err.response?.data.msg);
-        dispatch(authActions.onLogout());
+        dispatch(userActions.onLogout());
       }
     }
   };
@@ -116,7 +116,7 @@ export const startRenewToken = (): AppThunk => {
 export const startLogout = (): AppThunk => {
   return (dispatch: Dispatch) => {
     localStorage.removeItem(TOKEN);
-    dispatch(authActions.onLogout());
+    dispatch(userActions.onLogout());
     toast.success('Logout successful!');
   };
 };

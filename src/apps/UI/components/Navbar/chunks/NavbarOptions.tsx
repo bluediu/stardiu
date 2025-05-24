@@ -7,7 +7,7 @@ import { LoginButton, RegisterButton } from '@/apps/Users/components/Auth';
 import { useAppSelector } from '@/hooks';
 
 export const NavbarOptions = () => {
-  const { user, checking } = useAppSelector((state) => state.auth);
+  const { user, checking } = useAppSelector((state) => state.user);
 
   return (
     <div>

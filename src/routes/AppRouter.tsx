@@ -13,6 +13,7 @@ import { PrivateRoute } from './PrivateRoute';
 
 /* Pages */
 import { HomePage } from '@/apps/Home/pages';
+import { ProfilePage } from '@/apps/Users/pages';
 
 /* Hooks */
 import { useAppDispatch, useAppSelector } from '@/hooks';
@@ -23,7 +24,7 @@ import { TOKEN, userPaths } from '@/apps/Users/constants';
 
 export const AppRouter = () => {
   const dispatch = useAppDispatch();
-  const { user } = useAppSelector((state) => state.auth);
+  const { user } = useAppSelector((state) => state.user);
 
   useEffect(() => {
     dispatch(startRenewToken());
@@ -47,6 +48,16 @@ export const AppRouter = () => {
               <PrivateRoute
                 isAuthenticated={isAuthenticated}
                 element={<AuthRouter />}
+              />
+            }
+          />
+
+          <Route
+            path={userPaths.PROFILE}
+            element={
+              <PrivateRoute
+                isAuthenticated={!isAuthenticated}
+                element={<ProfilePage />}
               />
             }
           />

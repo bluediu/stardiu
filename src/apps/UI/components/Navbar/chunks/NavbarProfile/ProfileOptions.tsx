@@ -26,9 +26,9 @@ export const ProfileOptions = () => {
 
           <section className="toast-body">
             <div className="toast-links">
-              <Link className="text-dark exit" to={'/'}>
+              <Link className="text-dark exit" to={userPaths.PROFILE}>
                 <MDBIcon fas icon="user" />
-                <span className="mx-3">Perfil</span>
+                <span className="mx-3">Profile</span>
               </Link>
               <hr />
               <Link

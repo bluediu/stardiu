@@ -6,3 +6,4 @@ export const REGISTER_PATH = 'register';
 export const LOGIN = '/auth/login';
 export const REGISTER = '/auth/register';
 export const HOME = '/';
+export const PROFILE = '/profile';

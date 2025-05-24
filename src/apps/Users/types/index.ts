@@ -6,4 +6,5 @@ export interface IAuthState {
   user: IUser | Record<string, never>;
   status: IStatus;
   checking: boolean;
+  updating: boolean;
 }
