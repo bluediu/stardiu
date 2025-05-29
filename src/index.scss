@@ -3,6 +3,13 @@ body {
   overflow-x: hidden;
 }
 
+// Layout
+.main-layout {
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+}
+
 .main-title-color {
   background: linear-gradient(to right, #1e130c 0%, #9a8478 51%, #1e130c 100%);
   background-clip: text;
@@ -32,6 +39,11 @@ body {
   text-decoration: none;
   color: inherit;
   cursor: default;
+}
+
+.no-spacing {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 // Forms

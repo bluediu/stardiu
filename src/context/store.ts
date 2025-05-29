@@ -2,12 +2,12 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 
 /* Slices */
-import { authSlice } from '@/apps/Users/context';
+import { userSlice } from '@/apps/Users/context';
 import { productSlice, categorySlice } from '@/apps/Products/context';
 
 const store = configureStore({
   reducer: {
-    auth: authSlice.reducer,
+    user: userSlice.reducer,
     products: productSlice.reducer,
     categories: categorySlice.reducer,
   },

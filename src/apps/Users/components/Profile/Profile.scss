@@ -1,0 +1,65 @@
+$card-shadow: 0 2px 9px rgba(0, 0, 0, 0.2);
+$icon-color: #2c3e50;
+$bg-settings: #f4f8f9;
+
+.profile {
+  &-card {
+    box-shadow: $card-shadow;
+    position: relative;
+    width: 20rem;
+    height: 12rem;
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &-user {
+    border-radius: 50%;
+    width: 104px;
+    height: 104px;
+
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  &-name {
+    font-size: 1.3rem;
+  }
+
+  &-settings {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(30%, -30%);
+    background-color: $bg-settings;
+    border-radius: 50%;
+    padding: 0.18rem 0.45rem;
+    box-shadow: $card-shadow;
+    cursor: pointer;
+
+    i {
+      color: $icon-color;
+      font-size: 1rem;
+    }
+  }
+
+  &-google {
+    opacity: 0.3;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &-list {
+    border: 0;
+    padding: 8px;
+    margin: 0;
+    width: 100%;
+  }
+}

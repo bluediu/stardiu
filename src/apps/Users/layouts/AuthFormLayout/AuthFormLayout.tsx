@@ -20,7 +20,7 @@ interface IProps extends IReactNodeProps {
 export const AuthFormLayout = (props: IProps) => {
   const { children, register } = props;
 
-  const { checking } = useAppSelector((state) => state.auth);
+  const { checking } = useAppSelector((state) => state.user);
 
   return (
     <>

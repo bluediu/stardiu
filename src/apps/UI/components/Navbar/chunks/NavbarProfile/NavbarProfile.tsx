@@ -12,7 +12,7 @@ import DEFAULT_PROFILE from '/img/default-profile.png';
 import './Profile.scss';
 
 export const NavbarProfile = () => {
-  const { name, img } = useAppSelector((state) => state.auth.user);
+  const { name, img } = useAppSelector((state) => state.user.user);
 
   const [isOpen, setIsOpen] = useState(false);
 
